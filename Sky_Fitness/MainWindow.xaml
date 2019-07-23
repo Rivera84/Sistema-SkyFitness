@@ -55,7 +55,7 @@
     </Window.Resources>
     <Grid >
         <!--Codigo para boton esconder menu-->
-        <Grid x:Name="GridMenu" HorizontalAlignment="Left" Width="70" Background="#FF575B5D" Margin="0,25,0,0">
+        <Grid x:Name="GridMenu" HorizontalAlignment="Left" Width="60" Background="#FF575B5D" Margin="0,25,0,0">
             <StackPanel>
                 <Grid Height="200" Background="White">
                     <Image HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Logo/logoSkyFitness.png" Margin="0,26,0,-26"/>
@@ -86,11 +86,27 @@
                     <Rectangle x:Name="rectangle2" Width="30" Height="5" Margin="0 10 0 0" Fill="#FF575B5D" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                 </Grid>
             </Button>
+
+            <Button  Background="Transparent"  BorderBrush="#FFEBD40E">
+                <!--Boton Usuario-->
+                <Grid Width="165" Height="30" >
+                    <materialDesign:PackIcon Kind="UserAdd" Height="30" Width="27" Margin="0,-2,0,0"/>
+                    <Label Content="Usuario" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFE9E9E9" Margin="53,0,53,3" />
+                </Grid>
+            </Button>
+            <Button  Background="Transparent"  BorderBrush="#FFEBD40E" Margin="0,313,0,230">
+                <!--Boton Usuario-->
+                <Grid Width="165" Height="30" >
+                    <materialDesign:PackIcon Kind="Server" Height="29" Width="27" Margin="0,-2,0,0"/>
+                    <Label Content="Productos" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFE9E9E9" Margin="53,0,32,3" Width="80" />
+                </Grid>
+            </Button>
         </Grid>
         <StackPanel Background="#FF575B5D" Margin="0,0,0,575">
+            <!--Boton salir-->
             <Button Background="Red" Margin="1035,0,0,0" Height="26" Click="Button_Click">
                 <materialDesign:PackIcon Kind="Close" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
             </Button>
         </StackPanel>
-    </Grid>
+        </Grid>
 </Window>
