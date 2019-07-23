@@ -21,30 +21,11 @@ namespace Sky_Fitness
     /// </summary>
     public partial class MainWindow : Window
     {
-        bool StateClosed = true;
+       
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void ButtonMenu_Click(object sender, RoutedEventArgs e)  //BotonMenu
-        {
-            if (StateClosed)
-            {
-                Storyboard sb = this.FindResource("OpenMenu") as Storyboard;
-                sb.Begin();
-            }
-            else
-            {
-                Storyboard sb = this.FindResource("CloseMenu") as Storyboard;
-                sb.Begin();
-            }
-            StateClosed = !StateClosed;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-    }
+       
 }
