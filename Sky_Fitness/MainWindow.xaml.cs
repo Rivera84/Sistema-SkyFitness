@@ -33,14 +33,22 @@ namespace Sky_Fitness
             {
                 Storyboard sb = this.FindResource("OpenMenu") as Storyboard;
                 sb.Begin();
+                btnUsuario.IsEnabled = true;
+                btnProducto.IsEnabled = true;
+                btnReporte.IsEnabled = true;
             }
             else
             {
                 Storyboard sb = this.FindResource("CloseMenu") as Storyboard;
                 sb.Begin();
+                btnUsuario.IsEnabled = false;
+                btnProducto.IsEnabled = false;
+                btnReporte.IsEnabled = false;
             }
             StateClosed = !StateClosed;
         }
+    
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

@@ -87,18 +87,26 @@
                 </Grid>
             </Button>
 
-            <Button  Background="Transparent"  BorderBrush="#FFEBD40E">
+            <Button IsEnabled="False" Name="btnUsuario" Background="Transparent"  BorderBrush="#FFEBD40E">
                 <!--Boton Usuario-->
                 <Grid Width="165" Height="30" >
                     <materialDesign:PackIcon Kind="UserAdd" Height="30" Width="27" Margin="0,-2,0,0"/>
                     <Label Content="Usuario" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFE9E9E9" Margin="53,0,53,3" />
                 </Grid>
             </Button>
-            <Button  Background="Transparent"  BorderBrush="#FFEBD40E" Margin="0,313,0,230">
-                <!--Boton Usuario-->
+            <Button Name="btnProducto" IsEnabled="False" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="0,313,0,230">
+                <!--Boton Producto-->
                 <Grid Width="165" Height="30" >
                     <materialDesign:PackIcon Kind="Server" Height="29" Width="27" Margin="0,-2,0,0"/>
                     <Label Content="Productos" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFE9E9E9" Margin="53,0,32,3" Width="80" />
+                </Grid>
+            </Button>
+
+            <Button Name="btnReporte" IsEnabled="False" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="0,354,0,189">
+                <!--Boton Producto-->
+                <Grid Width="165" Height="30" >
+                    <materialDesign:PackIcon Kind="Money" Height="29" Width="27" Margin="0,-2,0,0"/>
+                    <Label Content="Reporte" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFE9E9E9" Margin="53,0,32,3" Width="80" />
                 </Grid>
             </Button>
         </Grid>
