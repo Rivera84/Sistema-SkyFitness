@@ -112,7 +112,7 @@
                         <RowDefinition Height="4*"/>
                     </Grid.RowDefinitions>
                     <materialDesign:PackIcon Kind="Shutdown" Height="30" Width="27" Margin="0,-2,0,0" Foreground="Black" Grid.RowSpan="2"/>
-                    <Label Content="Cerrar Sesión" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="34,0,26,3.4" Grid.RowSpan="2" Width="105" />
+                    <Label Content="Cerrar Sesión" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="34,0,26,3.4" Grid.RowSpan="2" Width="105"/>
                 </Grid>
             </Button>
             <Button Name="btnProducto" IsEnabled="False" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,296,2,247">

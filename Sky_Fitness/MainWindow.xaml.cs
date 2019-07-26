@@ -58,7 +58,9 @@ namespace Sky_Fitness
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            if (MessageBox.Show("¿Realmente desea salir?", "Salir", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                App.Current.Shutdown();
+            else { }
         }
     }
 }

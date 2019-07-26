@@ -14,22 +14,38 @@
         mc:Ignorable="d"
         
         WindowStartupLocation="CenterScreen"
-        Title="Login" Height="450" Width="800" Background="Transparent" WindowStyle="None" AllowsTransparency="True">
+        Title="Login" Height="565" Width="800" Background="Transparent" WindowStyle="None" AllowsTransparency="True">
 
-    <Border CornerRadius="100, 0, 100, 0" Background="#FF0F0D0D" Opacity="0.9" Width="400" Height="450">
+    <Border CornerRadius="100, 0, 100, 0" Background="#FF0F0D0D" Opacity="0.98" Width="400" Height="450">
         <Grid>
             <Grid>
-                <Image HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Logo/logoSkyFitness.png" Margin="84,0,84,223" Height="227" Width="232"/>
+                <Image HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Logo/logoSkyFitness.png" Margin="91,-82,77,305" Height="227" Width="232"/>
             </Grid>
             <Grid>
-                <Label Content="INICIAR SESIÓN" HorizontalAlignment="Center" FontSize="25" Foreground="White" Margin="112,205,102,209" Width="186"/>
+                <Label Content="INICIAR SESIÓN" HorizontalAlignment="Center" FontSize="25" Foreground="#FFEBE523" Margin="110,127,104,287" Width="186"/>
             </Grid>
 
+            <Grid VerticalAlignment="Center" Margin="10,190,20,113" Height="147">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30*"/>
+                    <ColumnDefinition Width="7*"/>
+                </Grid.ColumnDefinitions>
+                <materialDesign:PackIcon Kind="User" Height="30" Width="27" Margin="0,20,0,0" Foreground="#FFEBE523" Opacity="0.5"/>
+                <TextBox x:Name="txtUsuario" Margin="32,10,-10,94" Foreground="#FFEBE523" materialDesign:HintAssist.Hint="USUARIO" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  FontSize="18" Grid.ColumnSpan="2"/>
+                <materialDesign:PackIcon Kind="Lock" Height="30" Width="27" Margin="0,90,0,0" Foreground="#FFEBE523" Opacity="0.5"/>
+                <PasswordBox x:Name="txtContrasena" Margin="32,80,-10,22" Foreground="#FFEBE523" materialDesign:HintAssist.Hint="CONTRASEÑA" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" FontSize="18" Grid.ColumnSpan="2"/>
+            </Grid>
+
+            <StackPanel Orientation="Horizontal" Margin="90,360,90,45" HorizontalAlignment="Center">
+                <Button x:Name="entrar" Width="100"  VerticalAlignment="Bottom"  Content="ENTRAR" Margin="5" Background="#FF0F0D0D" BorderBrush="#2A2D34" Click="Entrar_Click" Foreground="#FFEBE523"/>
+                <Button x:Name="salir" Width="100" VerticalAlignment="Bottom"  Content="SALIR" Margin="5"  Background="#FF0F0D0D" BorderBrush="#2A2D34" Click="BtnSalirLogin_Click" Foreground="#FFEBE523"/>
+            </StackPanel>
+
             <StackPanel>
+                <!--Boton salir-->
                 <Button Name="btnSalirLogin" Background="Red" Margin="350,0,0,0" Height="26" BorderBrush="Transparent" Click="BtnSalirLogin_Click" Cursor="Hand">
                     <materialDesign:PackIcon Kind="Close" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" />
                 </Button>
-                <!--Boton salir-->
             </StackPanel>
         </Grid>
     </Border>
