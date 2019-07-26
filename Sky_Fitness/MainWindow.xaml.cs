@@ -62,5 +62,16 @@ namespace Sky_Fitness
                 App.Current.Shutdown();
             else { }
         }
+
+        private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("¿Realmente desea cerrar sesión?", "Cerrar Sesión", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                this.Hide();
+                Login login = new Login();
+                login.Show();
+            }
+            else { }
+        }
     }
 }

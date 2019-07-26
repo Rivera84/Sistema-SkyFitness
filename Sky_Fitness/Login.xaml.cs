@@ -39,8 +39,7 @@ namespace Sky_Fitness
                 txtUsuario.Focus();
             }
             else if (txtUsuario.Text == "sky" && txtContrasena.Password == "sky")
-            {
-                MessageBox.Show("Bienvenido!");
+            {                
                 inicio.Show();
                 this.Close();
             }
