@@ -36,6 +36,9 @@ namespace Sky_Fitness
                 btnUsuario.IsEnabled = true;
                 btnProducto.IsEnabled = true;
                 btnReporte.IsEnabled = true;
+                btnCerrarSesion.IsEnabled = true;
+                btnCliente.IsEnabled = true;
+                btnInscripcion.IsEnabled = true;
             }
             else
             {
@@ -44,6 +47,9 @@ namespace Sky_Fitness
                 btnUsuario.IsEnabled = false;
                 btnProducto.IsEnabled = false;
                 btnReporte.IsEnabled = false;
+                btnCerrarSesion.IsEnabled = false;
+                btnCliente.IsEnabled = false;
+                btnInscripcion.IsEnabled = false;
             }
             StateClosed = !StateClosed;
         }

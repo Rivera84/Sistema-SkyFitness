@@ -55,15 +55,17 @@
     </Window.Resources>
     <Grid >
         <!--Codigo para boton esconder menu-->
-        <Grid x:Name="GridMenu" HorizontalAlignment="Left" Width="60" Background="#FFEBE523" Margin="0,25,0,0">
+        <Grid  x:Name="GridMenu" HorizontalAlignment="Left" Width="60" Background="#FFEBE523" Margin="0,25,0,0">
+            <Border BorderBrush="#FF0F0D0D" BorderThickness="1.5" ></Border>
             <StackPanel>
                 <Grid Height="200" Background="White">
                     <Image HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Logo/logoSkyFitness.png" Margin="0,26,0,-26"/>
+                    <Border BorderBrush="#FF0F0D0D" BorderThickness="1.5" ></Border>
                 </Grid>
             </StackPanel>
-            <Button x:Name="ButtonMenu" HorizontalAlignment="Right" Background="{x:Null}" BorderBrush="{x:Null}" Width="70" Height="Auto" Click="ButtonMenu_Click" Margin="0,17,0,516">
+            <Button x:Name="ButtonMenu" HorizontalAlignment="Right" Background="{x:Null}" BorderBrush="{x:Null}" Width="70" Height="Auto" Click="ButtonMenu_Click" Margin="-5,17,-5,516">
                 <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Rectangle x:Name="rectangle" Width="30" Height="5" Margin="0 0 0 0" Fill="#FF575B5D" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="-0,0.5">
+                    <Rectangle x:Name="rectangle" Width="30" Height="5" Margin="0 0 0 0" Fill="#FF0F0D0D" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="-0,0.5">
                         <Rectangle.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -73,7 +75,7 @@
                             </TransformGroup>
                         </Rectangle.RenderTransform>
                     </Rectangle>
-                    <Rectangle x:Name="rectangle1" Width="30" Height="5" Margin="0 20 0 0 " Fill="#FF575B5D" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="-0,0.5">
+                    <Rectangle x:Name="rectangle1" Width="30" Height="5" Margin="0 20 0 0 " Fill="#FF0F0D0D" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="-0,0.5">
                         <Rectangle.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -83,18 +85,37 @@
                             </TransformGroup>
                         </Rectangle.RenderTransform>
                     </Rectangle>
-                    <Rectangle x:Name="rectangle2" Width="30" Height="5" Margin="0 10 0 0" Fill="#FF575B5D" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Rectangle x:Name="rectangle2" Width="30" Height="5" Margin="0 10 0 0" Fill="#FF0F0D0D" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                 </Grid>
             </Button>
 
-            <Button IsEnabled="False" Name="btnUsuario" Background="Transparent"  BorderBrush="#FFEBD40E">
+            <Button IsEnabled="False" Name="btnCliente" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,251,2,292">
+                <!--Boton Cliente-->
+                <Grid Width="165" Height="30" >
+                    <materialDesign:PackIcon Kind="UserGroup" Height="30" Width="27" Margin="0,-2,0,0" Foreground="Black"/>
+                    <Label Content="Cliente" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="53,0,53,3" />
+                </Grid>
+            </Button>
+
+            <Button IsEnabled="False" Name="btnUsuario" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,433,2,110">
                 <!--Boton Usuario-->
                 <Grid Width="165" Height="30" >
-                    <materialDesign:PackIcon Kind="UserAdd" Height="30" Width="27" Margin="0,-2,0,0" Foreground="Black"/>
+                    <materialDesign:PackIcon Kind="User" Height="30" Width="27" Margin="0,-2,0,0" Foreground="Black"/>
                     <Label Content="Usuario" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="53,0,53,3" />
                 </Grid>
             </Button>
-            <Button Name="btnProducto" IsEnabled="False" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="0,313,0,230">
+            <Button IsEnabled="False" Name="btnCerrarSesion" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,533,2,10">
+                <!--Boton cerrar sesion-->
+                <Grid Width="165" Height="30" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="11*"/>
+                        <RowDefinition Height="4*"/>
+                    </Grid.RowDefinitions>
+                    <materialDesign:PackIcon Kind="Shutdown" Height="30" Width="27" Margin="0,-2,0,0" Foreground="Black" Grid.RowSpan="2"/>
+                    <Label Content="Cerrar Sesión" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="34,0,26,3.4" Grid.RowSpan="2" Width="105" />
+                </Grid>
+            </Button>
+            <Button Name="btnProducto" IsEnabled="False" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,296,2,247">
                 <!--Boton Producto-->
                 <Grid Width="165" Height="30" >
                     <materialDesign:PackIcon Kind="Server" Height="29" Width="27" Margin="0,-2,0,0" Foreground="Black"/>
@@ -102,19 +123,29 @@
                 </Grid>
             </Button>
 
-            <Button Name="btnReporte" IsEnabled="False" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="0,354,0,189">
-                <!--Boton Producto-->
+            <Button Name="btnReporte" IsEnabled="False" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,387,2,156">
+                <!--Boton Reporte-->
                 <Grid Width="165" Height="30" >
-                    <materialDesign:PackIcon Kind="Money" Height="29" Width="27" Margin="0,-2,0,0" Foreground="Black"/>
+                    <materialDesign:PackIcon Kind="Paper" Height="29" Width="27" Margin="0,-2,0,0" Foreground="Black"/>
                     <Label Content="Reporte" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="53,0,32,3" Width="80" />
                 </Grid>
             </Button>
+
+
+            <Button Name="btnInscripcion" IsEnabled="False" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,343,2,200">
+                <!--Boton Inscripcion-->
+                <Grid Width="165" Height="30" >
+                    <materialDesign:PackIcon Kind="AddCircleOutline" Height="29" Width="27" Margin="-1,-2,0,0" Foreground="Black"/>
+                    <Label Content="Inscripción" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="53,0,32,3" Width="80" />
+                </Grid>
+            </Button>
         </Grid>
-        <StackPanel Background="#FF575B5D" Margin="0,0,0,575">
-            <!--Boton salir-->
-            <Button Background="Red" Margin="1035,0,0,0" Height="26" Click="Button_Click">
+        <StackPanel Background="#FF0F0D0D" Margin="0,0,0,575" Orientation="Horizontal">
+            <Label Content="Sky Fitness" Foreground="#FFEBE523" Width="86" HorizontalAlignment="Left" Margin="1,0,0,0" FontFamily="Lucida Fax" FontWeight="Bold" />
+            <Button Background="Red" Margin="948,0,0,0" Height="26" Click="Button_Click">
                 <materialDesign:PackIcon Kind="Close" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
             </Button>
+            <!--Boton salir-->
         </StackPanel>
-        </Grid>
+    </Grid>
 </Window>
