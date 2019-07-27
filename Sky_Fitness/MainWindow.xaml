@@ -104,7 +104,7 @@
                     <Label Content="Usuario" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="53,0,53,3" />
                 </Grid>
             </Button>
-            <Button IsEnabled="False" Name="btnCerrarSesion" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,533,2,10" >
+            <Button IsEnabled="False" Name="btnCerrarSesion" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,533,2,10" Click="BtnCerrarSesion_Click">
                 <!--Boton cerrar sesion-->
                 <Grid Width="165" Height="30" >
                     <Grid.RowDefinitions>
