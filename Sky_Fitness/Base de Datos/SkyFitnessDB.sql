@@ -13,6 +13,9 @@ GO
 CREATE SCHEMA Producto
 GO
 
+CREATE SCHEMA Detalle
+GO
+
 CREATE TABLE Persona.Cliente(
 numeroIdentidad INT NOT NULL
 		CONSTRAINT PK_idCliente PRIMARY KEY CLUSTERED,
@@ -51,4 +54,67 @@ idProducto INT IDENTITY (1000,1) NOT NULL
 nombreProducto VARCHAR(20),
 precioProducto DECIMAL
 )
+GO
+
+
+CREATE TABLE Detalle.ClienteInscripcion(
+idClienteInscripcion INT IDENTITY(1,1) NOT NULL
+						CONSTRAINT PK_idClienteInscripcion PRIMARY KEY CLUSTERED,
+nombreUsuario NVARCHAR(20) NOT NULL,
+numeroIdentidad INT NOT NULL,
+idInscripcion INT NOT NULL
+)
+GO
+
+CREATE TABLE Detalle.ClienteProducto(
+idClienteProducto INT IDENTITY(1,1) NOT NULL
+						CONSTRAINT PK_idClienteProducto PRIMARY KEY CLUSTERED,
+nombreUsuario NVARCHAR(20) NOT NULL,
+idProducto INT NOT NULL
+)
+GO
+
+
+ALTER TABLE Detalle.ClienteProducto
+	ADD CONSTRAINT
+		FK_Detalle_ClienteProducto$TieneUn$nombre_Usuario
+		FOREIGN KEY (nombreUsuario) REFERENCES Persona.Usuario(nombreUsuario)
+		ON UPDATE NO ACTION
+		ON DELETE NO ACTION
+GO
+
+ALTER TABLE Detalle.ClienteProducto
+	ADD CONSTRAINT
+		FK_Detalle_ClienteProducto$TieneUn$producto
+		FOREIGN KEY (idProducto) REFERENCES Producto.producto(idProducto)
+		ON UPDATE NO ACTION
+		ON DELETE NO ACTION
+GO
+
+ALTER TABLE Detalle.ClienteInscripcion
+	ADD CONSTRAINT
+		FK_Detalle_ClienteInscripcion$TieneUn$nombre_Usuario
+		FOREIGN KEY (nombreUsuario) REFERENCES Persona.Usuario(nombreUsuario)
+		ON UPDATE NO ACTION
+		ON DELETE NO ACTION
+GO
+
+
+
+
+ALTER TABLE Detalle.ClienteInscripcion
+	ADD CONSTRAINT
+		FK_Detalle_ClienteInscripcion$TieneUn$nuemroIdentidad
+		FOREIGN KEY (numeroIdentidad) REFERENCES Persona.Cliente(numeroIdentidad)
+		ON UPDATE NO ACTION
+		ON DELETE NO ACTION
+GO
+
+
+ALTER TABLE Detalle.ClienteInscripcion
+	ADD CONSTRAINT
+		FK_Detalle_ClienteInscripcion$TieneUn$idInscripcion
+		FOREIGN KEY (idInscripcion) REFERENCES Producto.Inscripcion(idInscripcion)
+		ON UPDATE NO ACTION
+		ON DELETE NO ACTION
 GO
