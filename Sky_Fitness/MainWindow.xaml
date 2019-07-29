@@ -89,7 +89,7 @@
                 </Grid>
             </Button>
 
-            <Button IsEnabled="False" Name="btnCliente" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,251,2,292">
+            <Button IsEnabled="False" Name="btnCliente" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,251,2,292" Click="Cliente">
                 <!--Boton Cliente-->
                 <Grid Width="165" Height="30" >
                     <materialDesign:PackIcon Kind="UserGroup" Height="30" Width="27" Margin="0,-2,0,0" Foreground="Black"/>
@@ -97,7 +97,7 @@
                 </Grid>
             </Button>
 
-            <Button IsEnabled="False" Name="btnUsuario" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,433,2,110">
+            <Button IsEnabled="False" Name="btnUsuario" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,433,2,110" Click="Usuario">
                 <!--Boton Usuario-->
                 <Grid Width="165" Height="30" >
                     <materialDesign:PackIcon Kind="User" Height="30" Width="27" Margin="0,-2,0,0" Foreground="Black"/>
@@ -115,7 +115,7 @@
                     <Label Content="Cerrar Sesión" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="34,0,26,3.4" Grid.RowSpan="2" Width="105"/>
                 </Grid>
             </Button>
-            <Button Name="btnProducto" IsEnabled="False" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,296,2,247">
+            <Button Name="btnProducto" IsEnabled="False" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,296,2,247" Click="Producto">
                 <!--Boton Producto-->
                 <Grid Width="165" Height="30" >
                     <materialDesign:PackIcon Kind="Server" Height="29" Width="27" Margin="0,-2,0,0" Foreground="Black"/>
@@ -123,7 +123,7 @@
                 </Grid>
             </Button>
 
-            <Button Name="btnReporte" IsEnabled="False" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,387,2,156">
+            <Button Name="btnReporte" IsEnabled="False" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,387,2,156" Click="Reporte">
                 <!--Boton Reporte-->
                 <Grid Width="165" Height="30" >
                     <materialDesign:PackIcon Kind="Paper" Height="29" Width="27" Margin="0,-2,0,0" Foreground="Black"/>
@@ -132,7 +132,7 @@
             </Button>
 
 
-            <Button Name="btnInscripcion" IsEnabled="False" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,343,2,200">
+            <Button Name="btnInscripcion" IsEnabled="False" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,343,2,200" Click="inscripcion">
                 <!--Boton Inscripcion-->
                 <Grid Width="165" Height="30" >
                     <materialDesign:PackIcon Kind="AddCircleOutline" Height="29" Width="27" Margin="-1,-2,0,0" Foreground="Black"/>
@@ -147,5 +147,6 @@
             </Button>
             <!--Boton salir-->
         </StackPanel>
+        <Grid Name="GridPrincipal" HorizontalAlignment="Left" Height="570" Margin="65,30,0,0" VerticalAlignment="Top" Width="1015"/>
     </Grid>
 </Window>

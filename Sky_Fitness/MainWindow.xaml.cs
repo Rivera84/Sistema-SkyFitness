@@ -27,7 +27,8 @@ namespace Sky_Fitness
             InitializeComponent();
         }
 
-        private void ButtonMenu_Click(object sender, RoutedEventArgs e)  //BotonMenu
+
+        private void estadoMenu()
         {
             if (StateClosed)
             {
@@ -53,6 +54,11 @@ namespace Sky_Fitness
             }
             StateClosed = !StateClosed;
         }
+
+        private void ButtonMenu_Click(object sender, RoutedEventArgs e)  //BotonMenu
+        {
+            estadoMenu();
+        }
     
 
 
@@ -72,6 +78,36 @@ namespace Sky_Fitness
                 login.Show();
             }
             else { }
+        }
+        //boton Cliente
+        private void Cliente(object sender, RoutedEventArgs e)
+        {
+            estadoMenu();
+            
+        }
+
+        //Boton Producto
+        private void Producto(object sender, RoutedEventArgs e)
+        {
+            estadoMenu();
+        }
+
+        //Boton inscripcion
+        private void inscripcion(object sender, RoutedEventArgs e)
+        {
+            estadoMenu();
+        }
+
+        //Boton reporte
+        private void Reporte(object sender, RoutedEventArgs e)
+        {
+            estadoMenu();
+        }
+
+        //Boton Usuario
+        private void Usuario(object sender, RoutedEventArgs e)
+        {
+            estadoMenu();
         }
     }
 }
