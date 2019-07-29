@@ -55,6 +55,9 @@ namespace Sky_Fitness
             StateClosed = !StateClosed;
         }
 
+
+       
+
         private void ButtonMenu_Click(object sender, RoutedEventArgs e)  //BotonMenu
         {
             estadoMenu();
@@ -83,7 +86,12 @@ namespace Sky_Fitness
         private void Cliente(object sender, RoutedEventArgs e)
         {
             estadoMenu();
-            
+            ventanaCliente vc = new ventanaCliente();
+            GridPrincipal.Children.Add(vc);
+        
+           
+
+
         }
 
         //Boton Producto
