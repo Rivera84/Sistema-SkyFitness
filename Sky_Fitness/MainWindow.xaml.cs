@@ -87,10 +87,7 @@ namespace Sky_Fitness
         {
             estadoMenu();
             ventanaCliente vc = new ventanaCliente();
-            GridPrincipal.Children.Add(vc);
-        
-           
-
+            GridPrincipal.Children.Add(vc);                
 
         }
 
@@ -98,12 +95,17 @@ namespace Sky_Fitness
         private void Producto(object sender, RoutedEventArgs e)
         {
             estadoMenu();
+            ventanaProducto vc = new ventanaProducto();
+            GridPrincipal.Children.Add(vc);
+
         }
 
         //Boton inscripcion
         private void inscripcion(object sender, RoutedEventArgs e)
         {
             estadoMenu();
+            ventanaInscripcion vc = new ventanaInscripcion();
+            GridPrincipal.Children.Add(vc);
         }
 
         //Boton reporte

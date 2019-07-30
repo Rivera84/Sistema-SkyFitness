@@ -69,6 +69,15 @@
     <Compile Include="ventanaCliente.xaml.cs">
       <DependentUpon>ventanaCliente.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ventanaInscripcion.xaml.cs">
+      <DependentUpon>ventanaInscripcion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ventanaProducto.xaml.cs">
+      <DependentUpon>ventanaProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ventanaReporte.xaml.cs">
+      <DependentUpon>ventanaReporte.xaml</DependentUpon>
+    </Compile>
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -89,6 +98,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ventanaCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ventanaInscripcion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ventanaProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ventanaReporte.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
