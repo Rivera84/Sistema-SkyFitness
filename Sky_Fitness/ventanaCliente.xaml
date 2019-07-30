@@ -13,75 +13,75 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Sky_Fitness"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="570" d:DesignWidth="1015">
     <Grid Height="auto" Width="auto">
         <!--Codigo para ventana de agregar clientes-->
-        <Border BorderBrush="Black" BorderThickness="5" HorizontalAlignment="Left" Height="539" Margin="76,42,0,0" VerticalAlignment="Top" Width="983"></Border>
+        <Border BorderBrush="Black" BorderThickness="5" HorizontalAlignment="Left" Height="550" Margin="10,10,0,0" VerticalAlignment="Top" Width="995"></Border>
 
         <!--Nombres-->
-        <Label Content="Nombre (s)" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="149,70,845,504" Width="86" FontWeight="Bold" />
+        <Label Content="Nombre (s)" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="117,70,812.2,473.6" Width="86" FontWeight="Bold" Height="26" />
         <TextBox HorizontalAlignment="Left" Height="26" Margin="285,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
-        
+
         <!--Apellidos-->
-        <Label Content="Apellido (s)" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="595,70,403,504" Width="82" FontWeight="Bold" />
+        <Label Content="Apellido (s)" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="563,68,370.2,473.6" Width="82" FontWeight="Bold" Height="28" />
         <TextBox HorizontalAlignment="Left" Height="26" Margin="677,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
-        
+
         <!--Identidad-->
-        <Label Content="Identidad" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="149,130,854,444" Width="77" FontWeight="Bold" />
+        <Label Content="Identidad" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="117,128,821.2,413.6" Width="77" FontWeight="Bold" Height="28" />
         <TextBox HorizontalAlignment="Left" Height="26" Margin="285,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
-        
+
         <!--Teléfono-->
-        <Label Content="Teléfono" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="595,130,408,444" Width="77" FontWeight="Bold" />
+        <Label Content="Teléfono" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="563,128,375.2,413.6" Width="77" FontWeight="Bold" Height="28" />
         <TextBox HorizontalAlignment="Left" Height="26" Margin="677,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
-        
+
         <!--Dirección-->
-        <Label Content="Dirección" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="149,190,854,384" Width="77" FontWeight="Bold" />
+        <Label Content="Dirección" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="117,188,821.2,353.6" Width="77" FontWeight="Bold" Height="28" />
         <TextBox HorizontalAlignment="Left" Height="26" Margin="285,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="642"/>
-        
+
         <!--Sexo-->
-        <Label Content="Sexo" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="149,250,854,324" Width="77" FontWeight="Bold" />
+        <Label Content="Sexo" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="117,248,821.2,297.6" Width="77" FontWeight="Bold" Height="24" />
         <RadioButton Content="Masculino" HorizontalAlignment="Left" Height="19" Margin="285,253,0,0" VerticalAlignment="Top" Width="109" FontWeight="Bold"/>
         <RadioButton Content="Femenino" HorizontalAlignment="Left" Height="19" Margin="426,253,0,0" VerticalAlignment="Top" Width="109" FontWeight="Bold"/>
-        
+
         <!--Correo-->
-        <Label Content="Correo" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="595,250,408,324" Width="77" FontWeight="Bold" />
+        <Label Content="Correo" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="563,248,375.2,297.6" Width="77" FontWeight="Bold" Height="24" />
         <TextBox HorizontalAlignment="Left" Height="26" Margin="677,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
-        
+
         <!--Fecha de Nacimiento-->
-        <Label Content="Fecha de Nacimiento" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="149,310,800,264" Width="131" FontWeight="Bold" />
+        <Label Content="Fecha de Nacimiento" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="117,308,767.2,233.6" Width="131" FontWeight="Bold" Height="28" />
         <DatePicker HorizontalAlignment="Left" Height="24" Margin="285,312,0,0" VerticalAlignment="Top" Width="250"/>
-        
+
         <!--Edad-->
-        <Label Content="Edad" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="595,310,408,264" Width="77" FontWeight="Bold" />
+        <Label Content="Edad" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="563,308,375.2,233.6" Width="77" FontWeight="Bold" Height="28" />
         <TextBox HorizontalAlignment="Left" Height="26" Margin="677,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
-        
+
         <!--Razón de Ingreso-->
-        <Label Content="Razón de Ingreso" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="338,368,625,206" Width="117" FontWeight="Bold" />
+        <Label Content="Razón de Ingreso" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="306,366,592.2,175.6" Width="117" FontWeight="Bold" Height="28" />
         <ComboBox HorizontalAlignment="Left" Height="25" Margin="482,369,0,0" VerticalAlignment="Top" Width="250"/>
-        
+
         <!--Peso-->
-        <Label Content="Peso" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="149,428,888,146" Width="43" FontWeight="Bold" />
+        <Label Content="Peso" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="117,426,855.2,115.6" Width="43" FontWeight="Bold" Height="28" />
         <TextBox HorizontalAlignment="Left" Height="26" Margin="197,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"/>
-        
+
         <!--Estatura-->
-        <Label Content="Estatura" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="360,428,659,146" Width="61" FontWeight="Bold" />
+        <Label Content="Estatura" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="328,426,626.2,115.6" Width="61" FontWeight="Bold" Height="28" />
         <TextBox HorizontalAlignment="Left" Height="26" Margin="426,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"/>
-        
+
         <!--Talla-->
-        <Label Content="Talla" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="574,428,467,146" Width="39" FontWeight="Bold" />
+        <Label Content="Talla" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="542,426,434.2,115.6" Width="39" FontWeight="Bold" Height="28" />
         <TextBox HorizontalAlignment="Left" Height="26" Margin="618,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"/>
-        
+
         <!--IMC-->
-        <Label Content="IMC" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="784,428,253,146" Width="43" FontWeight="Bold" />
+        <Label Content="IMC" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="752,426,220.2,115.6" Width="43" FontWeight="Bold" Height="28" />
         <TextBox HorizontalAlignment="Left" Height="26" Margin="827,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"/>
-        
+
         <!--Botón Guardar-->
-        <Button Content="Guardar" HorizontalAlignment="Left" Height="39" Margin="240,512,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold"/>
-        
+        <Button Name="BtnGuardar" Content="Guardar" HorizontalAlignment="Left" Height="39" Margin="240,488,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold"/>
+
         <!--Botón Modificar-->
-        <Button Content="Modificar" HorizontalAlignment="Left" Height="39" Margin="492,512,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold"/>
-        
+        <Button Name="BtnModificar" Content="Modificar" HorizontalAlignment="Left" Height="39" Margin="500,488,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold"/>
+
         <!--Botón Eliminar-->
-        <Button Content="Eliminar" HorizontalAlignment="Left" Height="39" Margin="743,512,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold"/>
+        <Button Name="BtnCancelar" Content="Cancelar" HorizontalAlignment="Left" Height="39" Margin="750,488,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold" RenderTransformOrigin="0.467,-0.692"/>
     </Grid>
 </UserControl>
