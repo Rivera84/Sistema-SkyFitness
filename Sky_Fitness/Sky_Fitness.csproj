@@ -156,5 +156,8 @@
   <ItemGroup>
     <Resource Include="icono.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Logo\FondoSky.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

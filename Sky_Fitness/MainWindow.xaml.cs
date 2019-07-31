@@ -21,7 +21,12 @@ namespace Sky_Fitness
     /// </summary>
     public partial class MainWindow : Window
     {
-        bool StateClosed = true;
+        //Clases
+        ventanaCliente vc = new ventanaCliente();
+        ventanaProducto vp = new ventanaProducto();
+        ventanaInscripcion vi = new ventanaInscripcion();
+
+        bool StateClosed = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -40,6 +45,9 @@ namespace Sky_Fitness
                 btnCerrarSesion.IsEnabled = true;
                 btnCliente.IsEnabled = true;
                 btnInscripcion.IsEnabled = true;
+                GridPrincipal.Children.Remove(vc);
+                GridPrincipal.Children.Remove(vp);
+                GridPrincipal.Children.Remove(vi);
             }
             else
             {
@@ -86,7 +94,6 @@ namespace Sky_Fitness
         private void Cliente(object sender, RoutedEventArgs e)
         {
             estadoMenu();
-            ventanaCliente vc = new ventanaCliente();
             GridPrincipal.Children.Add(vc);                
 
         }
@@ -95,17 +102,15 @@ namespace Sky_Fitness
         private void Producto(object sender, RoutedEventArgs e)
         {
             estadoMenu();
-            ventanaProducto vc = new ventanaProducto();
-            GridPrincipal.Children.Add(vc);
+            GridPrincipal.Children.Add(vp);
 
         }
 
         //Boton inscripcion
         private void inscripcion(object sender, RoutedEventArgs e)
         {
-            estadoMenu();
-            ventanaInscripcion vc = new ventanaInscripcion();
-            GridPrincipal.Children.Add(vc);
+            estadoMenu();  
+            GridPrincipal.Children.Add(vi);
         }
 
         //Boton reporte
