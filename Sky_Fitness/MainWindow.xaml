@@ -63,7 +63,7 @@
         <Grid Grid.Row="0" Background="#FF0F0D0D">
 
             <Label Content="Sky Fitness" Foreground="#FFEBE523" Width="86" HorizontalAlignment="Left" Margin="1,0,0,0" FontFamily="Lucida Fax" FontWeight="Bold" />
-            <Button Background="Red" Margin="1039,2,0,2.4" Height="26" Click="Button_Click">
+            <Button Background="#FF0F0D0D" Margin="1039,2,0,2.4" Height="26" Click="Button_Click" BorderBrush="{x:Null}">
                 <materialDesign:PackIcon Kind="Close" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
             </Button>
             <!--Boton salir-->
@@ -124,7 +124,7 @@
                         <Label Content="Usuario" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="53,0,53,3" />
                     </Grid>
                 </Button>
-                <Button IsEnabled="true" Name="btnCerrarSesion" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,533,2,10" Click="BtnCerrarSesion_Click">
+                <Button IsEnabled="true" Name="btnCerrarSesion" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,531,2,7" Click="BtnCerrarSesion_Click">
                     <!--Boton cerrar sesion-->
                     <Grid Width="165" Height="30" >
                         <Grid.RowDefinitions>
@@ -162,7 +162,11 @@
             </Grid>
 
             <Grid Name="GridPrincipal" Grid.Column="1" Width="auto">
-                <Image Source="/Logo/FondoSky.jpg" Margin="0,0,-225.2,-24.4" HorizontalAlignment="Left" Width="1138"/>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="423*"/>
+                    <ColumnDefinition Width="34*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="/Logo/FondoSky.jpg" Margin="0,0,-225,-24" HorizontalAlignment="Left" Width="1138" Grid.ColumnSpan="2"/>
             </Grid>
         </Grid>
 

@@ -48,16 +48,25 @@
         <TextBox HorizontalAlignment="Left" Height="26" Margin="677,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
 
         <!--Fecha de Nacimiento-->
-        <Label Content="Fecha de Nacimiento" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="117,308,767.2,233.6" Width="131" FontWeight="Bold" Height="28" />
+        <Label Content="Fecha de Nacimiento" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="117,308,760,234" Width="138" FontWeight="Bold" Height="28" />
         <DatePicker HorizontalAlignment="Left" Height="24" Margin="285,312,0,0" VerticalAlignment="Top" Width="250"/>
 
-        <!--Edad-->
-        <Label Content="Edad" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="563,308,375.2,233.6" Width="77" FontWeight="Bold" Height="28" />
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="677,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
-
         <!--Razón de Ingreso-->
-        <Label Content="Razón de Ingreso" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="306,366,592.2,175.6" Width="117" FontWeight="Bold" Height="28" />
-        <ComboBox HorizontalAlignment="Left" Height="25" Margin="482,369,0,0" VerticalAlignment="Top" Width="250"/>
+        <Label Content="Razón de Ingreso" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="556,312,343,230" Width="116" FontWeight="Bold" Height="28" />
+        <ComboBox HorizontalAlignment="Left" Height="25" Margin="677,310,0,0" VerticalAlignment="Top" Width="250"/>
+
+
+        <Label Content="Edad" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="448,375,522,167" Width="45" FontWeight="Bold" Height="28" />
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="503,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.5,0.5">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.036"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
 
         <!--Peso-->
         <Label Content="Peso" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="117,426,855.2,115.6" Width="43" FontWeight="Bold" Height="28" />
