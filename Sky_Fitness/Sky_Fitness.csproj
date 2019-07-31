@@ -46,6 +46,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -66,6 +67,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="SkyFitnessBD.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SkyFitnessBD.dbml</DependentUpon>
+    </Compile>
     <Compile Include="ventanaCliente.xaml.cs">
       <DependentUpon>ventanaCliente.xaml</DependentUpon>
     </Compile>
@@ -137,6 +143,14 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="SkyFitnessBD.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>SkyFitnessBD.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SkyFitnessBD.dbml.layout">
+      <DependentUpon>SkyFitnessBD.dbml</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -158,6 +172,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Logo\FondoSky.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
