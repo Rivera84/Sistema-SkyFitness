@@ -39,15 +39,15 @@ namespace Sky_Fitness
     partial void InsertUsuario(Usuario instance);
     partial void UpdateUsuario(Usuario instance);
     partial void DeleteUsuario(Usuario instance);
-    partial void InsertCliente(Cliente instance);
-    partial void UpdateCliente(Cliente instance);
-    partial void DeleteCliente(Cliente instance);
     partial void InsertInscripcion(Inscripcion instance);
     partial void UpdateInscripcion(Inscripcion instance);
     partial void DeleteInscripcion(Inscripcion instance);
     partial void InsertProducto(Producto instance);
     partial void UpdateProducto(Producto instance);
     partial void DeleteProducto(Producto instance);
+    partial void InsertCliente(Cliente instance);
+    partial void UpdateCliente(Cliente instance);
+    partial void DeleteCliente(Cliente instance);
     #endregion
 		
 		public SkyFitnessBDDataContext() : 
@@ -104,14 +104,6 @@ namespace Sky_Fitness
 			}
 		}
 		
-		public System.Data.Linq.Table<Cliente> Cliente
-		{
-			get
-			{
-				return this.GetTable<Cliente>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Inscripcion> Inscripcion
 		{
 			get
@@ -125,6 +117,14 @@ namespace Sky_Fitness
 			get
 			{
 				return this.GetTable<Producto>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Cliente> Cliente
+		{
+			get
+			{
+				return this.GetTable<Cliente>();
 			}
 		}
 	}
@@ -141,11 +141,11 @@ namespace Sky_Fitness
 		
 		private int _idInscripcion;
 		
+		private EntityRef<Inscripcion> _Inscripcion;
+		
 		private EntityRef<Cliente> _Cliente;
 		
 		private EntityRef<Cliente> _Cliente1;
-		
-		private EntityRef<Inscripcion> _Inscripcion;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
@@ -161,9 +161,9 @@ namespace Sky_Fitness
 		
 		public ClienteInscripcion()
 		{
+			this._Inscripcion = default(EntityRef<Inscripcion>);
 			this._Cliente = default(EntityRef<Cliente>);
 			this._Cliente1 = default(EntityRef<Cliente>);
-			this._Inscripcion = default(EntityRef<Inscripcion>);
 			OnCreated();
 		}
 		
@@ -231,6 +231,40 @@ namespace Sky_Fitness
 					this._idInscripcion = value;
 					this.SendPropertyChanged("idInscripcion");
 					this.OnidInscripcionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Inscripcion_ClienteInscripcion", Storage="_Inscripcion", ThisKey="idInscripcion", OtherKey="idInscripcion", IsForeignKey=true)]
+		public Inscripcion Inscripcion
+		{
+			get
+			{
+				return this._Inscripcion.Entity;
+			}
+			set
+			{
+				Inscripcion previousValue = this._Inscripcion.Entity;
+				if (((previousValue != value) 
+							|| (this._Inscripcion.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Inscripcion.Entity = null;
+						previousValue.ClienteInscripcion.Remove(this);
+					}
+					this._Inscripcion.Entity = value;
+					if ((value != null))
+					{
+						value.ClienteInscripcion.Add(this);
+						this._idInscripcion = value.idInscripcion;
+					}
+					else
+					{
+						this._idInscripcion = default(int);
+					}
+					this.SendPropertyChanged("Inscripcion");
 				}
 			}
 		}
@@ -303,40 +337,6 @@ namespace Sky_Fitness
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Inscripcion_ClienteInscripcion", Storage="_Inscripcion", ThisKey="idInscripcion", OtherKey="idInscripcion", IsForeignKey=true)]
-		public Inscripcion Inscripcion
-		{
-			get
-			{
-				return this._Inscripcion.Entity;
-			}
-			set
-			{
-				Inscripcion previousValue = this._Inscripcion.Entity;
-				if (((previousValue != value) 
-							|| (this._Inscripcion.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Inscripcion.Entity = null;
-						previousValue.ClienteInscripcion.Remove(this);
-					}
-					this._Inscripcion.Entity = value;
-					if ((value != null))
-					{
-						value.ClienteInscripcion.Add(this);
-						this._idInscripcion = value.idInscripcion;
-					}
-					else
-					{
-						this._idInscripcion = default(int);
-					}
-					this.SendPropertyChanged("Inscripcion");
-				}
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -370,9 +370,9 @@ namespace Sky_Fitness
 		
 		private int _idProducto;
 		
-		private EntityRef<Cliente> _Cliente;
-		
 		private EntityRef<Producto> _Producto;
+		
+		private EntityRef<Cliente> _Cliente;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
@@ -388,8 +388,8 @@ namespace Sky_Fitness
 		
 		public ClienteProducto()
 		{
-			this._Cliente = default(EntityRef<Cliente>);
 			this._Producto = default(EntityRef<Producto>);
+			this._Cliente = default(EntityRef<Cliente>);
 			OnCreated();
 		}
 		
@@ -461,40 +461,6 @@ namespace Sky_Fitness
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_ClienteProducto", Storage="_Cliente", ThisKey="idCliente", OtherKey="numeroIdentidad", IsForeignKey=true)]
-		public Cliente Cliente
-		{
-			get
-			{
-				return this._Cliente.Entity;
-			}
-			set
-			{
-				Cliente previousValue = this._Cliente.Entity;
-				if (((previousValue != value) 
-							|| (this._Cliente.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Cliente.Entity = null;
-						previousValue.ClienteProducto.Remove(this);
-					}
-					this._Cliente.Entity = value;
-					if ((value != null))
-					{
-						value.ClienteProducto.Add(this);
-						this._idCliente = value.numeroIdentidad;
-					}
-					else
-					{
-						this._idCliente = default(string);
-					}
-					this.SendPropertyChanged("Cliente");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Producto_ClienteProducto", Storage="_Producto", ThisKey="idProducto", OtherKey="idProducto", IsForeignKey=true)]
 		public Producto Producto
 		{
@@ -525,6 +491,40 @@ namespace Sky_Fitness
 						this._idProducto = default(int);
 					}
 					this.SendPropertyChanged("Producto");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_ClienteProducto", Storage="_Cliente", ThisKey="idCliente", OtherKey="numeroIdentidad", IsForeignKey=true)]
+		public Cliente Cliente
+		{
+			get
+			{
+				return this._Cliente.Entity;
+			}
+			set
+			{
+				Cliente previousValue = this._Cliente.Entity;
+				if (((previousValue != value) 
+							|| (this._Cliente.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Cliente.Entity = null;
+						previousValue.ClienteProducto.Remove(this);
+					}
+					this._Cliente.Entity = value;
+					if ((value != null))
+					{
+						value.ClienteProducto.Add(this);
+						this._idCliente = value.numeroIdentidad;
+					}
+					else
+					{
+						this._idCliente = default(string);
+					}
+					this.SendPropertyChanged("Cliente");
 				}
 			}
 		}
@@ -633,416 +633,6 @@ namespace Sky_Fitness
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="Persona.Cliente")]
-	public partial class Cliente : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _numeroIdentidad;
-		
-		private string _nombre;
-		
-		private string _apellido;
-		
-		private System.DateTime _fechaNacimiento;
-		
-		private System.DateTime _fechaCreacion;
-		
-		private int _edad;
-		
-		private string _telefono;
-		
-		private string _direccion;
-		
-		private string _correoElectronico;
-		
-		private string _razon;
-		
-		private decimal _peso;
-		
-		private decimal _medidas;
-		
-		private EntitySet<ClienteInscripcion> _ClienteInscripcion;
-		
-		private EntitySet<ClienteInscripcion> _ClienteInscripcion1;
-		
-		private EntitySet<ClienteProducto> _ClienteProducto;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnnumeroIdentidadChanging(string value);
-    partial void OnnumeroIdentidadChanged();
-    partial void OnnombreChanging(string value);
-    partial void OnnombreChanged();
-    partial void OnapellidoChanging(string value);
-    partial void OnapellidoChanged();
-    partial void OnfechaNacimientoChanging(System.DateTime value);
-    partial void OnfechaNacimientoChanged();
-    partial void OnfechaCreacionChanging(System.DateTime value);
-    partial void OnfechaCreacionChanged();
-    partial void OnedadChanging(int value);
-    partial void OnedadChanged();
-    partial void OntelefonoChanging(string value);
-    partial void OntelefonoChanged();
-    partial void OndireccionChanging(string value);
-    partial void OndireccionChanged();
-    partial void OncorreoElectronicoChanging(string value);
-    partial void OncorreoElectronicoChanged();
-    partial void OnrazonChanging(string value);
-    partial void OnrazonChanged();
-    partial void OnpesoChanging(decimal value);
-    partial void OnpesoChanged();
-    partial void OnmedidasChanging(decimal value);
-    partial void OnmedidasChanged();
-    #endregion
-		
-		public Cliente()
-		{
-			this._ClienteInscripcion = new EntitySet<ClienteInscripcion>(new Action<ClienteInscripcion>(this.attach_ClienteInscripcion), new Action<ClienteInscripcion>(this.detach_ClienteInscripcion));
-			this._ClienteInscripcion1 = new EntitySet<ClienteInscripcion>(new Action<ClienteInscripcion>(this.attach_ClienteInscripcion1), new Action<ClienteInscripcion>(this.detach_ClienteInscripcion1));
-			this._ClienteProducto = new EntitySet<ClienteProducto>(new Action<ClienteProducto>(this.attach_ClienteProducto), new Action<ClienteProducto>(this.detach_ClienteProducto));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_numeroIdentidad", DbType="VarChar(15) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string numeroIdentidad
-		{
-			get
-			{
-				return this._numeroIdentidad;
-			}
-			set
-			{
-				if ((this._numeroIdentidad != value))
-				{
-					this.OnnumeroIdentidadChanging(value);
-					this.SendPropertyChanging();
-					this._numeroIdentidad = value;
-					this.SendPropertyChanged("numeroIdentidad");
-					this.OnnumeroIdentidadChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
-		public string nombre
-		{
-			get
-			{
-				return this._nombre;
-			}
-			set
-			{
-				if ((this._nombre != value))
-				{
-					this.OnnombreChanging(value);
-					this.SendPropertyChanging();
-					this._nombre = value;
-					this.SendPropertyChanged("nombre");
-					this.OnnombreChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellido", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
-		public string apellido
-		{
-			get
-			{
-				return this._apellido;
-			}
-			set
-			{
-				if ((this._apellido != value))
-				{
-					this.OnapellidoChanging(value);
-					this.SendPropertyChanging();
-					this._apellido = value;
-					this.SendPropertyChanged("apellido");
-					this.OnapellidoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fechaNacimiento", DbType="Date NOT NULL")]
-		public System.DateTime fechaNacimiento
-		{
-			get
-			{
-				return this._fechaNacimiento;
-			}
-			set
-			{
-				if ((this._fechaNacimiento != value))
-				{
-					this.OnfechaNacimientoChanging(value);
-					this.SendPropertyChanging();
-					this._fechaNacimiento = value;
-					this.SendPropertyChanged("fechaNacimiento");
-					this.OnfechaNacimientoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fechaCreacion", DbType="Date NOT NULL")]
-		public System.DateTime fechaCreacion
-		{
-			get
-			{
-				return this._fechaCreacion;
-			}
-			set
-			{
-				if ((this._fechaCreacion != value))
-				{
-					this.OnfechaCreacionChanging(value);
-					this.SendPropertyChanging();
-					this._fechaCreacion = value;
-					this.SendPropertyChanged("fechaCreacion");
-					this.OnfechaCreacionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_edad", DbType="Int NOT NULL")]
-		public int edad
-		{
-			get
-			{
-				return this._edad;
-			}
-			set
-			{
-				if ((this._edad != value))
-				{
-					this.OnedadChanging(value);
-					this.SendPropertyChanging();
-					this._edad = value;
-					this.SendPropertyChanged("edad");
-					this.OnedadChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_telefono", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
-		public string telefono
-		{
-			get
-			{
-				return this._telefono;
-			}
-			set
-			{
-				if ((this._telefono != value))
-				{
-					this.OntelefonoChanging(value);
-					this.SendPropertyChanging();
-					this._telefono = value;
-					this.SendPropertyChanged("telefono");
-					this.OntelefonoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_direccion", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string direccion
-		{
-			get
-			{
-				return this._direccion;
-			}
-			set
-			{
-				if ((this._direccion != value))
-				{
-					this.OndireccionChanging(value);
-					this.SendPropertyChanging();
-					this._direccion = value;
-					this.SendPropertyChanged("direccion");
-					this.OndireccionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_correoElectronico", DbType="NVarChar(20)")]
-		public string correoElectronico
-		{
-			get
-			{
-				return this._correoElectronico;
-			}
-			set
-			{
-				if ((this._correoElectronico != value))
-				{
-					this.OncorreoElectronicoChanging(value);
-					this.SendPropertyChanging();
-					this._correoElectronico = value;
-					this.SendPropertyChanged("correoElectronico");
-					this.OncorreoElectronicoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_razon", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string razon
-		{
-			get
-			{
-				return this._razon;
-			}
-			set
-			{
-				if ((this._razon != value))
-				{
-					this.OnrazonChanging(value);
-					this.SendPropertyChanging();
-					this._razon = value;
-					this.SendPropertyChanged("razon");
-					this.OnrazonChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_peso", DbType="Decimal(18,0) NOT NULL")]
-		public decimal peso
-		{
-			get
-			{
-				return this._peso;
-			}
-			set
-			{
-				if ((this._peso != value))
-				{
-					this.OnpesoChanging(value);
-					this.SendPropertyChanging();
-					this._peso = value;
-					this.SendPropertyChanged("peso");
-					this.OnpesoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_medidas", DbType="Decimal(18,0) NOT NULL")]
-		public decimal medidas
-		{
-			get
-			{
-				return this._medidas;
-			}
-			set
-			{
-				if ((this._medidas != value))
-				{
-					this.OnmedidasChanging(value);
-					this.SendPropertyChanging();
-					this._medidas = value;
-					this.SendPropertyChanged("medidas");
-					this.OnmedidasChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_ClienteInscripcion", Storage="_ClienteInscripcion", ThisKey="numeroIdentidad", OtherKey="idCliente")]
-		public EntitySet<ClienteInscripcion> ClienteInscripcion
-		{
-			get
-			{
-				return this._ClienteInscripcion;
-			}
-			set
-			{
-				this._ClienteInscripcion.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_ClienteInscripcion1", Storage="_ClienteInscripcion1", ThisKey="numeroIdentidad", OtherKey="idCliente")]
-		public EntitySet<ClienteInscripcion> ClienteInscripcion1
-		{
-			get
-			{
-				return this._ClienteInscripcion1;
-			}
-			set
-			{
-				this._ClienteInscripcion1.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_ClienteProducto", Storage="_ClienteProducto", ThisKey="numeroIdentidad", OtherKey="idCliente")]
-		public EntitySet<ClienteProducto> ClienteProducto
-		{
-			get
-			{
-				return this._ClienteProducto;
-			}
-			set
-			{
-				this._ClienteProducto.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_ClienteInscripcion(ClienteInscripcion entity)
-		{
-			this.SendPropertyChanging();
-			entity.Cliente = this;
-		}
-		
-		private void detach_ClienteInscripcion(ClienteInscripcion entity)
-		{
-			this.SendPropertyChanging();
-			entity.Cliente = null;
-		}
-		
-		private void attach_ClienteInscripcion1(ClienteInscripcion entity)
-		{
-			this.SendPropertyChanging();
-			entity.Cliente1 = this;
-		}
-		
-		private void detach_ClienteInscripcion1(ClienteInscripcion entity)
-		{
-			this.SendPropertyChanging();
-			entity.Cliente1 = null;
-		}
-		
-		private void attach_ClienteProducto(ClienteProducto entity)
-		{
-			this.SendPropertyChanging();
-			entity.Cliente = this;
-		}
-		
-		private void detach_ClienteProducto(ClienteProducto entity)
-		{
-			this.SendPropertyChanging();
-			entity.Cliente = null;
 		}
 	}
 	
@@ -1319,6 +909,488 @@ namespace Sky_Fitness
 		{
 			this.SendPropertyChanging();
 			entity.Producto = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="Persona.Cliente")]
+	public partial class Cliente : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _numeroIdentidad;
+		
+		private string _nombre;
+		
+		private string _apellido;
+		
+		private System.DateTime _fechaNacimiento;
+		
+		private System.DateTime _fechaCreacion;
+		
+		private int _edad;
+		
+		private string _sexo;
+		
+		private string _telefono;
+		
+		private string _direccion;
+		
+		private string _correoElectronico;
+		
+		private string _razon;
+		
+		private decimal _peso;
+		
+		private decimal _estatura;
+		
+		private decimal _talla;
+		
+		private decimal _IMC;
+		
+		private EntitySet<ClienteInscripcion> _ClienteInscripcion;
+		
+		private EntitySet<ClienteInscripcion> _ClienteInscripcion1;
+		
+		private EntitySet<ClienteProducto> _ClienteProducto;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnnumeroIdentidadChanging(string value);
+    partial void OnnumeroIdentidadChanged();
+    partial void OnnombreChanging(string value);
+    partial void OnnombreChanged();
+    partial void OnapellidoChanging(string value);
+    partial void OnapellidoChanged();
+    partial void OnfechaNacimientoChanging(System.DateTime value);
+    partial void OnfechaNacimientoChanged();
+    partial void OnfechaCreacionChanging(System.DateTime value);
+    partial void OnfechaCreacionChanged();
+    partial void OnedadChanging(int value);
+    partial void OnedadChanged();
+    partial void OnsexoChanging(string value);
+    partial void OnsexoChanged();
+    partial void OntelefonoChanging(string value);
+    partial void OntelefonoChanged();
+    partial void OndireccionChanging(string value);
+    partial void OndireccionChanged();
+    partial void OncorreoElectronicoChanging(string value);
+    partial void OncorreoElectronicoChanged();
+    partial void OnrazonChanging(string value);
+    partial void OnrazonChanged();
+    partial void OnpesoChanging(decimal value);
+    partial void OnpesoChanged();
+    partial void OnestaturaChanging(decimal value);
+    partial void OnestaturaChanged();
+    partial void OntallaChanging(decimal value);
+    partial void OntallaChanged();
+    partial void OnIMCChanging(decimal value);
+    partial void OnIMCChanged();
+    #endregion
+		
+		public Cliente()
+		{
+			this._ClienteInscripcion = new EntitySet<ClienteInscripcion>(new Action<ClienteInscripcion>(this.attach_ClienteInscripcion), new Action<ClienteInscripcion>(this.detach_ClienteInscripcion));
+			this._ClienteInscripcion1 = new EntitySet<ClienteInscripcion>(new Action<ClienteInscripcion>(this.attach_ClienteInscripcion1), new Action<ClienteInscripcion>(this.detach_ClienteInscripcion1));
+			this._ClienteProducto = new EntitySet<ClienteProducto>(new Action<ClienteProducto>(this.attach_ClienteProducto), new Action<ClienteProducto>(this.detach_ClienteProducto));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_numeroIdentidad", DbType="VarChar(15) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string numeroIdentidad
+		{
+			get
+			{
+				return this._numeroIdentidad;
+			}
+			set
+			{
+				if ((this._numeroIdentidad != value))
+				{
+					this.OnnumeroIdentidadChanging(value);
+					this.SendPropertyChanging();
+					this._numeroIdentidad = value;
+					this.SendPropertyChanged("numeroIdentidad");
+					this.OnnumeroIdentidadChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this.OnnombreChanging(value);
+					this.SendPropertyChanging();
+					this._nombre = value;
+					this.SendPropertyChanged("nombre");
+					this.OnnombreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellido", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string apellido
+		{
+			get
+			{
+				return this._apellido;
+			}
+			set
+			{
+				if ((this._apellido != value))
+				{
+					this.OnapellidoChanging(value);
+					this.SendPropertyChanging();
+					this._apellido = value;
+					this.SendPropertyChanged("apellido");
+					this.OnapellidoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fechaNacimiento", DbType="Date NOT NULL")]
+		public System.DateTime fechaNacimiento
+		{
+			get
+			{
+				return this._fechaNacimiento;
+			}
+			set
+			{
+				if ((this._fechaNacimiento != value))
+				{
+					this.OnfechaNacimientoChanging(value);
+					this.SendPropertyChanging();
+					this._fechaNacimiento = value;
+					this.SendPropertyChanged("fechaNacimiento");
+					this.OnfechaNacimientoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fechaCreacion", DbType="Date NOT NULL")]
+		public System.DateTime fechaCreacion
+		{
+			get
+			{
+				return this._fechaCreacion;
+			}
+			set
+			{
+				if ((this._fechaCreacion != value))
+				{
+					this.OnfechaCreacionChanging(value);
+					this.SendPropertyChanging();
+					this._fechaCreacion = value;
+					this.SendPropertyChanged("fechaCreacion");
+					this.OnfechaCreacionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_edad", DbType="Int NOT NULL")]
+		public int edad
+		{
+			get
+			{
+				return this._edad;
+			}
+			set
+			{
+				if ((this._edad != value))
+				{
+					this.OnedadChanging(value);
+					this.SendPropertyChanging();
+					this._edad = value;
+					this.SendPropertyChanged("edad");
+					this.OnedadChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sexo", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string sexo
+		{
+			get
+			{
+				return this._sexo;
+			}
+			set
+			{
+				if ((this._sexo != value))
+				{
+					this.OnsexoChanging(value);
+					this.SendPropertyChanging();
+					this._sexo = value;
+					this.SendPropertyChanged("sexo");
+					this.OnsexoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_telefono", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string telefono
+		{
+			get
+			{
+				return this._telefono;
+			}
+			set
+			{
+				if ((this._telefono != value))
+				{
+					this.OntelefonoChanging(value);
+					this.SendPropertyChanging();
+					this._telefono = value;
+					this.SendPropertyChanged("telefono");
+					this.OntelefonoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_direccion", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string direccion
+		{
+			get
+			{
+				return this._direccion;
+			}
+			set
+			{
+				if ((this._direccion != value))
+				{
+					this.OndireccionChanging(value);
+					this.SendPropertyChanging();
+					this._direccion = value;
+					this.SendPropertyChanged("direccion");
+					this.OndireccionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_correoElectronico", DbType="NVarChar(20)")]
+		public string correoElectronico
+		{
+			get
+			{
+				return this._correoElectronico;
+			}
+			set
+			{
+				if ((this._correoElectronico != value))
+				{
+					this.OncorreoElectronicoChanging(value);
+					this.SendPropertyChanging();
+					this._correoElectronico = value;
+					this.SendPropertyChanged("correoElectronico");
+					this.OncorreoElectronicoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_razon", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string razon
+		{
+			get
+			{
+				return this._razon;
+			}
+			set
+			{
+				if ((this._razon != value))
+				{
+					this.OnrazonChanging(value);
+					this.SendPropertyChanging();
+					this._razon = value;
+					this.SendPropertyChanged("razon");
+					this.OnrazonChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_peso", DbType="Decimal(18,0) NOT NULL")]
+		public decimal peso
+		{
+			get
+			{
+				return this._peso;
+			}
+			set
+			{
+				if ((this._peso != value))
+				{
+					this.OnpesoChanging(value);
+					this.SendPropertyChanging();
+					this._peso = value;
+					this.SendPropertyChanged("peso");
+					this.OnpesoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_estatura", DbType="Decimal(18,0) NOT NULL")]
+		public decimal estatura
+		{
+			get
+			{
+				return this._estatura;
+			}
+			set
+			{
+				if ((this._estatura != value))
+				{
+					this.OnestaturaChanging(value);
+					this.SendPropertyChanging();
+					this._estatura = value;
+					this.SendPropertyChanged("estatura");
+					this.OnestaturaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_talla", DbType="Decimal(18,0) NOT NULL")]
+		public decimal talla
+		{
+			get
+			{
+				return this._talla;
+			}
+			set
+			{
+				if ((this._talla != value))
+				{
+					this.OntallaChanging(value);
+					this.SendPropertyChanging();
+					this._talla = value;
+					this.SendPropertyChanged("talla");
+					this.OntallaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMC", DbType="Decimal(18,0) NOT NULL")]
+		public decimal IMC
+		{
+			get
+			{
+				return this._IMC;
+			}
+			set
+			{
+				if ((this._IMC != value))
+				{
+					this.OnIMCChanging(value);
+					this.SendPropertyChanging();
+					this._IMC = value;
+					this.SendPropertyChanged("IMC");
+					this.OnIMCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_ClienteInscripcion", Storage="_ClienteInscripcion", ThisKey="numeroIdentidad", OtherKey="idCliente")]
+		public EntitySet<ClienteInscripcion> ClienteInscripcion
+		{
+			get
+			{
+				return this._ClienteInscripcion;
+			}
+			set
+			{
+				this._ClienteInscripcion.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_ClienteInscripcion1", Storage="_ClienteInscripcion1", ThisKey="numeroIdentidad", OtherKey="idCliente")]
+		public EntitySet<ClienteInscripcion> ClienteInscripcion1
+		{
+			get
+			{
+				return this._ClienteInscripcion1;
+			}
+			set
+			{
+				this._ClienteInscripcion1.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_ClienteProducto", Storage="_ClienteProducto", ThisKey="numeroIdentidad", OtherKey="idCliente")]
+		public EntitySet<ClienteProducto> ClienteProducto
+		{
+			get
+			{
+				return this._ClienteProducto;
+			}
+			set
+			{
+				this._ClienteProducto.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ClienteInscripcion(ClienteInscripcion entity)
+		{
+			this.SendPropertyChanging();
+			entity.Cliente = this;
+		}
+		
+		private void detach_ClienteInscripcion(ClienteInscripcion entity)
+		{
+			this.SendPropertyChanging();
+			entity.Cliente = null;
+		}
+		
+		private void attach_ClienteInscripcion1(ClienteInscripcion entity)
+		{
+			this.SendPropertyChanging();
+			entity.Cliente1 = this;
+		}
+		
+		private void detach_ClienteInscripcion1(ClienteInscripcion entity)
+		{
+			this.SendPropertyChanging();
+			entity.Cliente1 = null;
+		}
+		
+		private void attach_ClienteProducto(ClienteProducto entity)
+		{
+			this.SendPropertyChanging();
+			entity.Cliente = this;
+		}
+		
+		private void detach_ClienteProducto(ClienteProducto entity)
+		{
+			this.SendPropertyChanging();
+			entity.Cliente = null;
 		}
 	}
 }

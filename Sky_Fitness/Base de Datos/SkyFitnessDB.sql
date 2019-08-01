@@ -24,12 +24,15 @@ apellido NVARCHAR(20) NOT NULL,
 fechaNacimiento DATE NOT NULL,
 fechaCreacion DATE NOT NULL,
 edad INT NOT NULL,
+sexo VARCHAR(10) NOT NULL,
 telefono VARCHAR(10) NOT NULL,
 direccion NVARCHAR(50) NOT NULL,
 correoElectronico NVARCHAR(20),
 razon NVARCHAR(50) NOT NULL,
 peso DECIMAL NOT NULL,
-medidas DECIMAL NOT NULL
+estatura DECIMAL NOT NULL,
+talla DECIMAL NOT NULL,
+IMC DECIMAL NOT NULL
 )
 GO
 

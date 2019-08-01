@@ -39,6 +39,19 @@ namespace Sky_Fitness
             cliente.nombre = txtNombre.Text;
             cliente.apellido = txtApellido.Text;
             cliente.telefono = txtTelefono.Text;
+            cliente.direccion = txtDireccion.Text;
+            cliente.correoElectronico = txtCorreo.Text;
+            cliente.fechaNacimiento = dpFechaNacimiento.DisplayDate;
+            cliente.razon = cbRIngreso.SelectedValue.ToString();
+            cliente.edad = Convert.ToInt32(txtEdad);
+            cliente.peso = Convert.ToDecimal(txtPeso);
+            cliente.estatura = Convert.ToDecimal(txtEstatura);
+            cliente.talla = Convert.ToDecimal(txtTalla);
+            cliente.IMC = Convert.ToDecimal(txtIMC);
+            if (rbMasculino.IsEnabled)
+                cliente.sexo = "Masculino";
+            else if (rbFemenino.IsEnabled)
+                cliente.sexo = "Femenino";
         }
     }
 }
