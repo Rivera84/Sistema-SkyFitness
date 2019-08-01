@@ -42,11 +42,11 @@
 
         <!--Sexo-->
         <Label Content="Sexo" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="117,248,821.2,297.6" Width="77" FontWeight="Bold" Height="24" />
-        <RadioButton Name="rbMasculino" Content="Masculino" HorizontalAlignment="Left" Height="19" Margin="285,253,0,0" VerticalAlignment="Top" Width="109" FontWeight="Bold"/>
-        <RadioButton Name="rbFemenino" Content="Femenino" HorizontalAlignment="Left" Height="19" Margin="426,253,0,0" VerticalAlignment="Top" Width="109" FontWeight="Bold"/>
+        <RadioButton Name="rbMasculino" Content="Masculino" HorizontalAlignment="Left" Height="19" Margin="251,253,0,0" VerticalAlignment="Top" Width="109" FontWeight="Bold"/>
+        <RadioButton Name="rbFemenino" Content="Femenino" HorizontalAlignment="Left" Height="19" Margin="386,253,0,0" VerticalAlignment="Top" Width="109" FontWeight="Bold"/>
 
         <!--Correo-->
-        <Label Content="Correo" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="563,248,375.2,297.6" Width="77" FontWeight="Bold" Height="24" />
+        <Label Content="Correo" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="571,248,367,298" Width="77" FontWeight="Bold" Height="24" />
         <TextBox Name="txtCorreo" HorizontalAlignment="Left" Height="26" Margin="677,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
 
         <!--Fecha de Nacimiento-->
@@ -55,8 +55,12 @@
 
         <!--Razón de Ingreso-->
         <Label Content="Razón de Ingreso" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="556,312,343,230" Width="116" FontWeight="Bold" Height="28" />
-        <ComboBox Name="cbRIngreso"  HorizontalAlignment="Left" Height="25" Margin="677,310,0,0" VerticalAlignment="Top" Width="250"/>
-
+        <ComboBox Name="cmbRIngreso"  HorizontalAlignment="Left" Height="25" Margin="677,310,0,0" VerticalAlignment="Top" Width="250">
+            <ComboBoxItem Name="Salud">Salud</ComboBoxItem>
+            <ComboBoxItem Name="Pasatiempo">Pasatiempo</ComboBoxItem>
+            <ComboBoxItem Name="Trabajo">Trabajo</ComboBoxItem>
+            <ComboBoxItem Name="Otro">Otro</ComboBoxItem>
+        </ComboBox>
 
         <Label Content="Edad" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="448,375,522,167" Width="45" FontWeight="Bold" Height="28" />
         <TextBox Name="txtEdad" HorizontalAlignment="Left" Height="26" Margin="503,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.5,0.5">
@@ -96,12 +100,12 @@
         <TextBox Name="txtIMC" HorizontalAlignment="Left" Height="26" Margin="825,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"/>
 
         <!--Botón Guardar-->
-        <Button Name="BtnGuardar" Content="Guardar" HorizontalAlignment="Left" Height="39" Margin="197,488,0,0" VerticalAlignment="Top" Width="112" FontWeight="Bold"/>
+        <Button Name="BtnGuardar" Content="Guardar" HorizontalAlignment="Left" Height="39" Margin="197,488,0,0" VerticalAlignment="Top" Width="112" FontWeight="Bold" Click="BtnGuardar_Click"/>
 
         <!--Botón Modificar-->
         <Button Name="BtnModificar" Content="Modificar" HorizontalAlignment="Left" Height="39" Margin="470,488,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold"/>
 
         <!--Botón Eliminar-->
-        <Button Name="BtnCancelar" Content="Cancelar" HorizontalAlignment="Left" Height="39" Margin="722,488,0,0" VerticalAlignment="Top" Width="110" FontWeight="Bold" RenderTransformOrigin="0.467,-0.692"/>
+        <Button Name="BtnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Height="39" Margin="722,488,0,0" VerticalAlignment="Top" Width="110" FontWeight="Bold" RenderTransformOrigin="0.467,-0.692" Click="BtnLimpiar_Click"/>
     </Grid>
 </UserControl>
