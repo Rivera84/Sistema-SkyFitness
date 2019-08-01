@@ -18,46 +18,48 @@
         <!--Codigo para ventana de agregar clientes-->
         <Border BorderBrush="Black" BorderThickness="5" HorizontalAlignment="Left" Height="550" Margin="10,10,0,0" VerticalAlignment="Top" Width="995"></Border>
 
+        <Label Content="Nuevo Cliente" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="461,26,404,508" Width="150" FontWeight="Bold" Height="36" FontSize="20"/>
+
         <!--Nombres-->
-        <Label Content="Nombre (s)" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="117,70,812.2,473.6" Width="86" FontWeight="Bold" Height="26" />
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="285,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+        <Label Content="Nombre (s)" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="117,82,812,462" Width="86" FontWeight="Bold" Height="26" />
+        <TextBox Name="txtNombre"  HorizontalAlignment="Left" Height="26" Margin="251,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
 
         <!--Apellidos-->
-        <Label Content="Apellido (s)" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="563,68,370.2,473.6" Width="82" FontWeight="Bold" Height="28" />
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="677,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+        <Label Content="Apellido (s)" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="563,80,370,462" Width="82" FontWeight="Bold" Height="28" />
+        <TextBox Name="txtApellido" HorizontalAlignment="Left" Height="26" Margin="677,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
 
         <!--Identidad-->
-        <Label Content="Identidad" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="117,128,821.2,413.6" Width="77" FontWeight="Bold" Height="28" />
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="285,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+        <Label Content="Identidad" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="117,136,821,406" Width="77" FontWeight="Bold" Height="28" />
+        <TextBox Name="txtIdentidad" HorizontalAlignment="Left" Height="26" Margin="251,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
 
         <!--Teléfono-->
-        <Label Content="Teléfono" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="563,128,375.2,413.6" Width="77" FontWeight="Bold" Height="28" />
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="677,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+        <Label Content="Teléfono" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="563,138,375,404" Width="77" FontWeight="Bold" Height="28" />
+        <TextBox Name="txtTelefono" HorizontalAlignment="Left" Height="26" Margin="675,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
 
         <!--Dirección-->
         <Label Content="Dirección" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="117,188,821.2,353.6" Width="77" FontWeight="Bold" Height="28" />
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="285,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="642"/>
+        <TextBox Name="txtDireccion" HorizontalAlignment="Left" Height="26" Margin="251,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="676"/>
 
         <!--Sexo-->
         <Label Content="Sexo" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="117,248,821.2,297.6" Width="77" FontWeight="Bold" Height="24" />
-        <RadioButton Content="Masculino" HorizontalAlignment="Left" Height="19" Margin="285,253,0,0" VerticalAlignment="Top" Width="109" FontWeight="Bold"/>
-        <RadioButton Content="Femenino" HorizontalAlignment="Left" Height="19" Margin="426,253,0,0" VerticalAlignment="Top" Width="109" FontWeight="Bold"/>
+        <RadioButton Name="rbMasculino" Content="Masculino" HorizontalAlignment="Left" Height="19" Margin="285,253,0,0" VerticalAlignment="Top" Width="109" FontWeight="Bold"/>
+        <RadioButton Name="rbFemenino" Content="Femenino" HorizontalAlignment="Left" Height="19" Margin="426,253,0,0" VerticalAlignment="Top" Width="109" FontWeight="Bold"/>
 
         <!--Correo-->
         <Label Content="Correo" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="563,248,375.2,297.6" Width="77" FontWeight="Bold" Height="24" />
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="677,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+        <TextBox Name="txtCorreo" HorizontalAlignment="Left" Height="26" Margin="677,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
 
         <!--Fecha de Nacimiento-->
         <Label Content="Fecha de Nacimiento" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="117,308,760,234" Width="138" FontWeight="Bold" Height="28" />
-        <DatePicker HorizontalAlignment="Left" Height="24" Margin="285,312,0,0" VerticalAlignment="Top" Width="250"/>
+        <DatePicker Name="dpFechaNacimiento" HorizontalAlignment="Left" Height="24" Margin="281,312,0,0" VerticalAlignment="Top" Width="250"/>
 
         <!--Razón de Ingreso-->
         <Label Content="Razón de Ingreso" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="556,312,343,230" Width="116" FontWeight="Bold" Height="28" />
-        <ComboBox HorizontalAlignment="Left" Height="25" Margin="677,310,0,0" VerticalAlignment="Top" Width="250"/>
+        <ComboBox Name="cbRIngreso"  HorizontalAlignment="Left" Height="25" Margin="677,310,0,0" VerticalAlignment="Top" Width="250"/>
 
 
         <Label Content="Edad" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="448,375,522,167" Width="45" FontWeight="Bold" Height="28" />
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="503,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.5,0.5">
+        <TextBox Name="txtEdad" HorizontalAlignment="Left" Height="26" Margin="503,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.5,0.5">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -69,28 +71,37 @@
         </TextBox>
 
         <!--Peso-->
-        <Label Content="Peso" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="117,426,855.2,115.6" Width="43" FontWeight="Bold" Height="28" />
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="197,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"/>
+        <Label Content="Peso" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="121,428,851,114" Width="43" FontWeight="Bold" Height="28" />
+        <TextBox Name="txtPeso" HorizontalAlignment="Left" Height="26" Margin="195,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"/>
 
         <!--Estatura-->
-        <Label Content="Estatura" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="328,426,626.2,115.6" Width="61" FontWeight="Bold" Height="28" />
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="426,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"/>
+        <Label Content="Estatura" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="338,428,616,114" Width="61" FontWeight="Bold" Height="28" />
+        <TextBox Name="txtEstatura" HorizontalAlignment="Left" Height="26" Margin="422,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"/>
 
         <!--Talla-->
-        <Label Content="Talla" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="542,426,434.2,115.6" Width="39" FontWeight="Bold" Height="28" />
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="618,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"/>
+        <Label Content="Talla" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="552,428,424,114" Width="39" FontWeight="Bold" Height="28" />
+        <TextBox Name="txtTalla" HorizontalAlignment="Left" Height="26" Margin="616,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"/>
 
         <!--IMC-->
-        <Label Content="IMC" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="752,426,220.2,115.6" Width="43" FontWeight="Bold" Height="28" />
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="827,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"/>
+        <Label Content="IMC" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="764,428,208,114" Width="43" FontWeight="Bold" Height="28" RenderTransformOrigin="0.5,0.5" >
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.13"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <TextBox Name="txtIMC" HorizontalAlignment="Left" Height="26" Margin="825,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"/>
 
         <!--Botón Guardar-->
-        <Button Name="BtnGuardar" Content="Guardar" HorizontalAlignment="Left" Height="39" Margin="240,488,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold"/>
+        <Button Name="BtnGuardar" Content="Guardar" HorizontalAlignment="Left" Height="39" Margin="197,488,0,0" VerticalAlignment="Top" Width="112" FontWeight="Bold"/>
 
         <!--Botón Modificar-->
-        <Button Name="BtnModificar" Content="Modificar" HorizontalAlignment="Left" Height="39" Margin="500,488,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold"/>
+        <Button Name="BtnModificar" Content="Modificar" HorizontalAlignment="Left" Height="39" Margin="470,488,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold"/>
 
         <!--Botón Eliminar-->
-        <Button Name="BtnCancelar" Content="Cancelar" HorizontalAlignment="Left" Height="39" Margin="750,488,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold" RenderTransformOrigin="0.467,-0.692"/>
+        <Button Name="BtnCancelar" Content="Cancelar" HorizontalAlignment="Left" Height="39" Margin="722,488,0,0" VerticalAlignment="Top" Width="110" FontWeight="Bold" RenderTransformOrigin="0.467,-0.692"/>
     </Grid>
 </UserControl>

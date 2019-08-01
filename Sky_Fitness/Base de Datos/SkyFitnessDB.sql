@@ -17,14 +17,14 @@ CREATE SCHEMA Detalle
 GO
 
 CREATE TABLE Persona.Cliente(
-numeroIdentidad INT NOT NULL
+numeroIdentidad VARCHAR(15) NOT NULL
 		CONSTRAINT PK_idCliente PRIMARY KEY CLUSTERED,
 nombre NVARCHAR(20) NOT NULL,
 apellido NVARCHAR(20) NOT NULL,
 fechaNacimiento DATE NOT NULL,
 fechaCreacion DATE NOT NULL,
 edad INT NOT NULL,
-telefono INT NOT NULL,
+telefono VARCHAR(10) NOT NULL,
 direccion NVARCHAR(50) NOT NULL,
 correoElectronico NVARCHAR(20),
 razon NVARCHAR(50) NOT NULL,
@@ -48,7 +48,7 @@ precioInscripcion DECIMAL
 )
 GO
 
-CREATE TABLE Producto.producto(
+CREATE TABLE Producto.Producto(
 idProducto INT IDENTITY (1000,1) NOT NULL
 			CONSTRAINT PK_idProducto PRIMARY KEY CLUSTERED,
 nombreProducto VARCHAR(20),
@@ -60,8 +60,7 @@ GO
 CREATE TABLE Detalle.ClienteInscripcion(
 idClienteInscripcion INT IDENTITY(1,1) NOT NULL
 						CONSTRAINT PK_idClienteInscripcion PRIMARY KEY CLUSTERED,
-nombreUsuario NVARCHAR(20) NOT NULL,
-numeroIdentidad INT NOT NULL,
+idCliente VARCHAR(15) NOT NULL,
 idInscripcion INT NOT NULL
 )
 GO
@@ -69,7 +68,7 @@ GO
 CREATE TABLE Detalle.ClienteProducto(
 idClienteProducto INT IDENTITY(1,1) NOT NULL
 						CONSTRAINT PK_idClienteProducto PRIMARY KEY CLUSTERED,
-nombreUsuario NVARCHAR(20) NOT NULL,
+idCliente VARCHAR(15) NOT NULL,
 idProducto INT NOT NULL
 )
 GO
@@ -77,8 +76,8 @@ GO
 
 ALTER TABLE Detalle.ClienteProducto
 	ADD CONSTRAINT
-		FK_Detalle_ClienteProducto$TieneUn$nombre_Usuario
-		FOREIGN KEY (nombreUsuario) REFERENCES Persona.Usuario(nombreUsuario)
+		FK_Detalle_ClienteProducto$TieneUn$Cliente_numeroIdentidad
+		FOREIGN KEY (idCliente) REFERENCES Persona.Cliente(numeroIdentidad)
 		ON UPDATE NO ACTION
 		ON DELETE NO ACTION
 GO
@@ -93,8 +92,8 @@ GO
 
 ALTER TABLE Detalle.ClienteInscripcion
 	ADD CONSTRAINT
-		FK_Detalle_ClienteInscripcion$TieneUn$nombre_Usuario
-		FOREIGN KEY (nombreUsuario) REFERENCES Persona.Usuario(nombreUsuario)
+		FK_Detalle_ClienteInscripcion$TieneUn$Cliente_numeroIdentidad
+		FOREIGN KEY (idCliente) REFERENCES Persona.Cliente(numeroIdentidad)
 		ON UPDATE NO ACTION
 		ON DELETE NO ACTION
 GO
@@ -104,8 +103,8 @@ GO
 
 ALTER TABLE Detalle.ClienteInscripcion
 	ADD CONSTRAINT
-		FK_Detalle_ClienteInscripcion$TieneUn$nuemroIdentidad
-		FOREIGN KEY (numeroIdentidad) REFERENCES Persona.Cliente(numeroIdentidad)
+		FK_Detalle_ClienteInscripcion$TieneUn$numeroIdentidad
+		FOREIGN KEY (idCliente) REFERENCES Persona.Cliente(numeroIdentidad)
 		ON UPDATE NO ACTION
 		ON DELETE NO ACTION
 GO

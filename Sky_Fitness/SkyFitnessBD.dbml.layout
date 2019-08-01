@@ -1,76 +1,76 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 17.875, 11.125" name="SkyFitnessBD">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 9" name="SkyFitnessBD">
   <DataContextMoniker Name="/SkyFitnessBDDataContext" />
   <nestedChildShapes>
-    <classShape Id="3e225262-f8cd-454f-ac51-51332a0c2cbe" absoluteBounds="11.75, 2.875, 2, 1.5785953776041666">
+    <classShape Id="3adcd6f0-aa64-4e1a-b4f3-4b0958f512cd" absoluteBounds="5.375, 3, 2, 1.3862939453125005">
       <DataClassMoniker Name="/SkyFitnessBDDataContext/ClienteInscripcion" />
       <nestedChildShapes>
-        <elementListCompartment Id="fe9821df-ef6e-4a1c-8e79-0176eed97ede" absoluteBounds="11.765, 3.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="8d816d9c-0772-4f94-bba3-dd07cc233a5d" absoluteBounds="5.3900000000000006, 3.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="89202d7f-8173-4341-b748-0bd2fb5529bc" absoluteBounds="8.375, 5.875, 2, 1.3862939453125005">
+    <classShape Id="e4a26b5e-6f57-469a-bdbc-2fe4ca57b600" absoluteBounds="1.75, 7.375, 2, 1.3862939453125">
       <DataClassMoniker Name="/SkyFitnessBDDataContext/ClienteProducto" />
       <nestedChildShapes>
-        <elementListCompartment Id="1575eaba-57fb-4abb-806b-90f5feec65f6" absoluteBounds="8.39, 6.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="acaf4cf9-f3b0-4b2f-a89f-604d0b00df89" absoluteBounds="1.7650000000000006, 7.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="cb83e409-0b9a-4ac0-90ff-af886da39e0b" absoluteBounds="11.875, 6.625, 2, 3.1170068359375005">
-      <DataClassMoniker Name="/SkyFitnessBDDataContext/Cliente" />
-      <nestedChildShapes>
-        <elementListCompartment Id="17f62aa0-ea12-4f1f-9cfc-c8fa21eb524b" absoluteBounds="11.89, 7.0850000000000009, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="b729bbda-03a7-4dd0-afc6-7a03735983d7" absoluteBounds="6.375, 3, 2, 1.193992513020834">
+    <classShape Id="d7090890-6003-4357-914e-083e3735b065" absoluteBounds="7.5, 5, 2, 1.1939925130208344">
       <DataClassMoniker Name="/SkyFitnessBDDataContext/Usuario" />
       <nestedChildShapes>
-        <elementListCompartment Id="3568e9d3-1343-4451-803e-3d2324541379" absoluteBounds="6.39, 3.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="664c76bf-5dd9-4b70-abf1-77fc6ce19895" absoluteBounds="7.5150000000000006, 5.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="63292fae-66ba-4fbb-b7c6-4e93f9bcb5ce" absoluteBounds="15.625, 5.625, 2, 1.3862939453125014">
+    <classShape Id="131d894a-c158-4754-8d6d-aea79c6b429b" absoluteBounds="1.125, 3.125, 2, 3.1170068359375014">
+      <DataClassMoniker Name="/SkyFitnessBDDataContext/Cliente" />
+      <nestedChildShapes>
+        <elementListCompartment Id="903418af-a4df-4712-9d02-cf353edc98a2" absoluteBounds="1.1400000000000001, 3.585, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f55986a4-04da-4630-975c-ff659acb44c8" absoluteBounds="3, 0.625, 2, 1.3862939453124987">
       <DataClassMoniker Name="/SkyFitnessBDDataContext/Inscripcion" />
       <nestedChildShapes>
-        <elementListCompartment Id="2c94bcce-9584-400f-95d3-c2edfe7102f0" absoluteBounds="15.64, 6.0850000000000009, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="7bd24b46-2bc6-4b86-85d4-734a0827023d" absoluteBounds="3.015, 1.0850000000000009, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="38eb95bc-8ead-44c1-bf98-8c803002abb2" absoluteBounds="6.125, 9.5, 2, 1.3862939453124987">
-      <DataClassMoniker Name="/SkyFitnessBDDataContext/producto" />
+    <classShape Id="b2c1577d-154a-4777-bd12-78d18bf0a63d" absoluteBounds="5.25, 6.5, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/SkyFitnessBDDataContext/Producto" />
       <nestedChildShapes>
-        <elementListCompartment Id="6342d284-62db-43cc-a2a3-422b6345529c" absoluteBounds="6.1400000000000006, 9.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="83ff0338-48a1-4910-85a8-b643bec972c5" absoluteBounds="5.2650000000000006, 6.9600000000000009, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(12.8125 : 6.625); (12.8125 : 4.45359537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(3.125 : 3.75564697265625); (5.375 : 3.75564697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/SkyFitnessBDDataContext/Cliente/Cliente_ClienteInscripcion" />
       <nodes>
-        <classShapeMoniker Id="cb83e409-0b9a-4ac0-90ff-af886da39e0b" />
-        <classShapeMoniker Id="3e225262-f8cd-454f-ac51-51332a0c2cbe" />
+        <classShapeMoniker Id="131d894a-c158-4754-8d6d-aea79c6b429b" />
+        <classShapeMoniker Id="3adcd6f0-aa64-4e1a-b4f3-4b0958f512cd" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.375 : 3.59699625651042); (11.75 : 3.59699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/SkyFitnessBDDataContext/Usuario/Usuario_ClienteInscripcion" />
+    <associationConnector edgePoints="[(3.125 : 3.37782348632813); (5.375 : 3.37782348632813)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SkyFitnessBDDataContext/Cliente/Cliente_ClienteInscripcion1" />
       <nodes>
-        <classShapeMoniker Id="b729bbda-03a7-4dd0-afc6-7a03735983d7" />
-        <classShapeMoniker Id="3e225262-f8cd-454f-ac51-51332a0c2cbe" />
+        <classShapeMoniker Id="131d894a-c158-4754-8d6d-aea79c6b429b" />
+        <classShapeMoniker Id="3adcd6f0-aa64-4e1a-b4f3-4b0958f512cd" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(7.34375 : 4.19399251302083); (7.34375 : 6.37923397949219); (8.375 : 6.37923397949219)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/SkyFitnessBDDataContext/Usuario/Usuario_ClienteProducto" />
+    <associationConnector edgePoints="[(2.4375 : 6.2420068359375); (2.4375 : 7.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SkyFitnessBDDataContext/Cliente/Cliente_ClienteProducto" />
       <nodes>
-        <classShapeMoniker Id="b729bbda-03a7-4dd0-afc6-7a03735983d7" />
-        <classShapeMoniker Id="89202d7f-8173-4341-b748-0bd2fb5529bc" />
+        <classShapeMoniker Id="131d894a-c158-4754-8d6d-aea79c6b429b" />
+        <classShapeMoniker Id="e4a26b5e-6f57-469a-bdbc-2fe4ca57b600" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(16.625 : 5.625); (16.625 : 3.66429768880208); (13.75 : 3.66429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(4.09375 : 2.0112939453125); (4.09375 : 3.03125); (5.375 : 3.03125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/SkyFitnessBDDataContext/Inscripcion/Inscripcion_ClienteInscripcion" />
       <nodes>
-        <classShapeMoniker Id="63292fae-66ba-4fbb-b7c6-4e93f9bcb5ce" />
-        <classShapeMoniker Id="3e225262-f8cd-454f-ac51-51332a0c2cbe" />
+        <classShapeMoniker Id="f55986a4-04da-4630-975c-ff659acb44c8" />
+        <classShapeMoniker Id="3adcd6f0-aa64-4e1a-b4f3-4b0958f512cd" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(6.734375 : 9.5); (6.734375 : 6.85151646240234); (8.375 : 6.85151646240234)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/SkyFitnessBDDataContext/producto/producto_ClienteProducto" />
+    <associationConnector edgePoints="[(5.25 : 7.63064697265625); (3.75 : 7.63064697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SkyFitnessBDDataContext/Producto/Producto_ClienteProducto" />
       <nodes>
-        <classShapeMoniker Id="38eb95bc-8ead-44c1-bf98-8c803002abb2" />
-        <classShapeMoniker Id="89202d7f-8173-4341-b748-0bd2fb5529bc" />
+        <classShapeMoniker Id="b2c1577d-154a-4777-bd12-78d18bf0a63d" />
+        <classShapeMoniker Id="e4a26b5e-6f57-469a-bdbc-2fe4ca57b600" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

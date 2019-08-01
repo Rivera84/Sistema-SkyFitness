@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.Sql;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Sky_Fitness
 {
@@ -20,9 +23,22 @@ namespace Sky_Fitness
     /// </summary>
     public partial class ventanaCliente : UserControl
     {
+        SkyFitnessBDDataContext dataContextSky;
         public ventanaCliente()
         {
             InitializeComponent();
+            SqlConnection conexion = new SqlConnection("Data Source = (local); Initial Catalog = SistemaDeEstacionamiento; Integrated Security = True");
+            dataContextSky = new SkyFitnessBDDataContext(); 
+        }
+
+        private void InsertarCliente()
+        {
+            Cliente cliente = new Cliente();
+
+            cliente.numeroIdentidad = txtIdentidad.Text;
+            cliente.nombre = txtNombre.Text;
+            cliente.apellido = txtApellido.Text;
+            cliente.telefono = txtTelefono.Text;
         }
     }
 }
