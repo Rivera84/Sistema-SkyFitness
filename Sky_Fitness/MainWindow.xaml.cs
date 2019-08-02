@@ -25,6 +25,7 @@ namespace Sky_Fitness
         ventanaCliente vc = new ventanaCliente();
         ventanaProducto vp = new ventanaProducto();
         ventanaInscripcion vi = new ventanaInscripcion();
+        ventanaReporte vr = new ventanaReporte();
 
         bool StateClosed = false;
         public MainWindow()
@@ -48,6 +49,7 @@ namespace Sky_Fitness
                 GridPrincipal.Children.Remove(vc);
                 GridPrincipal.Children.Remove(vp);
                 GridPrincipal.Children.Remove(vi);
+                GridPrincipal.Children.Remove(vr);
             }
             else
             {
@@ -117,6 +119,7 @@ namespace Sky_Fitness
         private void Reporte(object sender, RoutedEventArgs e)
         {
             estadoMenu();
+            GridPrincipal.Children.Add(vr);
         }
 
         //Boton Usuario

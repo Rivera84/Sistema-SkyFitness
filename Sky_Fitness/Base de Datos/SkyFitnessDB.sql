@@ -32,6 +32,7 @@ razon NVARCHAR(50) NOT NULL,
 peso DECIMAL NOT NULL,
 estatura DECIMAL NOT NULL,
 talla DECIMAL NOT NULL,
+estado VARCHAR(10),
 IMC DECIMAL NOT NULL
 )
 GO
@@ -64,7 +65,10 @@ CREATE TABLE Detalle.ClienteInscripcion(
 idClienteInscripcion INT IDENTITY(1,1) NOT NULL
 						CONSTRAINT PK_idClienteInscripcion PRIMARY KEY CLUSTERED,
 idCliente VARCHAR(15) NOT NULL,
-idInscripcion INT NOT NULL
+idInscripcion INT NOT NULL,
+fechaPago DATE NOT NULL,
+fechaFinal DATE NULL,
+diasRestantes INT NULL
 )
 GO
 
@@ -120,3 +124,42 @@ ALTER TABLE Detalle.ClienteInscripcion
 		ON UPDATE NO ACTION
 		ON DELETE NO ACTION
 GO
+
+
+
+/*Creacion del Trigger estado*/
+CREATE TRIGGER TR_EstadoCliente
+ON Persona.Cliente FOR INSERT
+AS 
+BEGIN
+DECLARE @identidad VARCHAR(15)
+SELECT @identidad = numeroIdentidad FROM Persona.Cliente
+UPDATE Persona.Cliente SET estado = 'Activo' WHERE numeroIdentidad = @identidad
+END
+GO
+
+/*Actualizar dias*/
+CREATE PROCEDURE SP_diasRestantes
+AS
+DECLARE @idCliente VARCHAR(15)
+SELECT @idCliente = idCliente FROM Detalle.ClienteInscripcion
+DECLARE @fechaFinal DATE
+SELECT @fechaFinal = fechaFinal FROM Detalle.ClienteInscripcion
+UPDATE Detalle.ClienteInscripcion SET diasRestantes = DATEDIFF(dd,GETDATE(),@fechaFinal) WHERE idCliente=@idCliente
+GO
+
+
+/*Creacion Trigger inscripcion
+CREATE TRIGGER TR_TiempoInscripcion
+ON Detalle.ClienteInscripcion FOR INSERT
+AS
+BEGIN
+UPDATE Detalle.ClienteInscripcion SET 
+
+ejemplo de insertar clienteInscripcion
+INSERT INTO Detalle.ClienteInscripcion  VALUES ('031825',100,GETDATE(),DATEADD(DAY,10,GETDATE()),0)
+GO
+
+EXEC SP_diasRestantes
+
+*/
