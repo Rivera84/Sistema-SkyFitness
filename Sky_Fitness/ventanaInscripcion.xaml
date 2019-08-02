@@ -14,24 +14,28 @@
              xmlns:local="clr-namespace:Sky_Fitness"
              mc:Ignorable="d"              
              d:DesignHeight="570" d:DesignWidth="1015">
-        <Grid Height="auto" Width="auto">
-            <!--Codigo para ventana de prodcutos-->
-            <Border BorderBrush="Black" BorderThickness="5" HorizontalAlignment="Left" Height="550" Margin="10,10,0,0" VerticalAlignment="Top" Width="995"></Border>
+    <Grid Height="auto" Width="auto">
+        <!--Codigo para ventana de prodcutos-->
+        <Border BorderBrush="Black" BorderThickness="5" HorizontalAlignment="Left" Height="550" Margin="10,10,0,0" VerticalAlignment="Top" Width="995"></Border>
 
-            <!--Nombre del prodcuto-->
-            <Label Content="Tipo inscripción" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="248,169,624.2,374" Width="143" FontWeight="Bold" Height="26" RenderTransformOrigin="1.081,0.815" />
-            <ComboBox HorizontalAlignment="Left" Height="25" Margin="505,170,0,0" VerticalAlignment="Top" Width="250"/>
-            
+        <Label Content="Inscripciones" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="443,68,431,466" Width="141" FontWeight="Bold" Height="36" FontSize="20"/>
+        <!--Nombre del prodcuto-->
+        <Label Content="Tipo inscripción" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="248,169,624.2,374" Width="143" FontWeight="Bold" Height="26" RenderTransformOrigin="1.081,0.815" />
+        <ComboBox Name="cmbTipoInscripcion" HorizontalAlignment="Left" Height="25" Margin="505,170,0,0" VerticalAlignment="Top" Width="250">
+            <ComboBoxItem Name="Zumba">Zumba</ComboBoxItem>
+            <ComboBoxItem Name="Aerobics">Aerobics</ComboBoxItem>
+            <ComboBoxItem Name="Yoga">Yoga</ComboBoxItem>
+        </ComboBox>
         <!--Precio del producto-->
-            <Label Content="Precio inscripción" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="248,258,624.2,285" Width="143" FontWeight="Bold" Height="26" />
-            <TextBox HorizontalAlignment="Left" Height="26" Margin="505,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+        <Label Content="Precio inscripción" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="248,258,624.2,285" Width="143" FontWeight="Bold" Height="26" />
+        <TextBox Name="txtPrecioInscripcion" HorizontalAlignment="Left" Height="26" Margin="505,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
 
 
-            <!--Botón Guardar-->
+        <!--Botón Guardar-->
         <Button Name="BtnGuardar" Content="Guardar" HorizontalAlignment="Left" Height="39" Margin="300,386,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold"/>
 
-            <!--Botón Eliminar-->
+        <!--Botón Eliminar-->
         <Button Name="BtnCancelar" Content="Cancelar" HorizontalAlignment="Left" Height="39" Margin="620,386,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold" RenderTransformOrigin="0.467,-0.692"/>
-        </Grid>
+    </Grid>
 </UserControl>
 

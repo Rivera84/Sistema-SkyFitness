@@ -18,19 +18,23 @@
         <!--Codigo para ventana de prodcutos-->
         <Border BorderBrush="Black" BorderThickness="5" HorizontalAlignment="Left" Height="550" Margin="10,10,0,0" VerticalAlignment="Top" Width="995"></Border>
 
+        <Label Content="Registro de Productos" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="377,72,417,462" Width="221" FontWeight="Bold" Height="36" FontSize="20"/>
         <!--Nombre del prodcuto-->
         <Label Content="Nombre del producto" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="248,169,624.2,374" Width="143" FontWeight="Bold" Height="26" RenderTransformOrigin="1.081,0.815" />
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="505,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+        <TextBox Name="txtNombreProducto" HorizontalAlignment="Left" Height="26" Margin="462,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293"/>
 
         <!--Precio del producto-->
-        <Label Content="Precio del producto" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="248,258,624.2,285" Width="143" FontWeight="Bold" Height="26" />
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="505,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+        <Label Content="Precio del producto" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="248,260,624,284" Width="143" FontWeight="Bold" Height="26" />
+        <TextBox Name="txtPrecioProducto" HorizontalAlignment="Left" Height="26" Margin="462,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167"/>
 
-
+        <Label Content="Cantidad" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="248,336,624,208" Width="143" FontWeight="Bold" Height="26" />
+        <TextBox Name="txtCantidad" HorizontalAlignment="Left" Height="30" Margin="462,332,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68"/>
         <!--Botón Guardar-->
-        <Button Name="BtnGuardar" Content="Guardar" HorizontalAlignment="Left" Height="39" Margin="300,386,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold"/>
+        <Button Name="BtnGuardar" Content="Guardar" HorizontalAlignment="Left" Height="39" Margin="208,434,0,0" VerticalAlignment="Top" Width="112" FontWeight="Bold" Click="BtnGuardar_Click"/>
 
         <!--Botón Eliminar-->
-        <Button Name="BtnCancelar" Content="Cancelar" HorizontalAlignment="Left" Height="39" Margin="620,386,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold" RenderTransformOrigin="0.467,-0.692"/>
+        <Button Name="BtnCancelar" Content="Cancelar" HorizontalAlignment="Left" Height="39" Margin="487,434,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold" RenderTransformOrigin="0.467,-0.692"/>
+
+        <Button Name="BtnInventario" Content="Inventario" HorizontalAlignment="Left" Height="39" Margin="778,434,0,0" VerticalAlignment="Top" Width="112" FontWeight="Bold" Click="BtnInventario_Click"/>
     </Grid>
 </UserControl>

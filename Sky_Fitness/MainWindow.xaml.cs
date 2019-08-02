@@ -27,6 +27,7 @@ namespace Sky_Fitness
         ventanaInscripcion vi = new ventanaInscripcion();
         ventanaReporte vr = new ventanaReporte();
 
+
         bool StateClosed = false;
         public MainWindow()
         {
@@ -104,8 +105,7 @@ namespace Sky_Fitness
         private void Producto(object sender, RoutedEventArgs e)
         {
             estadoMenu();
-            GridPrincipal.Children.Add(vp);
-
+            GridPrincipal.Children.Add(vp);            
         }
 
         //Boton inscripcion

@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.Sql;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Sky_Fitness
 {
@@ -20,9 +23,14 @@ namespace Sky_Fitness
     /// </summary>
     public partial class ventanaInscripcion : UserControl
     {
+        SkyFitnessBDDataContext dataContextSky;
         public ventanaInscripcion()
         {
             InitializeComponent();
+            SqlConnection conexion = new SqlConnection("Data Source = ABELCONSUEGRA; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
+            dataContextSky = new SkyFitnessBDDataContext(conexion);
         }
+
+        
     }
 }

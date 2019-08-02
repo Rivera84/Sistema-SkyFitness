@@ -5,9 +5,35 @@
       <Column Name="idClienteInscripcion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="idCliente" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
       <Column Name="idInscripcion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Inscripcion_ClienteInscripcion" Member="Inscripcion" ThisKey="idInscripcion" OtherKey="idInscripcion" Type="Inscripcion" IsForeignKey="true" />
+      <Column Name="fechaPago" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="fechaFinal" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="diasRestantes" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Cliente_ClienteInscripcion" Member="Cliente" ThisKey="idCliente" OtherKey="numeroIdentidad" Type="Cliente" IsForeignKey="true" />
       <Association Name="Cliente_ClienteInscripcion1" Member="Cliente1" ThisKey="idCliente" OtherKey="numeroIdentidad" Type="Cliente" IsForeignKey="true" />
+      <Association Name="Inscripcion_ClienteInscripcion" Member="Inscripcion" ThisKey="idInscripcion" OtherKey="idInscripcion" Type="Inscripcion" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Persona.Cliente" Member="Cliente">
+    <Type Name="Cliente">
+      <Column Name="numeroIdentidad" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="fechaNacimiento" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="fechaCreacion" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="edad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sexo" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="telefono" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="direccion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="correoElectronico" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="razon" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="peso" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="estatura" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="talla" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="estado" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="IMC" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Association Name="Cliente_ClienteInscripcion" Member="ClienteInscripcion" ThisKey="numeroIdentidad" OtherKey="idCliente" Type="ClienteInscripcion" />
+      <Association Name="Cliente_ClienteInscripcion1" Member="ClienteInscripcion1" ThisKey="numeroIdentidad" OtherKey="idCliente" Type="ClienteInscripcion" />
+      <Association Name="Cliente_ClienteProducto" Member="ClienteProducto" ThisKey="numeroIdentidad" OtherKey="idCliente" Type="ClienteProducto" />
     </Type>
   </Table>
   <Table Name="Detalle.ClienteProducto" Member="ClienteProducto">
@@ -15,8 +41,8 @@
       <Column Name="idClienteProducto" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="idCliente" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
       <Column Name="idProducto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Producto_ClienteProducto" Member="Producto" ThisKey="idProducto" OtherKey="idProducto" Type="Producto" IsForeignKey="true" />
       <Association Name="Cliente_ClienteProducto" Member="Cliente" ThisKey="idCliente" OtherKey="numeroIdentidad" Type="Cliente" IsForeignKey="true" />
+      <Association Name="Producto_ClienteProducto" Member="Producto" ThisKey="idProducto" OtherKey="idProducto" Type="Producto" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="Persona.Usuario" Member="Usuario">
@@ -38,29 +64,8 @@
       <Column Name="idProducto" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="nombreProducto" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="precioProducto" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="existencia" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Producto_ClienteProducto" Member="ClienteProducto" ThisKey="idProducto" OtherKey="idProducto" Type="ClienteProducto" />
-    </Type>
-  </Table>
-  <Table Name="Persona.Cliente" Member="Cliente">
-    <Type Name="Cliente">
-      <Column Name="numeroIdentidad" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="nombre" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="apellido" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="fechaNacimiento" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="fechaCreacion" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="edad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="sexo" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="telefono" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="direccion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="correoElectronico" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="razon" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="peso" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
-      <Column Name="estatura" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
-      <Column Name="talla" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
-      <Column Name="IMC" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
-      <Association Name="Cliente_ClienteInscripcion" Member="ClienteInscripcion" ThisKey="numeroIdentidad" OtherKey="idCliente" Type="ClienteInscripcion" />
-      <Association Name="Cliente_ClienteInscripcion1" Member="ClienteInscripcion1" ThisKey="numeroIdentidad" OtherKey="idCliente" Type="ClienteInscripcion" />
-      <Association Name="Cliente_ClienteProducto" Member="ClienteProducto" ThisKey="numeroIdentidad" OtherKey="idCliente" Type="ClienteProducto" />
     </Type>
   </Table>
 </Database>

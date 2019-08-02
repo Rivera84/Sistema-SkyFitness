@@ -25,16 +25,16 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Column="0" Grid.Row="0">
-            <Button Name="btnReporteUsuarios" Content="Reporte Usuarios"  Height="Auto" Margin="10,10,10,10" BorderBrush="Black" Background="#FFEBE523" BorderThickness="5"  FontWeight="Bold" FontFamily="Britannic Bold" FontSize="24" />
+            <Button Name="btnReporteUsuarios" Content="Reporte de Usuarios"  Height="Auto" Margin="10,10,10,10" BorderBrush="Black" Background="#FFEBE523" BorderThickness="5"  FontWeight="Bold" FontFamily="Britannic Bold" FontSize="24" />
         </Grid>
         <Grid Grid.Column="1" Grid.Row="0">
-            <Button Name="btnReporteProductos" Content="Reporte Productos" BorderBrush="Black" Background="#FFEBE523" BorderThickness="5"  Height="Auto" Margin="10,10,10,10"  FontWeight="Bold" FontFamily="Britannic Bold" FontSize="24" />
+            <Button Name="btnReporteProductos" Content="Inventario de Productos" BorderBrush="Black" Background="#FFEBE523" BorderThickness="5"  Height="Auto" Margin="10,10,10,10"  FontWeight="Bold" FontFamily="Britannic Bold" FontSize="24" />
         </Grid>
         <Grid Grid.Column="0" Grid.Row="1">
-            <Button Name="btnReporteInscripciones" Content="Reporte Inscripciones" BorderBrush="Black" Background="#FFEBE523" BorderThickness="5"  Height="Auto" Margin="10,10,10,10"   FontWeight="Bold" FontFamily="Britannic Bold" FontSize="24"/>
+            <Button Name="btnReporteInscripciones" Content="Reporte de Inscripciones" BorderBrush="Black" Background="#FFEBE523" BorderThickness="5"  Height="Auto" Margin="10,10,10,10"   FontWeight="Bold" FontFamily="Britannic Bold" FontSize="24"/>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="1">
-            <Button Name="btnReporteVentas" Content="Reporte Ventas" BorderBrush="Black" Background="#FFEBE523" BorderThickness="5"  Height="Auto" Margin="10,10,10,10"   FontWeight="Bold" FontFamily="Britannic Bold" FontSize="24"/>
+            <Button Name="btnReporteVentas" Content="Reporte de Ventas" BorderBrush="Black" Background="#FFEBE523" BorderThickness="5"  Height="Auto" Margin="10,10,10,10"   FontWeight="Bold" FontFamily="Britannic Bold" FontSize="24"/>
         </Grid>
     </Grid>
     

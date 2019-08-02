@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.Sql;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Sky_Fitness
 {
@@ -20,9 +23,54 @@ namespace Sky_Fitness
     /// </summary>
     public partial class ventanaProducto : UserControl
     {
+        SkyFitnessBDDataContext dataContextSky;
         public ventanaProducto()
         {
             InitializeComponent();
+            SqlConnection conexion = new SqlConnection("Data Source = ABELCONSUEGRA; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
+            dataContextSky = new SkyFitnessBDDataContext(conexion);
+        }
+
+        private void InsertarProducto()
+        {
+            try
+            {
+                Producto producto = new Producto();
+
+                producto.nombreProducto = txtNombreProducto.Text;
+                producto.precioProducto = Convert.ToDecimal(txtPrecioProducto.Text);
+                producto.existencia = Convert.ToInt32(txtCantidad.Text);
+
+                dataContextSky.Producto.InsertOnSubmit(producto);
+                dataContextSky.SubmitChanges();
+
+                MessageBox.Show("El producto se ha agregado con éxito");
+            }
+            catch(SqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void BtnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+            InsertarProducto();
+            Limpiar();
+        }
+
+        private void Limpiar()
+        {
+            txtNombreProducto.Clear();
+            txtPrecioProducto.Clear();
+            txtCantidad.Clear();
+            txtNombreProducto.Focus();
+        }
+
+        private void BtnInventario_Click(object sender, RoutedEventArgs e)
+        {
+            vInventario vinv = new vInventario();
+
+            vinv.Show();
         }
     }
 }

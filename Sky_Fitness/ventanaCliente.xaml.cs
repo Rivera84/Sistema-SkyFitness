@@ -27,7 +27,7 @@ namespace Sky_Fitness
         public ventanaCliente()
         {
             InitializeComponent();
-            SqlConnection conexion = new SqlConnection("Data Source = LAPTOP-H5OOPDVV\\SQLEXPRESS; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
+            SqlConnection conexion = new SqlConnection("Data Source = ABELCONSUEGRA; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
             dataContextSky = new SkyFitnessBDDataContext(conexion); 
         }
 
@@ -58,7 +58,7 @@ namespace Sky_Fitness
                 dataContextSky.Cliente.InsertOnSubmit(cliente);
                 dataContextSky.SubmitChanges();
 
-                MessageBox.Show("Se ha agregado con exito");
+                MessageBox.Show("El cliente se ha agregado con éxito");
             }
             catch(SqlException ex)
             {
@@ -70,7 +70,7 @@ namespace Sky_Fitness
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
             InsertarCliente();
-            
+            LimpiarDatos();
         }
 
         private void BtnLimpiar_Click(object sender, RoutedEventArgs e)
@@ -94,6 +94,8 @@ namespace Sky_Fitness
             txtEstatura.Clear();
             txtTalla.Clear();
             txtIMC.Clear();
+
+            txtNombre.Focus();
         }
     }
 }
