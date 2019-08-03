@@ -85,13 +85,9 @@ namespace Sky_Fitness
 
         private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("¿Realmente desea cerrar sesión?", "Cerrar Sesión", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-            {
-                this.Hide();
-                Login login = new Login();
-                login.Show();
-            }
-            else { }
+            this.Hide();
+            Login login = new Login();
+            login.Show();
         }
         //boton Cliente
         private void Cliente(object sender, RoutedEventArgs e)

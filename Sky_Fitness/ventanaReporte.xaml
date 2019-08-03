@@ -32,7 +32,7 @@
         </Grid>
         <Grid Grid.Row="0" Background="White" Margin="0.8,-1,-0.8,0.8" Grid.Column="1" >
             <Label Foreground="Black" FontFamily="Arial" FontSize="24" FontStretch="SemiExpanded" Content="Productos" Margin="193,42,193,204.8"/>
-            <Button Name="btnInventario" Content="Inventario" BorderBrush="Black" Background="#FFEBE523" BorderThickness="5"  Height="Auto" Margin="75,134,285,95.8"  FontWeight="Bold" FontFamily="Britannic Bold" FontSize="20" />
+            <Button Name="btnInventario" Content="Inventario" BorderBrush="Black" Background="#FFEBE523" BorderThickness="5"  Height="Auto" Margin="75,134,285,95.8"  FontWeight="Bold" FontFamily="Britannic Bold" FontSize="20" Click="BtnInventario_Click" />
             <Button Name="btnVenta" Content="Nuevo Producto" BorderBrush="Black" Background="#FFEBE523" BorderThickness="5"  Height="Auto" Margin="285,134,75,95.8"  FontWeight="Bold" FontFamily="Britannic Bold" FontSize="16" Click="BtnVenta_Click"  />
         </Grid>
         <Grid Grid.Column="0" Grid.Row="1" Background="White" Margin="-1,1.2,1.2,-1.4">

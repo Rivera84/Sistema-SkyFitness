@@ -117,21 +117,40 @@ namespace Sky_Fitness
 
         private void pagarProducto()
         {
-            try
+            Producto productoe = new Producto();
+
+            var productos = from prod in dataContextSky.Producto
+                            where productoe.idProducto.Equals(cmbProducto.SelectedValue)
+                            select prod.existencia;
+
+
+            if (txtCantidad.Text == String.Empty || txtidCliente.Text == String.Empty || cmbProducto.SelectedIndex == -1)
             {
-                ClienteProducto producto = new ClienteProducto();
-                producto.idCliente = txtidCliente.Text;
-                producto.idProducto = Convert.ToInt32(cmbProducto.SelectedValue);
-                producto.cantidad = Convert.ToInt32(txtCantidad.Text);
-                dataContextSky.ClienteProducto.InsertOnSubmit(producto);
-                dataContextSky.SubmitChanges();
-                MessageBox.Show("Se ha realizado con exito el pago");
-                
+                MessageBox.Show("Debe ingresar todos los datos");
             }
-            catch (Exception ex)
+            else if (Convert.ToInt32(txtCantidad.Text) > Convert.ToInt32(productos))
             {
-                MessageBox.Show("Ha ocurrido un error" + ex);
+                MessageBox.Show("No hay suficientes productos en existencia");
             }
+            else
+            {
+                try
+                {
+                    ClienteProducto producto = new ClienteProducto();
+                    producto.idCliente = txtidCliente.Text;
+                    producto.idProducto = Convert.ToInt32(cmbProducto.SelectedValue);
+                    producto.cantidad = Convert.ToInt32(txtCantidad.Text);
+                    dataContextSky.ClienteProducto.InsertOnSubmit(producto);
+                    dataContextSky.SubmitChanges();
+                    MessageBox.Show("Se ha realizado el pago con éxito");
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ha ocurrido un error" + ex);
+                }
+            }
+            
         }
     
 

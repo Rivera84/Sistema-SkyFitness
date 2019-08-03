@@ -103,5 +103,10 @@ namespace Sky_Fitness
             ventanaListadoClientes listaClientes = new ventanaListadoClientes();
             listaClientes.Show();
         }
+
+        // IMC = peso(kg)/altura^2(m)
+        // si está en libras -> libras/2.2 = kg
+        // si IMC= menos de 18, esta bajo de peso, entre 18 a 24, esta saludable,
+        // de 25 a 30 está en sobrepeso, de 30 en adelante está obeso
     }
 }

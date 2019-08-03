@@ -44,6 +44,7 @@ namespace Sky_Fitness
                 Cliente cliente = new Cliente();
 
                 var clientes = from cl in dataContextSky.Cliente
+                               orderby cl.nombre ascending
                                 select cl;
 
 

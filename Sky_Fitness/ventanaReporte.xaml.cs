@@ -47,5 +47,13 @@ namespace Sky_Fitness
             ventanaListadoClientes listaClientes = new ventanaListadoClientes();
             listaClientes.Show();
         }
+
+        private void BtnInventario_Click(object sender, RoutedEventArgs e)
+        {
+            vInventario inventario = new vInventario();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Hide();
+            inventario.Show();
+        }
     }
 }
