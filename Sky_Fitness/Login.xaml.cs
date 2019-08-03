@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Sky_Fitness
 {
@@ -19,9 +21,12 @@ namespace Sky_Fitness
     /// </summary>
     public partial class Login : Window
     {
+        SkyFitnessBDDataContext dataContextSky;
         public Login()
         {
             InitializeComponent();
+            SqlConnection conexion = new SqlConnection("Data Source = ABELCONSUEGRA; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
+            dataContextSky = new SkyFitnessBDDataContext(conexion);
         }
         private void BtnSalirLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -32,16 +37,40 @@ namespace Sky_Fitness
 
         private void Entrar_Click(object sender, RoutedEventArgs e)
         {
+            //MainWindow inicio = new MainWindow();
+            //if (txtUsuario.Text == string.Empty || txtContrasena.Password == string.Empty)
+            //{
+            //    MessageBox.Show("Debe ingresar un usuario y una contraseña \nIntente nuevamente.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            //    txtUsuario.Focus();
+            //}
+            //else if (txtUsuario.Text == "sky" && txtContrasena.Password == "sky")
+            //{                
+            //    inicio.Show();
+            //    this.Close();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Usuario o contraseña incorrectos. \nIntente nuevamente.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            //}
+            ValidarLogin();
+        }
+
+        private void ValidarLogin()
+        {
+            Usuario usuario = new Usuario();
             MainWindow inicio = new MainWindow();
-            if (txtUsuario.Text == string.Empty|| txtContrasena.Password == string.Empty)
+
+            // sirve para validar si existe el usuario y contraseña en la base de datos, sintaxis lambda
+            int validar = dataContextSky.Usuario.Where(t => t.nombreUsuario == txtUsuario.Text && t.contrasena == txtContrasena.Password).Count();
+            if (validar > 0)
+            {
+                inicio.Show();
+                this.Close();
+            }
+            else if (txtUsuario.Text == string.Empty || txtContrasena.Password == string.Empty)
             {
                 MessageBox.Show("Debe ingresar un usuario y una contraseña \nIntente nuevamente.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                 txtUsuario.Focus();
-            }
-            else if (txtUsuario.Text == "sky" && txtContrasena.Password == "sky")
-            {                
-                inicio.Show();
-                this.Close();
             }
             else
             {

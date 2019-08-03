@@ -40,7 +40,7 @@ GO
 CREATE TABLE Persona.Usuario(
 nombreUsuario NVARCHAR(20) NOT NULL
 			CONSTRAINT PK_nombreUsuario PRIMARY KEY CLUSTERED,
-constrasena NVARCHAR NOT NULL
+contrasena NVARCHAR(100) NOT NULL
 )
 GO
 
