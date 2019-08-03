@@ -24,5 +24,10 @@ namespace Sky_Fitness
         {
             InitializeComponent();
         }
+
+        private void BtnVenta_Click(object sender, RoutedEventArgs e)
+        {
+         
+        }
     }
 }

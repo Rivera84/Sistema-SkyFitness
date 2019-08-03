@@ -46,7 +46,7 @@ namespace Sky_Fitness
                 btnReporte.IsEnabled = true;
                 btnCerrarSesion.IsEnabled = true;
                 btnCliente.IsEnabled = true;
-                btnInscripcion.IsEnabled = true;
+                btnPago.IsEnabled = true;
                 GridPrincipal.Children.Remove(vc);
                 GridPrincipal.Children.Remove(vp);
                 GridPrincipal.Children.Remove(vi);
@@ -61,7 +61,7 @@ namespace Sky_Fitness
                 btnReporte.IsEnabled = false;
                 btnCerrarSesion.IsEnabled = false;
                 btnCliente.IsEnabled = false;
-                btnInscripcion.IsEnabled = false;
+                btnPago.IsEnabled = false;
             }
             StateClosed = !StateClosed;
         }

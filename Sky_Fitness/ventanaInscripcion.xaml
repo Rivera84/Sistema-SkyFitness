@@ -16,26 +16,51 @@
              d:DesignHeight="570" d:DesignWidth="1015">
     <Grid Height="auto" Width="auto">
         <!--Codigo para ventana de prodcutos-->
-        <Border BorderBrush="Black" BorderThickness="5" HorizontalAlignment="Left" Height="550" Margin="10,10,0,0" VerticalAlignment="Top" Width="995"></Border>
+        <Border BorderBrush="Black" BorderThickness="5" HorizontalAlignment="Left" Height="550" Margin="10,10,0,0" VerticalAlignment="Top" Width="995">
 
-        <Label Content="Inscripciones" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="443,68,431,466" Width="141" FontWeight="Bold" Height="36" FontSize="20"/>
-        <!--Nombre del prodcuto-->
-        <Label Content="Tipo inscripción" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="248,169,624.2,374" Width="143" FontWeight="Bold" Height="26" RenderTransformOrigin="1.081,0.815" />
-        <ComboBox Name="cmbTipoInscripcion" HorizontalAlignment="Left" Height="25" Margin="505,170,0,0" VerticalAlignment="Top" Width="250">
-            <ComboBoxItem Name="Zumba">Zumba</ComboBoxItem>
-            <ComboBoxItem Name="Aerobics">Aerobics</ComboBoxItem>
-            <ComboBoxItem Name="Yoga">Yoga</ComboBoxItem>
+        </Border>
+
+
+        <!--Tipo de pago-->
+        <Label  Content="Tipo de pago" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="670,52,245.2,491.6" Width="100" FontWeight="Bold" Height="26" RenderTransformOrigin="1.081,0.815" />
+        <!--ComboBox Para seleccionar el tipo de pago-->
+        <ComboBox Name="cmbTipoAccion" HorizontalAlignment="Left" Height="25" Margin="765,52,0,0" VerticalAlignment="Top" Width="152" SelectionChanged="CmbTipoAccion_SelectionChanged">
+            <ComboBoxItem Name="Inscripcion">Inscripción</ComboBoxItem>
+            <ComboBoxItem Name="Producto">Producto</ComboBoxItem>
         </ComboBox>
-        <!--Precio del producto-->
-        <Label Content="Precio inscripción" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="248,258,624.2,285" Width="143" FontWeight="Bold" Height="26" />
-        <TextBox Name="txtPrecioInscripcion" HorizontalAlignment="Left" Height="26" Margin="505,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
 
 
-        <!--Botón Guardar-->
-        <Button Name="BtnGuardar" Content="Guardar" HorizontalAlignment="Left" Height="39" Margin="300,386,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold"/>
+        <!--ComboBox para seleccionar el tipo de inscripcion a pagar-->
+        <ComboBox Visibility="Collapsed" Name="cmbInscripcion" HorizontalAlignment="Left" Height="25" Margin="654,142,0,0" VerticalAlignment="Top" Width="152" />
+
+        <!--txtTipo Inscripcion-->
+        <Label  Visibility="Collapsed" Name="lbTipoInscripcion" Content="Tipo Inscripción" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="544,142,363.2,401.6" Width="108" FontWeight="Bold" Height="26" />
+
+        <!--ComboBox para seleccionar producto-->
+        <ComboBox Visibility="Collapsed" Name="cmbProducto" HorizontalAlignment="Left" Height="25" Margin="662,146,0,0" VerticalAlignment="Top" Width="152"/>
+
+        <!--Label Producto-->
+        <Label Visibility="Collapsed" Name="lbProducto" Content="Producto" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="588,148,361.2,395.6" Width="66" FontWeight="Bold" Height="26" />
+        <Label Visibility="Collapsed" Name="lbcantidad" Content="Cantidad" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="412,181,531.2,362.6" Width="72" FontWeight="Bold" Height="26" />
+        <TextBox  Visibility="Collapsed" Name="txtCantidad" HorizontalAlignment="Left" Height="26" Margin="478,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="44"/>
+
+        <DataGrid Name="dgPago" Margin="93,218,76.2,138.6" Background="#FFBABABA"/>
+
+        <!--id del cliente-->
+        <Label Visibility="Visible" Name="lbCliente" Content="Cliente" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="154,142,802.2,401.6" Width="59" FontWeight="Bold" Height="26" />
+        <!--txtCliente-->
+        <TextBox  Visibility="Visible" Name="txtidCliente" HorizontalAlignment="Left" Height="26" Margin="208,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162"/>
+
+
+
+
+
+
+        <!--Botón Pagar-->
+        <Button Name="BtnPagar" Content="Pagar" HorizontalAlignment="Left" Height="39" Margin="319,454,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold" Click="botonPagar"/>
 
         <!--Botón Eliminar-->
-        <Button Name="BtnCancelar" Content="Cancelar" HorizontalAlignment="Left" Height="39" Margin="620,386,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold" RenderTransformOrigin="0.467,-0.692"/>
+        <Button Name="BtnCancelar" Content="Cancelar" HorizontalAlignment="Left" Height="39" Margin="613,454,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold" RenderTransformOrigin="0.467,-0.692"/>
     </Grid>
 </UserControl>
 

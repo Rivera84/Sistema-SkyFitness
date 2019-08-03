@@ -56,7 +56,8 @@ CREATE TABLE Producto.Producto(
 idProducto INT IDENTITY (1000,1) NOT NULL
 			CONSTRAINT PK_idProducto PRIMARY KEY CLUSTERED,
 nombreProducto VARCHAR(20),
-precioProducto DECIMAL
+precioProducto DECIMAL,
+existencia INT NULL
 )
 GO
 
@@ -76,6 +77,7 @@ CREATE TABLE Detalle.ClienteProducto(
 idClienteProducto INT IDENTITY(1,1) NOT NULL
 						CONSTRAINT PK_idClienteProducto PRIMARY KEY CLUSTERED,
 idCliente VARCHAR(15) NOT NULL,
+cantidad INT NOT NULL,
 idProducto INT NOT NULL
 )
 GO
@@ -138,15 +140,10 @@ UPDATE Persona.Cliente SET estado = 'Activo' WHERE numeroIdentidad = @identidad
 END
 GO
 
-/*Actualizar dias*/
-CREATE PROCEDURE SP_diasRestantes
-AS
-DECLARE @idCliente VARCHAR(15)
-SELECT @idCliente = idCliente FROM Detalle.ClienteInscripcion
-DECLARE @fechaFinal DATE
-SELECT @fechaFinal = fechaFinal FROM Detalle.ClienteInscripcion
-UPDATE Detalle.ClienteInscripcion SET diasRestantes = DATEDIFF(dd,GETDATE(),@fechaFinal) WHERE idCliente=@idCliente
-GO
+/*trigger Detalle.ClienteInscripcion*/
+
+
+
 
 
 /*Creacion Trigger inscripcion
