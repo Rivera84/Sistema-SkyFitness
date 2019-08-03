@@ -81,6 +81,9 @@
     <Compile Include="ventanaInscripcion.xaml.cs">
       <DependentUpon>ventanaInscripcion.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ventanaListadoClientes.xaml.cs">
+      <DependentUpon>ventanaListadoClientes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ventanaPago.xaml.cs">
       <DependentUpon>ventanaPago.xaml</DependentUpon>
     </Compile>
@@ -118,6 +121,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ventanaInscripcion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ventanaListadoClientes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -41,5 +41,11 @@ namespace Sky_Fitness
             mainWindow.Hide();
             ventanaTipoInscripcion.Show();
         }
+
+        private void BtnCliente_Click(object sender, RoutedEventArgs e)
+        {
+            ventanaListadoClientes listaClientes = new ventanaListadoClientes();
+            listaClientes.Show();
+        }
     }
 }

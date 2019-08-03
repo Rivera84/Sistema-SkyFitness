@@ -1,0 +1,35 @@
+﻿<Window x:Class="Sky_Fitness.ventanaListadoClientes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+         Background="{DynamicResource MaterialDesignPaper}"
+         FontFamily="{DynamicResource MaterialDesignFont}"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sky_Fitness"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="900" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" BorderBrush="#FF080808" BorderThickness="3" >
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Background="#FF0F0D0D">
+                <Label Content="Listado de Clientes" Foreground="#FFEBE523" Width="147" HorizontalAlignment="Left" Margin="1,0,0,0" FontFamily="Lucida Fax" FontWeight="Bold" />
+                <Button Name="btnSalir" Background="#FF0F0D0D" Margin="850,2,0,2.4" Height="26" Click="BtnSalir_Click" BorderBrush="{x:Null}">
+                    <materialDesign:PackIcon Kind="Close" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
+                </Button>
+                <!--Boton salir-->
+            </Grid>
+        </Grid>
+        <Label Content="Listado de Clientes" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="345,45,360,413" Width="189" FontWeight="Bold" Height="36" FontSize="20"/>
+        <DataGrid BorderBrush="Black" BorderThickness="0.6" Name="dgListadoClientes" HorizontalAlignment="Left" Height="386" Margin="21,86,0,0" Width="850" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

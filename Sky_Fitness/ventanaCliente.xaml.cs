@@ -27,7 +27,7 @@ namespace Sky_Fitness
         public ventanaCliente()
         {
             InitializeComponent();
-            SqlConnection conexion = new SqlConnection("Data Source = LAPTOP-H5OOPDVV\\SQLEXPRESS; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
+            SqlConnection conexion = new SqlConnection("Data Source = ABELCONSUEGRA; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
             dataContextSky = new SkyFitnessBDDataContext(conexion); 
         }
 
@@ -96,6 +96,12 @@ namespace Sky_Fitness
             txtIMC.Clear();
 
             txtNombre.Focus();
+        }
+
+        private void BtnListaClientes_Click(object sender, RoutedEventArgs e)
+        {
+            ventanaListadoClientes listaClientes = new ventanaListadoClientes();
+            listaClientes.Show();
         }
     }
 }
