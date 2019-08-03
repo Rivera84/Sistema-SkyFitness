@@ -38,7 +38,7 @@
         <Grid Grid.Column="0" Grid.Row="1" Background="White" Margin="-1,1.2,1.2,-1.4">
 
             <Label Foreground="Black" FontFamily="Arial" FontSize="24" FontStretch="SemiExpanded" Content="Inscripciones" Margin="178,42,179.2,204.8"/>
-            <Button Name="btnReporteInscripciones" Content="Tipo" BorderBrush="Black" Background="#FFEBE523" BorderThickness="5"  Height="Auto" Margin="75,134,285.2,95.8"    FontFamily="Britannic Bold" FontSize="20"/>
+            <Button Name="btnReporteInscripciones" Content="Nuevo Tipo" BorderBrush="Black" Background="#FFEBE523" BorderThickness="5"  Height="Auto" Margin="75,134,285.2,95.8"    FontFamily="Britannic Bold" FontSize="20" Click="BtnReporteInscripciones_Click"/>
             <Button Name="btnPagar" Content="Inscribirse" BorderBrush="Black" Background="#FFEBE523" BorderThickness="5"  Height="Auto" Margin="285,134,75.2,95.8"   FontFamily="Britannic Bold" FontSize="20"/>
 
         </Grid>

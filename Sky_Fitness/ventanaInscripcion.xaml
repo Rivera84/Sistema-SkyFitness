@@ -44,7 +44,29 @@
         <Label Visibility="Collapsed" Name="lbcantidad" Content="Cantidad" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="412,181,531.2,362.6" Width="72" FontWeight="Bold" Height="26" />
         <TextBox  Visibility="Collapsed" Name="txtCantidad" HorizontalAlignment="Left" Height="26" Margin="478,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="44"/>
 
-        <DataGrid Name="dgPago" Margin="93,218,76.2,138.6" Background="#FFBABABA"/>
+        <ListBox  Margin="121,241,98.2,156.6" Name="lbProductos">
+            <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="190"/>
+                                    <ColumnDefinition Width="190"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{Binding Placa}"></TextBlock>
+                                <TextBlock Grid.Column="1" Text="{Binding TipoVehiculo}"></TextBlock>
+                                <TextBlock Grid.Column="2" Text="{Binding HoraEntrada}"></TextBlock>
+                                <TextBlock Grid.Column="3" Text="{Binding HoraSalida}"></TextBlock>
+                                <TextBlock Grid.Column="4" Text="{Binding TiempoTotal}"></TextBlock>
+                                <TextBlock Grid.Column="5" Text="{Binding Costo}"></TextBlock>
+
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+        </ListBox>
 
         <!--id del cliente-->
         <Label Visibility="Visible" Name="lbCliente" Content="Cliente" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="154,142,802.2,401.6" Width="59" FontWeight="Bold" Height="26" />
@@ -60,7 +82,7 @@
         <Button Name="BtnPagar" Content="Pagar" HorizontalAlignment="Left" Height="39" Margin="319,454,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold" Click="botonPagar"/>
 
         <!--Botón Eliminar-->
-        <Button Name="BtnCancelar" Content="Cancelar" HorizontalAlignment="Left" Height="39" Margin="613,454,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold" RenderTransformOrigin="0.467,-0.692"/>
+        <Button Name="BtnCancelar" Content="Cancelar" HorizontalAlignment="Left" Height="39" Margin="613,454,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold" RenderTransformOrigin="0.467,-0.692" Click="BtnCancelar_Click"/>
     </Grid>
 </UserControl>
 

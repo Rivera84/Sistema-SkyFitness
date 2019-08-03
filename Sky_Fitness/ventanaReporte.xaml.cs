@@ -20,6 +20,7 @@ namespace Sky_Fitness
     /// </summary>
     public partial class ventanaReporte : UserControl
     {
+
         public ventanaReporte()
         {
             InitializeComponent();
@@ -27,7 +28,18 @@ namespace Sky_Fitness
 
         private void BtnVenta_Click(object sender, RoutedEventArgs e)
         {
-         
+            ventanaPago ventanaPago = new ventanaPago();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Hide();
+            ventanaPago.Show();
+        }
+
+        private void BtnReporteInscripciones_Click(object sender, RoutedEventArgs e)
+        {
+            nuevoTipoInscripcion ventanaTipoInscripcion = new nuevoTipoInscripcion();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Hide();
+            ventanaTipoInscripcion.Show();
         }
     }
 }

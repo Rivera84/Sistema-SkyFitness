@@ -109,7 +109,7 @@
                     </Grid>
                 </Button>
 
-                <Button IsEnabled="true" Name="btnCliente" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,341,2,196.6" Click="Cliente">
+                <Button IsEnabled="true" Name="btnCliente" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,301,2,231.6" Click="Cliente" Height="Auto">
                     <!--Boton Cliente-->
                     <Grid Width="165" Height="32" >
                         <materialDesign:PackIcon Kind="UserGroup" Height="30" Width="27" Margin="-2,-2,0,0" Foreground="Black"/>
@@ -117,14 +117,14 @@
                     </Grid>
                 </Button>
 
-                <Button IsEnabled="true" Name="btnUsuario" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,434,2,103.6" Click="Usuario">
+                <Button IsEnabled="true" Name="btnUsuario" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,410,2,122.6" Click="Usuario" Height="Auto">
                     <!--Boton Usuario-->
                     <Grid Width="165" Height="30" >
-                        <materialDesign:PackIcon Kind="User" Height="30" Width="27" Margin="0,-2,0,0" Foreground="Black"/>
-                        <Label Content="Usuario" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="61,0,45,3" />
+                        <materialDesign:PackIcon Kind="Settings" Height="30" Width="27" Margin="0,-2,0,0" Foreground="Black"/>
+                        <Label Content="Configuración" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="38,0,26,3" Width="101" />
                     </Grid>
                 </Button>
-                <Button IsEnabled="true" Name="btnCerrarSesion" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,531,2,7" Click="BtnCerrarSesion_Click">
+                <Button IsEnabled="true" Name="btnCerrarSesion" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,524,2,9.6" Click="BtnCerrarSesion_Click" Height="Auto">
                     <!--Boton cerrar sesion-->
                     <Grid Width="165" Height="30" >
                         <Grid.RowDefinitions>
@@ -135,24 +135,17 @@
                         <Label Content="Cerrar Sesión" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="34,0,26,3.4" Grid.RowSpan="2" Width="105"/>
                     </Grid>
                 </Button>
-                <Button Name="btnProducto" IsEnabled="true" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,293,2,244.6" Click="Producto">
-                    <!--Boton Producto-->
-                    <Grid Width="165" Height="30" >
-                        <materialDesign:PackIcon Kind="Server" Height="29" Width="27" Margin="0,-2,0,0" Foreground="Black"/>
-                        <Label Content="Nuevo Productos" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="41,0,10,3" Width="114" />
-                    </Grid>
-                </Button>
 
-                <Button Name="btnReporte" IsEnabled="true" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,387,2,150.6" Click="Reporte">
+                <Button Name="btnReporte" IsEnabled="true" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="4,355,0,178.6" Click="Reporte" Height="Auto">
                     <!--Boton Reporte-->
                     <Grid Width="165" Height="30" >
                         <materialDesign:PackIcon Kind="Paper" Height="29" Width="27" Margin="0,-2,0,0" Foreground="Black"/>
-                        <Label Content="Reporte" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="59,0,26,3" Width="80" />
+                        <Label Content="General" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="59,0,10,3" Width="96" />
                     </Grid>
                 </Button>
 
 
-                <Button Name="btnPago" IsEnabled="true" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,249,2,288.6" Click="inscripcion">
+                <Button Name="btnPago" IsEnabled="true" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,249,2,282.6" Click="inscripcion" Height="Auto">
                     <!--Boton Inscripcion-->
                     <Grid Width="165" Height="30" >
                         <materialDesign:PackIcon Kind="Money100" Height="29" Width="27" Margin="-1,-3,0,0" Foreground="Black"/>

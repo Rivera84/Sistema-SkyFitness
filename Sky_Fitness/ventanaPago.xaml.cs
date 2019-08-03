@@ -10,27 +10,25 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Data.Sql;
-using System.Data;
 using System.Data.SqlClient;
 
 namespace Sky_Fitness
 {
     /// <summary>
-    /// Lógica de interacción para ventanaProducto.xaml
+    /// Lógica de interacción para ventanaPago.xaml
     /// </summary>
-    public partial class ventanaProducto : UserControl
+    public partial class ventanaPago : Window
     {
         SkyFitnessBDDataContext dataContextSky;
-        public ventanaProducto()
+
+        public ventanaPago()
         {
             InitializeComponent();
             SqlConnection conexion = new SqlConnection("Data Source = LAPTOP-H5OOPDVV\\SQLEXPRESS; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
             dataContextSky = new SkyFitnessBDDataContext(conexion);
-        }
 
+        }
         private void InsertarProducto()
         {
             try
@@ -46,7 +44,7 @@ namespace Sky_Fitness
 
                 MessageBox.Show("El producto se ha agregado con éxito");
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
                 MessageBox.Show(ex.ToString());
             }
@@ -71,6 +69,15 @@ namespace Sky_Fitness
             vInventario vinv = new vInventario();
 
             vinv.Show();
+        }
+
+       
+
+        private void BtnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            MainWindow mw = new MainWindow();
+            mw.Show();
         }
     }
 }

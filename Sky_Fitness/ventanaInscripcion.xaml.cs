@@ -126,7 +126,7 @@ namespace Sky_Fitness
                 dataContextSky.ClienteProducto.InsertOnSubmit(producto);
                 dataContextSky.SubmitChanges();
                 MessageBox.Show("Se ha realizado con exito el pago");
-
+                
             }
             catch (Exception ex)
             {
@@ -166,6 +166,13 @@ namespace Sky_Fitness
                 pagarIncripcion();
             }
            
+        }
+
+        private void BtnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+           
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
         }
     }
 }

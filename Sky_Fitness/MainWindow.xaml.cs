@@ -23,7 +23,7 @@ namespace Sky_Fitness
     {
         //Clases
         ventanaCliente vc = new ventanaCliente();
-        ventanaProducto vp = new ventanaProducto();
+        
         ventanaInscripcion vi = new ventanaInscripcion();
         ventanaReporte vr = new ventanaReporte();
 
@@ -42,13 +42,13 @@ namespace Sky_Fitness
                 Storyboard sb = this.FindResource("OpenMenu") as Storyboard;
                 sb.Begin();
                 btnUsuario.IsEnabled = true;
-                btnProducto.IsEnabled = true;
+                
                 btnReporte.IsEnabled = true;
                 btnCerrarSesion.IsEnabled = true;
                 btnCliente.IsEnabled = true;
                 btnPago.IsEnabled = true;
                 GridPrincipal.Children.Remove(vc);
-                GridPrincipal.Children.Remove(vp);
+               
                 GridPrincipal.Children.Remove(vi);
                 GridPrincipal.Children.Remove(vr);
             }
@@ -57,7 +57,7 @@ namespace Sky_Fitness
                 Storyboard sb = this.FindResource("CloseMenu") as Storyboard;
                 sb.Begin();
                 btnUsuario.IsEnabled = false;
-                btnProducto.IsEnabled = false;
+               
                 btnReporte.IsEnabled = false;
                 btnCerrarSesion.IsEnabled = false;
                 btnCliente.IsEnabled = false;
@@ -105,7 +105,7 @@ namespace Sky_Fitness
         private void Producto(object sender, RoutedEventArgs e)
         {
             estadoMenu();
-            GridPrincipal.Children.Add(vp);            
+                      
         }
 
         //Boton inscripcion
