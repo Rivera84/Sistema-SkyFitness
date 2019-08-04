@@ -180,22 +180,36 @@ namespace Sky_Fitness
 
         private void pagarIncripcion()
         {
-            try
+            int clienteValido = dataContextSky.Cliente.Where(t => t.numeroIdentidad == txtidCliente.Text).Count();
+            if (txtidCliente.Text == String.Empty || cmbInscripcion.SelectedIndex == -1)
+                MessageBox.Show("Complete todos los campos");
+            else if (clienteValido < 1)
             {
-                ClienteInscripcion inscripcion = new ClienteInscripcion();
-                inscripcion.idCliente = txtidCliente.Text;
-                inscripcion.idInscripcion = Convert.ToInt32(cmbInscripcion.SelectedValue);
-                inscripcion.fechaPago = DateTime.Now;
-                inscripcion.fechaFinal = DateTime.Now.AddMonths(1);
-              
-                dataContextSky.ClienteInscripcion.InsertOnSubmit(inscripcion);
-                dataContextSky.SubmitChanges();
-                MessageBox.Show("Se a realizado el pago con exito");
+                MessageBox.Show("El cliente no existe o no es válido");
+                txtidCliente.Focus();
             }
-            catch (Exception ex )
+            else
             {
-                MessageBox.Show("ha ocurrido un error"+ ex);
-            }
+                try
+                {
+                    ClienteInscripcion inscripcion = new ClienteInscripcion();
+                    inscripcion.idCliente = txtidCliente.Text;
+                    inscripcion.idInscripcion = Convert.ToInt32(cmbInscripcion.SelectedValue);
+                    inscripcion.fechaPago = DateTime.Now;
+                    inscripcion.fechaFinal = DateTime.Now.AddMonths(1);
+
+                    dataContextSky.ClienteInscripcion.InsertOnSubmit(inscripcion);
+                    dataContextSky.SubmitChanges();
+                    var precio = dataContextSky.Inscripcion.First(t => t.idInscripcion == Convert.ToInt32(cmbInscripcion.SelectedValue)).precioInscripcion;
+                    var nombreCliente = dataContextSky.Cliente.First(t => t.numeroIdentidad == txtidCliente.Text).nombre;
+                    MessageBox.Show(nombreCliente.ToString() + " se ha inscrito a: " + cmbInscripcion.SelectedValue + ". El total a pagar es: L." + Convert.ToDecimal(precio.ToString()));
+                    
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("ha ocurrido un error" + ex);
+                }
+            }            
         }
 
         private void botonPagar(object sender, RoutedEventArgs e)
