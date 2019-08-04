@@ -56,7 +56,6 @@
 
         <Label Content="Inventario" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="388,40,400,418" Width="106" FontWeight="Bold" Height="36" FontSize="20"/>
         <DataGrid BorderBrush="Black" BorderThickness="0.6" Name="dgInventario" HorizontalAlignment="Left" Height="386" Margin="26,82,0,0" Width="838" VerticalAlignment="Top"/>
-
     </Grid>
 
 </Window>

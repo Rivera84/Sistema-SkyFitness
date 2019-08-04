@@ -117,6 +117,7 @@ namespace Sky_Fitness
 
         private void pagarProducto()
         {            
+            mostrarCMBProducto();
             // validar la existencia del producto para proceder la compra   
             var existenciaProducto = dataContextSky.Producto.First(t => t.idProducto == Convert.ToInt32(cmbProducto.SelectedValue)).existencia;
             
@@ -183,6 +184,7 @@ namespace Sky_Fitness
 
         private void pagarIncripcion()
         {
+            mostrarCMBInscripcion();            
             int clienteValido = dataContextSky.Cliente.Where(t => t.numeroIdentidad == txtidCliente.Text).Count();
             int ValidarClienteInscrito = dataContextSky.ClienteInscripcion.Where(t => t.idCliente == txtidCliente.Text).Count();
             if (txtidCliente.Text == String.Empty || cmbInscripcion.SelectedIndex == -1)

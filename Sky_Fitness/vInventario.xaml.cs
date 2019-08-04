@@ -45,9 +45,7 @@ namespace Sky_Fitness
                 var productos = from prod in dataContextSky.Producto
                                 select new {prod.idProducto, prod.nombreProducto, prod.precioProducto, prod.existencia };
 
-
-
-                dgInventario.ItemsSource = productos.ToList();
+                dgInventario.ItemsSource = productos.ToList();                
             }
             catch (SqlException ex)
             {
