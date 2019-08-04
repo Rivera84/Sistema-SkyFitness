@@ -32,7 +32,7 @@ razon NVARCHAR(50) NOT NULL,
 peso DECIMAL NOT NULL,
 estatura DECIMAL NOT NULL,
 talla DECIMAL NOT NULL,
-estado VARCHAR(10),
+estado VARCHAR(10) NULL,
 IMC DECIMAL NOT NULL
 )
 GO
@@ -47,8 +47,9 @@ GO
 CREATE TABLE Producto.Inscripcion(
 idInscripcion INT IDENTITY (100,1) NOT NULL
 			CONSTRAINT PK_idInscripcion PRIMARY KEY CLUSTERED,
-nombreInscripcion VARCHAR(20),
-precioInscripcion DECIMAL
+nombreInscripcion VARCHAR(20) NOT NULL,
+precioInscripcion DECIMAL NOT NULL,
+descripcion VARCHAR(50) NOT NULL
 )
 GO
 
@@ -67,9 +68,9 @@ idClienteInscripcion INT IDENTITY(1,1) NOT NULL
 						CONSTRAINT PK_idClienteInscripcion PRIMARY KEY CLUSTERED,
 idCliente VARCHAR(15) NOT NULL,
 idInscripcion INT NOT NULL,
-fechaPago DATE NOT NULL,
+fechaPago DATE  NULL,
 fechaFinal DATE NULL,
-diasRestantes INT NULL
+diasRestantes INT NOT NULL
 )
 GO
 
@@ -132,12 +133,16 @@ GO
 
 /*Creacion del Trigger estado*/
 CREATE TRIGGER TR_EstadoCliente
-ON Persona.Cliente FOR INSERT
+ON Detalle.ClienteInscripcion FOR INSERT, UPDATE
 AS 
 BEGIN
-DECLARE @identidad VARCHAR(15)
+DECLARE @identidad VARCHAR(15), @fechaFinal Date
+SELECT @fechaFinal = fechaFinal FROM Detalle.ClienteInscripcion
 SELECT @identidad = numeroIdentidad FROM Persona.Cliente
 UPDATE Persona.Cliente SET estado = 'Activo' WHERE numeroIdentidad = @identidad
+if(@fechaFinal=GETDATE()) BEGIN
+UPDATE Persona.Cliente SET estado = 'Inactivo' WHERE numeroIdentidad = @identidad
+END
 END
 GO
 

@@ -36,11 +36,21 @@ namespace Sky_Fitness.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-H5OOPDVV\\SQLEXPRESS;Initial Catalog=Sky_FitnessDB;Integrated S" +
-            "ecurity=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ABELCONSUEGRA;Initial Catalog=Sky_FitnessDB;Integrated Security=True")]
         public string Sky_FitnessDBConnectionString1 {
             get {
                 return ((string)(this["Sky_FitnessDBConnectionString1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-H5OOPDVV\\SQLEXPRESS;Initial Catalog=Sky_FitnessDB;Integrated S" +
+            "ecurity=True")]
+        public string Sky_FitnessDBConnectionString2 {
+            get {
+                return ((string)(this["Sky_FitnessDBConnectionString2"]));
             }
         }
     }

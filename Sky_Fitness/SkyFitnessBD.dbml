@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Sky_FitnessDB" Class="SkyFitnessBDDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=ABELCONSUEGRA;Initial Catalog=Sky_FitnessDB;Integrated Security=True" SettingsObjectName="Sky_Fitness.Properties.Settings" SettingsPropertyName="Sky_FitnessDBConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-H5OOPDVV\SQLEXPRESS;Initial Catalog=Sky_FitnessDB;Integrated Security=True" SettingsObjectName="Sky_Fitness.Properties.Settings" SettingsPropertyName="Sky_FitnessDBConnectionString2" Provider="System.Data.SqlClient" />
   <Table Name="Detalle.ClienteInscripcion" Member="ClienteInscripcion">
     <Type Name="ClienteInscripcion">
       <Column Name="idClienteInscripcion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -42,14 +42,6 @@
       <Association Name="Cliente_ClienteProducto" Member="ClienteProducto" ThisKey="numeroIdentidad" OtherKey="idCliente" Type="ClienteProducto" />
     </Type>
   </Table>
-  <Table Name="Producto.Inscripcion" Member="Inscripcion">
-    <Type Name="Inscripcion">
-      <Column Name="idInscripcion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="nombreInscripcion" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="precioInscripcion" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Association Name="Inscripcion_ClienteInscripcion" Member="ClienteInscripcion" ThisKey="idInscripcion" OtherKey="idInscripcion" Type="ClienteInscripcion" />
-    </Type>
-  </Table>
   <Table Name="Producto.Producto" Member="Producto">
     <Type Name="Producto">
       <Column Name="idProducto" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -68,6 +60,15 @@
       <Column Name="total" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Association Name="Cliente_ClienteProducto" Member="Cliente" ThisKey="idCliente" OtherKey="numeroIdentidad" Type="Cliente" IsForeignKey="true" />
       <Association Name="Producto_ClienteProducto" Member="Producto" ThisKey="idProducto" OtherKey="idProducto" Type="Producto" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Producto.Inscripcion" Member="Inscripcion">
+    <Type Name="Inscripcion">
+      <Column Name="idInscripcion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombreInscripcion" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="precioInscripcion" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="Inscripcion_ClienteInscripcion" Member="ClienteInscripcion" ThisKey="idInscripcion" OtherKey="idInscripcion" Type="ClienteInscripcion" />
     </Type>
   </Table>
 </Database>

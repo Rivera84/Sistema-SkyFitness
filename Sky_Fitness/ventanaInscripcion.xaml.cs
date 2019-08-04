@@ -23,7 +23,7 @@ namespace Sky_Fitness
     /// </summary>
     public partial class ventanaInscripcion : UserControl
     {
-        SqlConnection conexion = new SqlConnection("Data Source = ABELCONSUEGRA; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
+        SqlConnection conexion = new SqlConnection("Data Source = LAPTOP-H5OOPDVV\\SQLEXPRESS; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
         private DataTable tabla;
         SkyFitnessBDDataContext dataContextSky;
         public ventanaInscripcion()

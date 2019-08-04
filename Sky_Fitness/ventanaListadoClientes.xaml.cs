@@ -22,12 +22,13 @@ namespace Sky_Fitness
     /// </summary>
     public partial class ventanaListadoClientes : Window
     {
+        Cliente cliente = new Cliente();
         SkyFitnessBDDataContext dataContextSky;
         SqlConnection conexion;
         public ventanaListadoClientes()
         {
             InitializeComponent();
-            conexion = new SqlConnection("Data Source = ABELCONSUEGRA; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
+            conexion = new SqlConnection("Data Source = LAPTOP-H5OOPDVV\\SQLEXPRESS; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
             dataContextSky = new SkyFitnessBDDataContext(conexion);
             MostrarClientes();
         }
@@ -40,22 +41,118 @@ namespace Sky_Fitness
         private void MostrarClientes()
         {
             try
-            {                
-                Cliente cliente = new Cliente();
+            {
 
-                var clientes = from cl in dataContextSky.Cliente
-                               orderby cl.nombre ascending
-                                select new { cl.numeroIdentidad, cl.nombre, cl.apellido, cl.edad, cl.fechaNacimiento,
-                                            cl.fechaCreacion, cl.direccion, cl.telefono, cl.sexo, cl.estado, cl.correoElectronico,
-                                            cl.razon, cl.peso, cl.estatura, cl.IMC, cl.talla};
 
-                dgListadoClientes.ItemsSource = clientes.ToList();                
+                var clientes = from client in dataContextSky.Cliente
+                               orderby client.nombre ascending
+                               select new { client.numeroIdentidad, client.nombre, client.apellido, client.fechaNacimiento, client.fechaCreacion, client.edad, client.sexo, client.telefono, client.direccion, client.correoElectronico, client.razon, client.peso, client.estatura, client.talla, client.estado, client.IMC };
+
+
+
+                dgListadoClientes.ItemsSource = clientes.ToList();
             }
             catch (SqlException ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-        }        
-        
+        }
+
+        private void MostrarbusquedaNombre()
+        {
+
+            try
+            {
+                var buscarNombre = from client in dataContextSky.Cliente
+                                   where client.nombre == txtBuscar.Text
+                                   select new { client.numeroIdentidad, client.nombre, client.apellido, client.fechaNacimiento, client.fechaCreacion, client.edad, client.sexo, client.telefono, client.direccion, client.correoElectronico, client.razon, client.peso, client.estatura, client.talla, client.estado, client.IMC };
+                dgListadoClientes.ItemsSource = buscarNombre.ToList();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("no se encuentra busqueda" + ex);
+            }
+        }
+        private void MostrarbusquedaIdentidad()
+        {
+
+            try
+            {
+                var buscarIdentidad = from client in dataContextSky.Cliente
+                                      where client.numeroIdentidad == txtBuscar.Text
+                                      select new { client.numeroIdentidad, client.nombre, client.apellido, client.fechaNacimiento, client.fechaCreacion, client.edad, client.sexo, client.telefono, client.direccion, client.correoElectronico, client.razon, client.peso, client.estatura, client.talla, client.estado, client.IMC };
+                dgListadoClientes.ItemsSource = buscarIdentidad.ToList();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("no se encuentra busqueda" + ex);
+            }
+        }
+
+        private void MostrarbusquedaDireccion()
+        {
+
+            try
+            {
+                var buscarDireccion = from client in dataContextSky.Cliente
+                                      where client.direccion == txtBuscar.Text
+                                      select new { client.numeroIdentidad, client.nombre, client.apellido, client.fechaNacimiento, client.fechaCreacion, client.edad, client.sexo, client.telefono, client.direccion, client.correoElectronico, client.razon, client.peso, client.estatura, client.talla, client.estado, client.IMC };
+                dgListadoClientes.ItemsSource = buscarDireccion.ToList();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("no se encuentra busqueda" + ex);
+            }
+        }
+        private void MostrarbusquedaEstado()
+        {
+
+            try
+            {
+                var buscarEstado = from client in dataContextSky.Cliente
+                                   where client.estado == txtBuscar.Text
+                                   select new { client.numeroIdentidad, client.nombre, client.apellido, client.fechaNacimiento, client.fechaCreacion, client.edad, client.sexo, client.telefono, client.direccion, client.correoElectronico, client.razon, client.peso, client.estatura, client.talla, client.estado, client.IMC };
+                dgListadoClientes.ItemsSource = buscarEstado.ToList();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("no se encuentra busqueda" + ex);
+            }
+        }
+
+        private void BusquedaEspecifica(object sender, RoutedEventArgs e)
+        {
+            if (rbIdentidad.IsChecked == false && rbNombre.IsChecked == false && rbDireccion.IsChecked == false && rbEstado.IsChecked == false)
+            {
+                MessageBox.Show("Seleccione un tipo de busqueda");
+            }
+            else
+            if (rbNombre.IsChecked == true)
+            {
+                MostrarbusquedaNombre();
+            }
+            if (rbIdentidad.IsChecked == true)
+            {
+                MostrarbusquedaIdentidad();
+            }
+            if (rbDireccion.IsChecked == true)
+            {
+                MostrarbusquedaDireccion();
+            }
+            if (rbEstado.IsChecked == true)
+            {
+                MostrarbusquedaEstado();
+            }
+
+        }
+
+        private void Limpiar(object sender, RoutedEventArgs e)
+        {
+            txtBuscar.Clear();
+        }
     }
 }

@@ -23,7 +23,7 @@ namespace Sky_Fitness
         SkyFitnessBDDataContext dataContextSky;
         public nuevoTipoInscripcion()
         {
-            SqlConnection conexion = new SqlConnection("Data Source = ABELCONSUEGRA; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
+            SqlConnection conexion = new SqlConnection("Data Source = LAPTOP-H5OOPDVV\\SQLEXPRESS; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
             dataContextSky = new SkyFitnessBDDataContext(conexion);
             InitializeComponent();
         }
@@ -33,6 +33,7 @@ namespace Sky_Fitness
             Inscripcion inscripcion = new Inscripcion();
             inscripcion.nombreInscripcion = txtInscripcion.Text;
             inscripcion.precioInscripcion = Convert.ToInt32(txtPrecioInscripcion.Text);
+            inscripcion.descripcion = txtDescripcion.Text;
 
             dataContextSky.Inscripcion.InsertOnSubmit(inscripcion);
             dataContextSky.SubmitChanges();

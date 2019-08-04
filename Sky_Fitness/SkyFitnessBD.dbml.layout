@@ -20,36 +20,23 @@
         <elementListCompartment Id="43ba770e-67b2-4f19-9e21-f144481bd70c" absoluteBounds="9.515, 6.21, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="4f3453ba-43de-4410-84a1-c566573c06c5" absoluteBounds="6, 5.125, 2, 1.3862939453124987">
-      <DataClassMoniker Name="/SkyFitnessBDDataContext/Inscripcion" />
-      <nestedChildShapes>
-        <elementListCompartment Id="6ab1d423-19e8-412a-8c76-e0bce2b9a3f0" absoluteBounds="6.015, 5.5850000000000009, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="82394404-1237-46d5-b833-d5635ba6908d" absoluteBounds="13.25, 9, 2, 1.5785953776041666">
       <DataClassMoniker Name="/SkyFitnessBDDataContext/Producto" />
       <nestedChildShapes>
         <elementListCompartment Id="60d62466-2b33-46a2-97f8-9d0242106904" absoluteBounds="13.265, 9.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(10.5625 : 5.75); (10.5625 : 3.7131982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(11.15625 : 5.75); (11.15625 : 3.7131982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/SkyFitnessBDDataContext/Cliente/Cliente_ClienteInscripcion" />
       <nodes>
         <classShapeMoniker Id="df216a2b-4198-4364-8456-fa5a114bf198" />
         <classShapeMoniker Id="6b05409f-5e66-4090-b19a-939f669b32d7" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(11.09375 : 5.75); (11.09375 : 3.7131982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(10.328125 : 5.75); (10.328125 : 3.7131982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/SkyFitnessBDDataContext/Cliente/Cliente_ClienteInscripcion1" />
       <nodes>
         <classShapeMoniker Id="df216a2b-4198-4364-8456-fa5a114bf198" />
-        <classShapeMoniker Id="6b05409f-5e66-4090-b19a-939f669b32d7" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(7 : 5.125); (7 : 2.73159912109375); (9.625 : 2.73159912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/SkyFitnessBDDataContext/Inscripcion/Inscripcion_ClienteInscripcion" />
-      <nodes>
-        <classShapeMoniker Id="4f3453ba-43de-4410-84a1-c566573c06c5" />
         <classShapeMoniker Id="6b05409f-5e66-4090-b19a-939f669b32d7" />
       </nodes>
     </associationConnector>
@@ -66,11 +53,24 @@
         <classShapeMoniker Id="6cfbac88-1a97-41e1-993d-ffe61162f895" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(14.6875 : 9); (14.6875 : 7.14589680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(14.6875 : 9); (14.6875 : 7.14589680989583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SkyFitnessBDDataContext/Producto/Producto_ClienteProducto" />
       <nodes>
         <classShapeMoniker Id="82394404-1237-46d5-b833-d5635ba6908d" />
         <classShapeMoniker Id="6cfbac88-1a97-41e1-993d-ffe61162f895" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="38579d41-78cd-4e2c-91ce-7c0e9fdecdc6" absoluteBounds="6.75, 5.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/SkyFitnessBDDataContext/Inscripcion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fe3d60d6-d600-4cb7-afe9-329b23fb26b7" absoluteBounds="6.7650000000000006, 5.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.75 : 5.375); (7.75 : 2.73159912109375); (9.625 : 2.73159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SkyFitnessBDDataContext/Inscripcion/Inscripcion_ClienteInscripcion" />
+      <nodes>
+        <classShapeMoniker Id="38579d41-78cd-4e2c-91ce-7c0e9fdecdc6" />
+        <classShapeMoniker Id="6b05409f-5e66-4090-b19a-939f669b32d7" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

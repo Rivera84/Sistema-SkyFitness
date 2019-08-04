@@ -28,7 +28,7 @@ namespace Sky_Fitness
         public ventanaCliente()
         {
             InitializeComponent();
-            SqlConnection conexion = new SqlConnection("Data Source = ABELCONSUEGRA; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
+            SqlConnection conexion = new SqlConnection("Data Source =LAPTOP-H5OOPDVV\\SQLEXPRESS; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
             dataContextSky = new SkyFitnessBDDataContext(conexion);
             //calculo = new CalculoIMC { Peso = Convert.ToString(txtPeso.Text), Estatura = Convert.ToString(txtEstatura.Text) };
             //this.DataContext = calculo;

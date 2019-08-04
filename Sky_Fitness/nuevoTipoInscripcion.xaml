@@ -38,9 +38,13 @@
         <Label Content="Tipo Inscripción" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="193,159,464,285.4" Width="143" FontWeight="Bold" Height="26" RenderTransformOrigin="1.081,0.815" />
         <TextBox Name="txtInscripcion" HorizontalAlignment="Left" Height="26" Margin="460,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241"/>
 
+        <!--Descripcion-->
+        <Label Content="Descripción" HorizontalAlignment="Left" Margin="195,215.6,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="Black" Width="81" FontWeight="Bold" Height="26"/>
+        <TextBox Name="txtDescripcion" HorizontalAlignment="Left" Height="23" Margin="460,209,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="241"/>
+
         <!--Precio del producto-->
-        <Label Content="Precio del Inscripción" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="193,232,464,212.4" Width="143" FontWeight="Bold" Height="26" />
-        <TextBox Name="txtPrecioInscripcion" HorizontalAlignment="Left" Height="26" Margin="460,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167"/>
+        <Label Content="Precio del Inscripción" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="193,265,464,179.4" Width="143" FontWeight="Bold" Height="26" />
+        <TextBox Name="txtPrecioInscripcion" HorizontalAlignment="Left" Height="26" Margin="460,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123"/>
         <!--Botón Guardar-->
         <Button Name="BtnGuardar" Content="Guardar" HorizontalAlignment="Left" Height="39" Margin="224,335,0,0" VerticalAlignment="Top" Width="112" FontWeight="Bold" Click="BtnGuardar_Click"/>
 

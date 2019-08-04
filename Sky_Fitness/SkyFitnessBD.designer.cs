@@ -39,19 +39,19 @@ namespace Sky_Fitness
     partial void InsertCliente(Cliente instance);
     partial void UpdateCliente(Cliente instance);
     partial void DeleteCliente(Cliente instance);
-    partial void InsertInscripcion(Inscripcion instance);
-    partial void UpdateInscripcion(Inscripcion instance);
-    partial void DeleteInscripcion(Inscripcion instance);
     partial void InsertProducto(Producto instance);
     partial void UpdateProducto(Producto instance);
     partial void DeleteProducto(Producto instance);
     partial void InsertClienteProducto(ClienteProducto instance);
     partial void UpdateClienteProducto(ClienteProducto instance);
     partial void DeleteClienteProducto(ClienteProducto instance);
+    partial void InsertInscripcion(Inscripcion instance);
+    partial void UpdateInscripcion(Inscripcion instance);
+    partial void DeleteInscripcion(Inscripcion instance);
     #endregion
 		
 		public SkyFitnessBDDataContext() : 
-				base(global::Sky_Fitness.Properties.Settings.Default.Sky_FitnessDBConnectionString, mappingSource)
+				base(global::Sky_Fitness.Properties.Settings.Default.Sky_FitnessDBConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
@@ -104,14 +104,6 @@ namespace Sky_Fitness
 			}
 		}
 		
-		public System.Data.Linq.Table<Inscripcion> Inscripcion
-		{
-			get
-			{
-				return this.GetTable<Inscripcion>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Producto> Producto
 		{
 			get
@@ -125,6 +117,14 @@ namespace Sky_Fitness
 			get
 			{
 				return this.GetTable<ClienteProducto>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Inscripcion> Inscripcion
+		{
+			get
+			{
+				return this.GetTable<Inscripcion>();
 			}
 		}
 	}
@@ -1022,144 +1022,6 @@ namespace Sky_Fitness
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="Producto.Inscripcion")]
-	public partial class Inscripcion : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _idInscripcion;
-		
-		private string _nombreInscripcion;
-		
-		private System.Nullable<decimal> _precioInscripcion;
-		
-		private EntitySet<ClienteInscripcion> _ClienteInscripcion;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidInscripcionChanging(int value);
-    partial void OnidInscripcionChanged();
-    partial void OnnombreInscripcionChanging(string value);
-    partial void OnnombreInscripcionChanged();
-    partial void OnprecioInscripcionChanging(System.Nullable<decimal> value);
-    partial void OnprecioInscripcionChanged();
-    #endregion
-		
-		public Inscripcion()
-		{
-			this._ClienteInscripcion = new EntitySet<ClienteInscripcion>(new Action<ClienteInscripcion>(this.attach_ClienteInscripcion), new Action<ClienteInscripcion>(this.detach_ClienteInscripcion));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idInscripcion", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int idInscripcion
-		{
-			get
-			{
-				return this._idInscripcion;
-			}
-			set
-			{
-				if ((this._idInscripcion != value))
-				{
-					this.OnidInscripcionChanging(value);
-					this.SendPropertyChanging();
-					this._idInscripcion = value;
-					this.SendPropertyChanged("idInscripcion");
-					this.OnidInscripcionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreInscripcion", DbType="VarChar(20)")]
-		public string nombreInscripcion
-		{
-			get
-			{
-				return this._nombreInscripcion;
-			}
-			set
-			{
-				if ((this._nombreInscripcion != value))
-				{
-					this.OnnombreInscripcionChanging(value);
-					this.SendPropertyChanging();
-					this._nombreInscripcion = value;
-					this.SendPropertyChanged("nombreInscripcion");
-					this.OnnombreInscripcionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_precioInscripcion", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> precioInscripcion
-		{
-			get
-			{
-				return this._precioInscripcion;
-			}
-			set
-			{
-				if ((this._precioInscripcion != value))
-				{
-					this.OnprecioInscripcionChanging(value);
-					this.SendPropertyChanging();
-					this._precioInscripcion = value;
-					this.SendPropertyChanged("precioInscripcion");
-					this.OnprecioInscripcionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Inscripcion_ClienteInscripcion", Storage="_ClienteInscripcion", ThisKey="idInscripcion", OtherKey="idInscripcion")]
-		public EntitySet<ClienteInscripcion> ClienteInscripcion
-		{
-			get
-			{
-				return this._ClienteInscripcion;
-			}
-			set
-			{
-				this._ClienteInscripcion.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_ClienteInscripcion(ClienteInscripcion entity)
-		{
-			this.SendPropertyChanging();
-			entity.Inscripcion = this;
-		}
-		
-		private void detach_ClienteInscripcion(ClienteInscripcion entity)
-		{
-			this.SendPropertyChanging();
-			entity.Inscripcion = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="Producto.Producto")]
 	public partial class Producto : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1559,6 +1421,168 @@ namespace Sky_Fitness
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="Producto.Inscripcion")]
+	public partial class Inscripcion : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idInscripcion;
+		
+		private string _nombreInscripcion;
+		
+		private decimal _precioInscripcion;
+		
+		private string _descripcion;
+		
+		private EntitySet<ClienteInscripcion> _ClienteInscripcion;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidInscripcionChanging(int value);
+    partial void OnidInscripcionChanged();
+    partial void OnnombreInscripcionChanging(string value);
+    partial void OnnombreInscripcionChanged();
+    partial void OnprecioInscripcionChanging(decimal value);
+    partial void OnprecioInscripcionChanged();
+    partial void OndescripcionChanging(string value);
+    partial void OndescripcionChanged();
+    #endregion
+		
+		public Inscripcion()
+		{
+			this._ClienteInscripcion = new EntitySet<ClienteInscripcion>(new Action<ClienteInscripcion>(this.attach_ClienteInscripcion), new Action<ClienteInscripcion>(this.detach_ClienteInscripcion));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idInscripcion", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idInscripcion
+		{
+			get
+			{
+				return this._idInscripcion;
+			}
+			set
+			{
+				if ((this._idInscripcion != value))
+				{
+					this.OnidInscripcionChanging(value);
+					this.SendPropertyChanging();
+					this._idInscripcion = value;
+					this.SendPropertyChanged("idInscripcion");
+					this.OnidInscripcionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreInscripcion", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string nombreInscripcion
+		{
+			get
+			{
+				return this._nombreInscripcion;
+			}
+			set
+			{
+				if ((this._nombreInscripcion != value))
+				{
+					this.OnnombreInscripcionChanging(value);
+					this.SendPropertyChanging();
+					this._nombreInscripcion = value;
+					this.SendPropertyChanged("nombreInscripcion");
+					this.OnnombreInscripcionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_precioInscripcion", DbType="Decimal(18,0) NOT NULL")]
+		public decimal precioInscripcion
+		{
+			get
+			{
+				return this._precioInscripcion;
+			}
+			set
+			{
+				if ((this._precioInscripcion != value))
+				{
+					this.OnprecioInscripcionChanging(value);
+					this.SendPropertyChanging();
+					this._precioInscripcion = value;
+					this.SendPropertyChanged("precioInscripcion");
+					this.OnprecioInscripcionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string descripcion
+		{
+			get
+			{
+				return this._descripcion;
+			}
+			set
+			{
+				if ((this._descripcion != value))
+				{
+					this.OndescripcionChanging(value);
+					this.SendPropertyChanging();
+					this._descripcion = value;
+					this.SendPropertyChanged("descripcion");
+					this.OndescripcionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Inscripcion_ClienteInscripcion", Storage="_ClienteInscripcion", ThisKey="idInscripcion", OtherKey="idInscripcion")]
+		public EntitySet<ClienteInscripcion> ClienteInscripcion
+		{
+			get
+			{
+				return this._ClienteInscripcion;
+			}
+			set
+			{
+				this._ClienteInscripcion.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ClienteInscripcion(ClienteInscripcion entity)
+		{
+			this.SendPropertyChanging();
+			entity.Inscripcion = this;
+		}
+		
+		private void detach_ClienteInscripcion(ClienteInscripcion entity)
+		{
+			this.SendPropertyChanging();
+			entity.Inscripcion = null;
 		}
 	}
 }
