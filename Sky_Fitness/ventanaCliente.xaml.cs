@@ -24,12 +24,15 @@ namespace Sky_Fitness
     public partial class ventanaCliente : UserControl
     {
         SkyFitnessBDDataContext dataContextSky;
+        CalculoIMC calculo { get; set; }
         public ventanaCliente()
         {
             InitializeComponent();
             SqlConnection conexion = new SqlConnection("Data Source = ABELCONSUEGRA; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
-            dataContextSky = new SkyFitnessBDDataContext(conexion); 
-        }
+            dataContextSky = new SkyFitnessBDDataContext(conexion);
+            //calculo = new CalculoIMC { Peso = Convert.ToString(txtPeso.Text), Estatura = Convert.ToString(txtEstatura.Text) };
+            //this.DataContext = calculo;
+        }        
 
         private void InsertarCliente()
         {

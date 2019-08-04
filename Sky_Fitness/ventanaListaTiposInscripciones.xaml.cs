@@ -48,7 +48,7 @@ namespace Sky_Fitness
                                         cl.precioInscripcion
                                     }).ToList();
 
-                dgListadoTipoInscripciones.ItemsSource = dataContextSky.Inscripcion;
+                dgListadoTipoInscripciones.ItemsSource = inscripciones.ToList();
             }
             catch (SqlException ex)
             {

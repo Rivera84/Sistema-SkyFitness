@@ -22,6 +22,7 @@ namespace Sky_Fitness
     public partial class MainWindow : Window
     {
         //Clases
+        CalculoIMC calculo { get; set; }
         ventanaCliente vc = new ventanaCliente();
         
         ventanaInscripcion vi = new ventanaInscripcion();
@@ -32,6 +33,10 @@ namespace Sky_Fitness
         public MainWindow()
         {
             InitializeComponent();
+
+            //ventanaCliente vc = new ventanaCliente();
+            //calculo = new CalculoIMC { Peso = "1", Estatura = "1" };
+            //vc.DataContext = calculo;
         }
 
 

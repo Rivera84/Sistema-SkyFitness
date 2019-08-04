@@ -67,6 +67,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CalculoIMC.cs" />
     <Compile Include="nuevoTipoInscripcion.xaml.cs">
       <DependentUpon>nuevoTipoInscripcion.xaml</DependentUpon>
     </Compile>

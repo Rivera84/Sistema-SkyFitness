@@ -45,11 +45,11 @@ namespace Sky_Fitness
 
                 var clientes = from cl in dataContextSky.Cliente
                                orderby cl.nombre ascending
-                                select cl;
+                                select new { cl.numeroIdentidad, cl.nombre, cl.apellido, cl.edad, cl.fechaNacimiento,
+                                            cl.fechaCreacion, cl.direccion, cl.telefono, cl.sexo, cl.estado, cl.correoElectronico,
+                                            cl.razon, cl.peso, cl.estatura, cl.IMC, cl.talla};
 
-
-
-                dgListadoClientes.ItemsSource = dataContextSky.Cliente;                
+                dgListadoClientes.ItemsSource = clientes.ToList();                
             }
             catch (SqlException ex)
             {

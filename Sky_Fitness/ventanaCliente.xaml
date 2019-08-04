@@ -77,15 +77,15 @@
         </TextBox>
 
         <!--Peso-->
-        <Label Content="Peso" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="121,428,851,114" Width="43" FontWeight="Bold" Height="28" />
-        <TextBox Name="txtPeso" HorizontalAlignment="Left" Height="26" Margin="195,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"/>
+        <Label Content="Peso (kg)" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="121,428,825,114" Width="69" FontWeight="Bold" Height="28" />
+        <TextBox Name="txtPeso" HorizontalAlignment="Left" Height="26" Margin="195,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Text="{Binding Path=Peso, Mode=TwoWay}"/>
 
         <!--Estatura-->
-        <Label Content="Estatura" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="338,428,616,114" Width="61" FontWeight="Bold" Height="28" />
-        <TextBox Name="txtEstatura" HorizontalAlignment="Left" Height="26" Margin="422,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"/>
+        <Label Content="Estatura (m)" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="338,428,593,114" Width="84" FontWeight="Bold" Height="28" />
+        <TextBox Name="txtEstatura" HorizontalAlignment="Left" Height="26" Margin="422,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Text="{Binding Path=Estatura, Mode=TwoWay}"/>
 
         <!--Talla-->
-        <Label Content="Talla" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="552,428,424,114" Width="39" FontWeight="Bold" Height="28" />
+        <Label Content="Talla (cm)" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="547,428,399,114" Width="69" FontWeight="Bold" Height="28" />
         <TextBox Name="txtTalla" HorizontalAlignment="Left" Height="26" Margin="616,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"/>
 
         <!--IMC-->
@@ -99,7 +99,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <TextBox Name="txtIMC" HorizontalAlignment="Left" Height="26" Margin="825,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"/>
+        <TextBox Name="txtIMC" HorizontalAlignment="Left" Height="26" Margin="825,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Text="{Binding Path=IMC, Mode=TwoWay}"/>
 
         <!--Botón Guardar-->
         <Button Name="BtnGuardar" Content="Guardar" HorizontalAlignment="Left" Height="39" Margin="197,488,0,0" VerticalAlignment="Top" Width="112" FontWeight="Bold" Click="BtnGuardar_Click"/>
