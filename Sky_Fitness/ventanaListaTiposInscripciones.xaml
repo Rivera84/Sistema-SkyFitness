@@ -1,0 +1,26 @@
+﻿<Window x:Class="Sky_Fitness.ventanaListaTiposInscripciones"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+         Background="{DynamicResource MaterialDesignPaper}"
+         FontFamily="{DynamicResource MaterialDesignFont}"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sky_Fitness"
+        mc:Ignorable="d"
+        Title="ventanaListaTiposInscripciones" Height="450" Width="800">
+    <Grid Height="auto" Width="auto">
+        <Border BorderBrush="Black" BorderThickness="5" HorizontalAlignment="Left" Height="450" Margin="10,10,0,0" VerticalAlignment="Top" Width="780"></Border>
+
+        <Label Content="Tipos de Inscripciones" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="285,40,272,396.4" Width="243" FontWeight="Bold" Height="34" FontSize="20"/>
+
+        <DataGrid BorderBrush="Black" BorderThickness="0.6" Name="dgListadoTipoInscripciones" HorizontalAlignment="Left" Height="294" Margin="27,86,0,0" Width="746" VerticalAlignment="Top"/>
+
+        <Button Name="BtnSalir" Content="Salir" HorizontalAlignment="Left" Height="39" Margin="350,400,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold" RenderTransformOrigin="0.467,-0.692" Click="BtnSalir_Click" />
+    </Grid>
+</Window>

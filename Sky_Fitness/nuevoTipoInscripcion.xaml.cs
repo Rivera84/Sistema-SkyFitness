@@ -28,29 +28,27 @@ namespace Sky_Fitness
             InitializeComponent();
         }
 
-        private void insertarProducto()
+        private void insertarInscripcion()
         {
             Inscripcion inscripcion = new Inscripcion();
             inscripcion.nombreInscripcion = txtInscripcion.Text;
-            inscripcion.precioInscripcion = Convert.ToInt32(txtPrecioProducto.Text);
+            inscripcion.precioInscripcion = Convert.ToInt32(txtPrecioInscripcion.Text);
 
             dataContextSky.Inscripcion.InsertOnSubmit(inscripcion);
             dataContextSky.SubmitChanges();
 
-            MessageBox.Show("El producto se ha agregado con éxito");
+            MessageBox.Show("La inscripción se ha agregado con éxito");
 
         }
 
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            insertarProducto();
+            insertarInscripcion();
         }
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            MainWindow mw = new MainWindow();
-            mw.Show();
         }
     }
 }

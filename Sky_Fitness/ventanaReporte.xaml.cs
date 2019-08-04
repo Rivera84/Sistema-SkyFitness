@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.Sql;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Sky_Fitness
 {
@@ -34,7 +37,7 @@ namespace Sky_Fitness
             ventanaPago.Show();
         }
 
-        private void BtnReporteInscripciones_Click(object sender, RoutedEventArgs e)
+        private void BtnNuevaInscripcion_Click(object sender, RoutedEventArgs e)
         {
             nuevoTipoInscripcion ventanaTipoInscripcion = new nuevoTipoInscripcion();
             MainWindow mainWindow = new MainWindow();
@@ -45,6 +48,8 @@ namespace Sky_Fitness
         private void BtnCliente_Click(object sender, RoutedEventArgs e)
         {
             ventanaListadoClientes listaClientes = new ventanaListadoClientes();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Hide();            
             listaClientes.Show();
         }
 
@@ -54,6 +59,18 @@ namespace Sky_Fitness
             MainWindow mainWindow = new MainWindow();
             mainWindow.Hide();
             inventario.Show();
+        }
+
+        private void BtnReportesIncripcion_Click(object sender, RoutedEventArgs e)
+        {
+            ventanaReporteInscripciones vri = new ventanaReporteInscripciones();
+            vri.Show();
+        }        
+
+        private void BtnListaTiposInscripciones_Click(object sender, RoutedEventArgs e)
+        {
+            ventanaListaTiposInscripciones vlti = new ventanaListaTiposInscripciones();
+            vlti.Show();
         }
     }
 }

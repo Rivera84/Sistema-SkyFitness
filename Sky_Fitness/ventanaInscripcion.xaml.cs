@@ -166,7 +166,7 @@ namespace Sky_Fitness
                     }
                     finally
                     {
-                        LimpiarProductos();
+                        Limpiar();
                     }
                 }
                 catch (Exception ex)
@@ -202,12 +202,17 @@ namespace Sky_Fitness
                     dataContextSky.SubmitChanges();
                     var precio = dataContextSky.Inscripcion.First(t => t.idInscripcion == Convert.ToInt32(cmbInscripcion.SelectedValue)).precioInscripcion;
                     var nombreCliente = dataContextSky.Cliente.First(t => t.numeroIdentidad == txtidCliente.Text).nombre;
-                    MessageBox.Show(nombreCliente.ToString() + " se ha inscrito a: " + cmbInscripcion.SelectedValue + ". El total a pagar es: L." + Convert.ToDecimal(precio.ToString()));
+                    var nombreInscripcion = dataContextSky.Inscripcion.First(t => t.idInscripcion == Convert.ToInt32(cmbInscripcion.SelectedValue)).nombreInscripcion;
+                    MessageBox.Show(nombreCliente.ToString() + " se ha inscrito a: " + nombreInscripcion.ToString() + ". El total a pagar es: L." + Convert.ToDecimal(precio.ToString()));
                     
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("ha ocurrido un error" + ex);
+                }
+                finally
+                {
+                    Limpiar();
                 }
             }            
         }
@@ -232,11 +237,12 @@ namespace Sky_Fitness
             mainWindow.Show();
         }
 
-        private void LimpiarProductos()
+        private void Limpiar()
         {
             txtidCliente.Clear();
             txtCantidad.Clear();
             cmbProducto.SelectedIndex = -1;
+            cmbInscripcion.SelectedIndex = -1;
         }
     }
 }
