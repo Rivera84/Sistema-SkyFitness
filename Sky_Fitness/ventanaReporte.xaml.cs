@@ -72,5 +72,11 @@ namespace Sky_Fitness
             ventanaListaTiposInscripciones vlti = new ventanaListaTiposInscripciones();
             vlti.Show();
         }
+
+        private void BtnReporteVenta_Click(object sender, RoutedEventArgs e)
+        {
+            ventanaReporteVentas vrv = new ventanaReporteVentas();
+            vrv.Show();
+        }
     }
 }

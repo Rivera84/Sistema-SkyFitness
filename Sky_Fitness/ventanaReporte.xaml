@@ -44,7 +44,7 @@
         </Grid>
         <Grid Grid.Row="1" Background="White" Margin="0.8,1.2,-0.8,-1.4" Grid.Column="1">
             <Label Foreground="Black" FontFamily="Arial" FontSize="24" FontStretch="SemiExpanded" Content="Reportes" Margin="205,42,206,204.8"/>
-            <Button Name="btnReporteVenta" Content="Ventas" BorderBrush="Black" Background="#FFEBE523" BorderThickness="5"  Height="Auto" Margin="75,134,285,95.8"  FontFamily="Britannic Bold" FontSize="20"/>
+            <Button Name="btnReporteVenta" Content="Ventas" BorderBrush="Black" Background="#FFEBE523" BorderThickness="5"  Height="Auto" Margin="75,134,285,95.8"  FontFamily="Britannic Bold" FontSize="20" Click="BtnReporteVenta_Click"/>
             <Button Name="btnReportesIncripcion" Content="Inscripciones" BorderBrush="Black" Background="#FFEBE523" BorderThickness="5"  Height="Auto" Margin="285,134,75,95.8"  FontFamily="Britannic Bold" FontSize="19" Click="BtnReportesIncripcion_Click"/>
         </Grid>
     </Grid>

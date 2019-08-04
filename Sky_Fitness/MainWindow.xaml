@@ -136,7 +136,7 @@
                     </Grid>
                 </Button>
 
-                <Button Name="btnReporte" IsEnabled="true" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="4,355,0,178.6" Click="Reporte" Height="Auto">
+                <Button Name="btnReporte" IsEnabled="true" Background="Transparent"  BorderBrush="#FFEBD40E" Margin="2,355,2,178.6" Click="Reporte" Height="Auto">
                     <!--Boton Reporte-->
                     <Grid Width="165" Height="30" >
                         <materialDesign:PackIcon Kind="Paper" Height="29" Width="27" Margin="0,-2,0,0" Foreground="Black"/>

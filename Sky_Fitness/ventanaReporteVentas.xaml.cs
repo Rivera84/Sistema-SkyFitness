@@ -18,44 +18,37 @@ using System.Data.SqlClient;
 namespace Sky_Fitness
 {
     /// <summary>
-    /// Lógica de interacción para ventanaListaTiposInscripciones.xaml
+    /// Lógica de interacción para ventanaReporteVentas.xaml
     /// </summary>
-    public partial class ventanaListaTiposInscripciones : Window
+    public partial class ventanaReporteVentas : Window
     {
         SkyFitnessBDDataContext dataContextSky;
         SqlConnection conexion;
-        public ventanaListaTiposInscripciones()
+        public ventanaReporteVentas()
         {
             InitializeComponent();
             conexion = new SqlConnection("Data Source = ABELCONSUEGRA; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
             dataContextSky = new SkyFitnessBDDataContext(conexion);
-            MostrarTiposInscripciones();
+            MostrarReporteVentas();
         }
 
-        private void MostrarTiposInscripciones()
+        private void MostrarReporteVentas()
         {
             try
             {
-                Inscripcion inscripcion = new Inscripcion();
+                ClienteProducto ventas = new ClienteProducto();
 
-                var inscripciones = (from cl in dataContextSky.Inscripcion
-                                    orderby cl.idInscripcion ascending
-                                    //cl.idInscripcion, cl.nombreInscripcion, cl.precioInscripcion
-                                    select new
-                                    {
-                                        cl.idInscripcion,
-                                        cl.nombreInscripcion,
-                                        cl.precioInscripcion
-                                    }).ToList();
+                var venta = from cl in dataContextSky.ClienteProducto
+                                    orderby cl.idClienteProducto ascending
+                                    select cl;
 
-                dgListadoTipoInscripciones.ItemsSource = dataContextSky.Inscripcion;
+                dgReporteVentas.ItemsSource = dataContextSky.ClienteProducto;
             }
             catch (SqlException ex)
             {
                 MessageBox.Show(ex.ToString());
             }
         }
-
         private void BtnSalir_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();

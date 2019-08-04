@@ -75,9 +75,7 @@ namespace Sky_Fitness
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
-            MainWindow mw = new MainWindow();
-            mw.Show();
+            this.Hide();           
         }
     }
 }

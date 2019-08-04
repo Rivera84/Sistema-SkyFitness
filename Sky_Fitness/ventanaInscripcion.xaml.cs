@@ -181,11 +181,17 @@ namespace Sky_Fitness
         private void pagarIncripcion()
         {
             int clienteValido = dataContextSky.Cliente.Where(t => t.numeroIdentidad == txtidCliente.Text).Count();
+            int ValidarClienteInscrito = dataContextSky.ClienteInscripcion.Where(t => t.idCliente == txtidCliente.Text).Count();
             if (txtidCliente.Text == String.Empty || cmbInscripcion.SelectedIndex == -1)
                 MessageBox.Show("Complete todos los campos");
-            else if (clienteValido < 1)
+            if (clienteValido < 1)
             {
                 MessageBox.Show("El cliente no existe o no es válido");
+                txtidCliente.Focus();
+            }
+            if (ValidarClienteInscrito > 1)
+            {
+                MessageBox.Show("El cliente ya se encuentra inscrito");
                 txtidCliente.Focus();
             }
             else
