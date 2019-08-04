@@ -39,12 +39,15 @@ namespace Sky_Fitness
                 ClienteInscripcion cinscripcion = new ClienteInscripcion();
 
                 var inscripciones = from cl in dataContextSky.ClienteInscripcion
-                               orderby cl.fechaFinal ascending
-                               select cl;
+                                    join c in dataContextSky.Cliente on cl.idCliente equals c.numeroIdentidad
+                                    join i in dataContextSky.Inscripcion on cl.idInscripcion equals i.idInscripcion
+                                    orderby cl.fechaFinal ascending
+                                    select new {cl.idClienteInscripcion, cl.fechaFinal, cl.idCliente, c.nombre, cl.idInscripcion,
+                                                i.nombreInscripcion, i.precioInscripcion, cl.fechaPago, cl.diasRestantes, c.estado };
 
 
 
-                dgListadoInscripciones.ItemsSource = dataContextSky.ClienteInscripcion;
+                dgListadoInscripciones.ItemsSource = inscripciones.ToList(); ;
             }
             catch (SqlException ex)
             {
