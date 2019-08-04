@@ -16,9 +16,24 @@
         Title="ventanaPago" Height="470" Width="800" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Height="auto" Width="auto">
         <!--Codigo para ventana de prodcutos-->
-        <Border BorderBrush="Black" BorderThickness="5" HorizontalAlignment="Left" Height="450" Margin="10,10,0,0" VerticalAlignment="Top" Width="780"></Border>
+        <Border BorderBrush="Black" BorderThickness="5" HorizontalAlignment="Left" Height="470" Margin="0,0,0,0" VerticalAlignment="Top" Width="800"></Border>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-        <Label Content="Registro de Productos" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="303,40,278,396.4" Width="219" FontWeight="Bold" Height="34" FontSize="20"/>
+            <Grid Grid.Row="0" Background="#FF0F0D0D">
+                <Label Content="Listado de Clientes" Foreground="#FFEBE523" Width="147" HorizontalAlignment="Left" Margin="1,0,0,0" FontFamily="Lucida Fax" FontWeight="Bold" />
+                <Button Name="btnSalir" Background="#FF0F0D0D" Margin="760,2,0,2.4" Height="26" Click="BtnCancelar_Click" BorderBrush="{x:Null}">
+                    <materialDesign:PackIcon Kind="Close" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
+                </Button>
+                <!--Boton salir-->
+            </Grid>
+        </Grid>
+
+
+        <Label Content="Registro de Productos" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="285,49,296,387" Width="219" FontWeight="Bold" Height="34" FontSize="20"/>
         <!--Nombre del prodcuto-->
         <Label Content="Nombre del producto" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="193,128,464,316.4" Width="143" FontWeight="Bold" Height="26" RenderTransformOrigin="1.081,0.815" />
         <TextBox Name="txtNombreProducto" HorizontalAlignment="Left" Height="26" Margin="460,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241"/>

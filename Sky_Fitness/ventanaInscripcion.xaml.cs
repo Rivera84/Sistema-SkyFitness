@@ -140,13 +140,16 @@ namespace Sky_Fitness
                     producto.idCliente = txtidCliente.Text;
                     producto.idProducto = Convert.ToInt32(cmbProducto.SelectedValue);
                     producto.cantidad = Convert.ToInt32(txtCantidad.Text);
+                    
+
+                    var precio = dataContextSky.Producto.First(t => t.idProducto == Convert.ToInt32(cmbProducto.SelectedValue)).precioProducto;
+                    producto.total = (precio * Convert.ToInt32(txtCantidad.Text));
+
                     dataContextSky.ClienteProducto.InsertOnSubmit(producto);
                     dataContextSky.SubmitChanges();
 
-                    var precio = dataContextSky.Producto.First(t => t.idProducto == Convert.ToInt32(cmbProducto.SelectedValue)).precioProducto;
-                    var total = (precio * Convert.ToInt32(txtCantidad.Text));
                     var nombreCliente = dataContextSky.Cliente.First(t => t.numeroIdentidad == txtidCliente.Text).nombre;
-                    MessageBox.Show("Se ha realizado el pago con éxito " + nombreCliente.ToString() + ". El total a pagar es: L." + Convert.ToDecimal(total.ToString()));
+                    MessageBox.Show("Se ha realizado el pago con éxito " + nombreCliente.ToString() + ". El total a pagar es: L." + producto.total.ToString());
 
                     try
                     {

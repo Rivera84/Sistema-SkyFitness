@@ -78,7 +78,8 @@ idClienteProducto INT IDENTITY(1,1) NOT NULL
 						CONSTRAINT PK_idClienteProducto PRIMARY KEY CLUSTERED,
 idCliente VARCHAR(15) NOT NULL,
 cantidad INT NOT NULL,
-idProducto INT NOT NULL
+idProducto INT NOT NULL,
+total DECIMAL
 )
 GO
 

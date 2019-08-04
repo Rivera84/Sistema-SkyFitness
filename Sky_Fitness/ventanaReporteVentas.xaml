@@ -15,9 +15,24 @@
         mc:Ignorable="d"
         Title="ventanaReporteVentas" Height="470" Width="800" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Height="auto" Width="auto">
-        <Border BorderBrush="Black" BorderThickness="5" HorizontalAlignment="Left" Height="450" Margin="10,10,0,0" VerticalAlignment="Top" Width="780"></Border>
+        <Border BorderBrush="Black" BorderThickness="5" HorizontalAlignment="Left" Height="470" Margin="0,0,0,0" VerticalAlignment="Top" Width="800"></Border>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-        <Label Content="Reporte de Ventas" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="332,32,270,404" Width="198" FontWeight="Bold" Height="34" FontSize="20"/>
+            <Grid Grid.Row="0" Background="#FF0F0D0D">
+                <Label Content="Listado de Clientes" Foreground="#FFEBE523" Width="147" HorizontalAlignment="Left" Margin="1,0,0,0" FontFamily="Lucida Fax" FontWeight="Bold" />
+                <Button Name="btnSalir" Background="#FF0F0D0D" Margin="760,2,0,2.4" Height="26" Click="BtnSalir_Click" BorderBrush="{x:Null}">
+                    <materialDesign:PackIcon Kind="Close" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
+                </Button>
+                <!--Boton salir-->
+            </Grid>
+        </Grid>
+
+
+        <Label Content="Reporte de Ventas" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="310,47,292,389" Width="198" FontWeight="Bold" Height="34" FontSize="20"/>
 
         <DataGrid BorderBrush="Black" BorderThickness="0.6" Name="dgReporteVentas" HorizontalAlignment="Left" Height="294" Margin="27,86,0,0" Width="746" VerticalAlignment="Top"/>
 

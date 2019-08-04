@@ -38,11 +38,14 @@ namespace Sky_Fitness
             {
                 ClienteProducto ventas = new ClienteProducto();
 
-                var venta = from cl in dataContextSky.ClienteProducto
-                                    orderby cl.idClienteProducto ascending
-                                    select cl;
+                var venta = from cp in dataContextSky.ClienteProducto
+                            join p in dataContextSky.Producto on cp.idProducto equals p.idProducto
+                            join c in dataContextSky.Cliente on cp.idCliente equals c.numeroIdentidad
+                            orderby cp.idClienteProducto ascending
+                            select new {cp.idClienteProducto, cp.idCliente, c.nombre, cp.idProducto,
+                                        p.nombreProducto, cp.cantidad, p.precioProducto, cp.total };
 
-                dgReporteVentas.ItemsSource = dataContextSky.ClienteProducto;
+                dgReporteVentas.ItemsSource = venta.ToList();
             }
             catch (SqlException ex)
             {
