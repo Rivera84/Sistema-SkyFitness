@@ -116,34 +116,58 @@ namespace Sky_Fitness
 
 
         private void pagarProducto()
-        {
-            Producto productoe = new Producto();
-
-            var productos = from prod in dataContextSky.Producto
-                            where productoe.idProducto.Equals(cmbProducto.SelectedValue)
-                            select prod.existencia;
-
+        {            
+            // validar la existencia del producto para proceder la compra   
+            var existenciaProducto = dataContextSky.Producto.First(t => t.idProducto == Convert.ToInt32(cmbProducto.SelectedValue)).existencia;
+            
+            int clienteValido = dataContextSky.Cliente.Where(t => t.numeroIdentidad == txtidCliente.Text).Count();
 
             if (txtCantidad.Text == String.Empty || txtidCliente.Text == String.Empty || cmbProducto.SelectedIndex == -1)
-            {
                 MessageBox.Show("Debe ingresar todos los datos");
-            }
-            else if (Convert.ToInt32(txtCantidad.Text) > Convert.ToInt32(productos))
-            {
+            else if (Convert.ToInt32(txtCantidad.Text) > existenciaProducto)
                 MessageBox.Show("No hay suficientes productos en existencia");
+            else if (clienteValido < 1)
+            {
+                MessageBox.Show("El cliente no existe o no es válido");
+                txtidCliente.Focus();
             }
             else
             {
                 try
                 {
+                    Producto producto1 = new Producto();
                     ClienteProducto producto = new ClienteProducto();
                     producto.idCliente = txtidCliente.Text;
                     producto.idProducto = Convert.ToInt32(cmbProducto.SelectedValue);
                     producto.cantidad = Convert.ToInt32(txtCantidad.Text);
                     dataContextSky.ClienteProducto.InsertOnSubmit(producto);
                     dataContextSky.SubmitChanges();
-                    MessageBox.Show("Se ha realizado el pago con éxito");
 
+                    var precio = dataContextSky.Producto.First(t => t.idProducto == Convert.ToInt32(cmbProducto.SelectedValue)).precioProducto;
+                    var total = (precio * Convert.ToInt32(txtCantidad.Text));
+                    var nombreCliente = dataContextSky.Cliente.First(t => t.numeroIdentidad == txtidCliente.Text).nombre;
+                    MessageBox.Show("Se ha realizado el pago con éxito " + nombreCliente.ToString() + ". El total a pagar es: L." + Convert.ToDecimal(total.ToString()));
+
+                    try
+                    {
+                        var resta = (existenciaProducto - Convert.ToInt32(txtCantidad.Text));
+                        var query = from c in dataContextSky.Producto
+                                    where c.idProducto == Convert.ToInt32(cmbProducto.SelectedValue)
+                                    select c;
+                        foreach (Producto c in query)
+                        {
+                            c.existencia = resta;
+                        }
+                        dataContextSky.SubmitChanges();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ha ocurrido un error" + ex);
+                    }
+                    finally
+                    {
+                        LimpiarProductos();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -192,6 +216,13 @@ namespace Sky_Fitness
            
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
+        }
+
+        private void LimpiarProductos()
+        {
+            txtidCliente.Clear();
+            txtCantidad.Clear();
+            cmbProducto.SelectedIndex = -1;
         }
     }
 }
