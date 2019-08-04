@@ -24,7 +24,7 @@ namespace Sky_Fitness
         //Clases
         CalculoIMC calculo { get; set; }
         ventanaCliente vc = new ventanaCliente();
-        
+        ventanaPago vp = new ventanaPago();
         ventanaInscripcion vi = new ventanaInscripcion();
         ventanaReporte vr = new ventanaReporte();
 
@@ -52,8 +52,9 @@ namespace Sky_Fitness
                 btnCerrarSesion.IsEnabled = true;
                 btnCliente.IsEnabled = true;
                 btnPago.IsEnabled = true;
+                vi.mostrarCMBInscripcion();
+                vi.mostrarCMBProducto();
                 GridPrincipal.Children.Remove(vc);
-               
                 GridPrincipal.Children.Remove(vi);
                 GridPrincipal.Children.Remove(vr);
             }

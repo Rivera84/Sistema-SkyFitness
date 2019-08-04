@@ -21,7 +21,6 @@ namespace Sky_Fitness
     public partial class ventanaPago : Window
     {
         SkyFitnessBDDataContext dataContextSky;
-
         public ventanaPago()
         {
             InitializeComponent();
@@ -43,6 +42,7 @@ namespace Sky_Fitness
                 dataContextSky.SubmitChanges();
 
                 MessageBox.Show("El producto se ha agregado con éxito");
+                
             }
             catch (SqlException ex)
             {
