@@ -27,8 +27,10 @@ namespace Sky_Fitness
         SqlConnection conexion = new SqlConnection("Data Source = LAPTOP-H5OOPDVV\\SQLEXPRESS; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
         private DataTable tabla;
         SkyFitnessBDDataContext dataContextSky;
-
-        
+        private DateTime fechaPago;
+        private DateTime fechaFinal;
+        private TimeSpan tSpan;
+        private int dias;
         public ventanaInscripcion()
         {
             InitializeComponent();
@@ -187,7 +189,11 @@ namespace Sky_Fitness
 
         private void pagarIncripcion()
         {
-                   
+            fechaPago = DateTime.Now;
+            fechaFinal = DateTime.Now.AddMonths(1);
+            tSpan = fechaFinal - fechaPago;
+            dias = tSpan.Days;
+
             int clienteValido = dataContextSky.Cliente.Where(t => t.numeroIdentidad == txtidCliente.Text).Count();
             int ValidarClienteInscrito = dataContextSky.ClienteInscripcion.Where(t => t.idCliente == txtidCliente.Text).Count();
             if (txtidCliente.Text == String.Empty || cmbInscripcion.SelectedIndex == -1)
@@ -211,6 +217,7 @@ namespace Sky_Fitness
                     inscripcion.idInscripcion = Convert.ToInt32(cmbInscripcion.SelectedValue);
                     inscripcion.fechaPago = DateTime.Now;
                     inscripcion.fechaFinal = DateTime.Now.AddMonths(1);
+                    inscripcion.diasRestantes = dias;
 
                     dataContextSky.ClienteInscripcion.InsertOnSubmit(inscripcion);
                     dataContextSky.SubmitChanges();

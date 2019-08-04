@@ -23,7 +23,7 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0" Background="#FF0F0D0D">
-                <Label Content="Listado de Clientes" Foreground="#FFEBE523" Width="147" HorizontalAlignment="Left" Margin="1,0,0,0" FontFamily="Lucida Fax" FontWeight="Bold" />
+                <Label Content="Listado de Ventas" Foreground="#FFEBE523" Width="147" HorizontalAlignment="Left" Margin="1,0,0,0" FontFamily="Lucida Fax" FontWeight="Bold" />
                 <Button Name="btnSalir" Background="#FF0F0D0D" Margin="760,2,0,2.4" Height="26" Click="BtnSalir_Click" BorderBrush="{x:Null}">
                     <materialDesign:PackIcon Kind="Close" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
                 </Button>

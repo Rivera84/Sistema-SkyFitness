@@ -53,6 +53,7 @@ namespace Sky_Fitness
                 cliente.estatura = Convert.ToDecimal(txtEstatura.Text);
                 cliente.talla = Convert.ToDecimal(txtTalla.Text);
                 cliente.IMC = Convert.ToDecimal(txtIMC.Text);
+                cliente.estado = "inActivo";
                 cliente.fechaCreacion = DateTime.Now;
                 if (rbMasculino.IsChecked == true)
                     cliente.sexo = "Masculino";

@@ -43,10 +43,10 @@ namespace Sky_Fitness
                                     //cl.idInscripcion, cl.nombreInscripcion, cl.precioInscripcion
                                     select new
                                     {
-                                        cl.idInscripcion,
-                                        cl.nombreInscripcion,
-                                        cl.precioInscripcion,
-                                        cl.descripcion
+                                       Inscripcion= cl.idInscripcion,
+                                       TipoInscripcion= cl.nombreInscripcion,
+                                       Precio= cl.precioInscripcion,
+                                       Descripcion= cl.descripcion
                                     }).ToList();
 
                 dgListadoTipoInscripciones.ItemsSource = inscripciones.ToList();

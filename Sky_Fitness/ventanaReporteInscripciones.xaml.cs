@@ -42,8 +42,16 @@ namespace Sky_Fitness
                                     join c in dataContextSky.Cliente on cl.idCliente equals c.numeroIdentidad
                                     join i in dataContextSky.Inscripcion on cl.idInscripcion equals i.idInscripcion
                                     orderby cl.fechaFinal ascending
-                                    select new {cl.idClienteInscripcion, cl.fechaFinal, cl.idCliente, c.nombre, cl.idInscripcion,
-                                                i.nombreInscripcion, i.precioInscripcion, cl.fechaPago, cl.diasRestantes, c.estado };
+                                    select new {
+                                        Cliente = cl.idCliente,
+                                        Nombre = c.nombre,
+                                        Inscripcion = cl.idInscripcion,
+                                        NombreInscripcion = i.nombreInscripcion,
+                                        Precio = i.precioInscripcion,
+                                        FechaFinal = cl.fechaFinal,
+                                        FechaPago = cl.fechaPago,
+                                        DiasRestantes = cl.diasRestantes,
+                                        Estado = c.estado };
 
 
 
@@ -58,5 +66,111 @@ namespace Sky_Fitness
         {
             this.Hide();
         }
+
+        private void BtnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            
+            buscarFechas();
+            
+        }
+
+        private void buscarFechas()
+        {
+            ClienteInscripcion inscripcion = new ClienteInscripcion();
+            try
+            {
+                var buscarfecha = from cl in dataContextSky.ClienteInscripcion
+                                  join c in dataContextSky.Cliente on cl.idCliente equals c.numeroIdentidad
+                                  join i in dataContextSky.Inscripcion on cl.idInscripcion equals i.idInscripcion
+                                  where cl.fechaPago == Convert.ToDateTime(dpDesde.SelectedDate) && cl.fechaPago == Convert.ToDateTime(dpHasta.SelectedDate)
+                                  orderby cl.fechaFinal ascending
+                                  select new
+                                  {
+                                      Cliente = cl.idCliente,
+                                      Nombre = c.nombre,
+                                      Inscripcion = cl.idInscripcion,
+                                      NombreInscripcion = i.nombreInscripcion,
+                                      Precio = i.precioInscripcion,
+                                      FechaFinal = cl.fechaFinal,
+                                      FechaPago = cl.fechaPago,
+                                      DiasRestantes = cl.diasRestantes,
+                                      Estado = c.estado
+                                  };
+                dgListadoInscripciones.ItemsSource = buscarfecha.ToList();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se encuentra resultado");
+            }
+        }
+
+
+        //private void buscarFechasActivo()
+        //{
+        //    ClienteInscripcion inscripcion = new ClienteInscripcion();
+        //    try
+        //    {
+        //        var buscarfecha = from cl in dataContextSky.ClienteInscripcion
+        //                          join c in dataContextSky.Cliente on cl.idCliente equals c.numeroIdentidad
+        //                          join i in dataContextSky.Inscripcion on cl.idInscripcion equals i.idInscripcion
+        //                          where cl.fechaPago == Convert.ToDateTime(dpDesde.SelectedDate) && cl.fechaPago == Convert.ToDateTime(dpHasta.SelectedDate) && c.estado =="Activo"
+        //                          orderby cl.fechaFinal ascending
+        //                          select new
+        //                          {
+        //                              Cliente = cl.idCliente,
+        //                              Nombre = c.nombre,
+        //                              Inscripcion = cl.idInscripcion,
+        //                              NombreInscripcion = i.nombreInscripcion,
+        //                              Precio = i.precioInscripcion,
+        //                              FechaFinal = cl.fechaFinal,
+        //                              FechaPago = cl.fechaPago,
+        //                              DiasRestantes = cl.diasRestantes,
+        //                              Estado = c.estado
+        //                          };
+        //        dgListadoInscripciones.ItemsSource = buscarfecha.ToList();
+
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("No se encuentra resultado");
+        //    }
+        //}
+
+        //private void buscarFechasinActivo()
+        //{
+        //    ClienteInscripcion inscripcion = new ClienteInscripcion();
+        //    try
+        //    {
+        //        var buscarfecha = from cl in dataContextSky.ClienteInscripcion
+        //                          join c in dataContextSky.Cliente on cl.idCliente equals c.numeroIdentidad
+        //                          join i in dataContextSky.Inscripcion on cl.idInscripcion equals i.idInscripcion
+        //                          where cl.fechaPago == Convert.ToDateTime(dpDesde.SelectedDate) && cl.fechaPago == Convert.ToDateTime(dpHasta.SelectedDate) && c.estado == "inActivo"
+        //                          orderby cl.fechaFinal ascending
+        //                          select new
+        //                          {
+        //                              Cliente = cl.idCliente,
+        //                              Nombre = c.nombre,
+        //                              Inscripcion = cl.idInscripcion,
+        //                              NombreInscripcion = i.nombreInscripcion,
+        //                              Precio = i.precioInscripcion,
+        //                              FechaFinal = cl.fechaFinal,
+        //                              FechaPago = cl.fechaPago,
+        //                              DiasRestantes = cl.diasRestantes,
+        //                              Estado = c.estado
+        //                          };
+        //        dgListadoInscripciones.ItemsSource = buscarfecha.ToList();
+
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("No se encuentra resultado");
+        //    }
+        //}
+
+
     }
 }

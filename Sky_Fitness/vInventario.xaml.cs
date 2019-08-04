@@ -43,13 +43,29 @@ namespace Sky_Fitness
                 Producto producto = new Producto();
 
                 var productos = from prod in dataContextSky.Producto
-                                select new {prod.idProducto, prod.nombreProducto, prod.precioProducto, prod.existencia };
+                                select new {IdProducto =prod.idProducto,Producto= prod.nombreProducto,Pecio = prod.precioProducto,Existencia= prod.existencia };
 
                 dgInventario.ItemsSource = productos.ToList();                
             }
             catch (SqlException ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void BtnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var buscarProducto = from prod in dataContextSky.Producto
+                                   where prod.nombreProducto.Contains(txtNombre.Text)
+                                   select new { IdProducto = prod.idProducto, Producto = prod.nombreProducto, Pecio = prod.precioProducto, Existencia = prod.existencia };
+                dgInventario.ItemsSource = buscarProducto.ToList();
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se ha encontrado producto");
             }
         }
 

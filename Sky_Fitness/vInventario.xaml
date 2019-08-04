@@ -28,6 +28,9 @@
                 </Button>
                 <!--Boton salir-->
             </Grid>
+            <Label Content="Nombre de Producto:" HorizontalAlignment="Left" Margin="49,55.6,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+            <TextBox Name="txtNombre" HorizontalAlignment="Left" Height="23" Margin="184,50.6,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+            <Button Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="328,52.6,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Height="29" Click="BtnBuscar_Click"/>
         </Grid>
         <!--<Grid Height="420">
             <Grid.ColumnDefinitions>
@@ -55,7 +58,7 @@
         </Grid>-->
 
         <Label Content="Inventario" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="388,40,400,418" Width="106" FontWeight="Bold" Height="36" FontSize="20"/>
-        <DataGrid BorderBrush="Black" BorderThickness="0.6" Name="dgInventario" HorizontalAlignment="Left" Height="386" Margin="26,82,0,0" Width="838" VerticalAlignment="Top"/>
+        <DataGrid  BorderBrush="Black" BorderThickness="0.6" Name="dgInventario" HorizontalAlignment="Left" Height="322" Margin="26,146,0,0" Width="838" VerticalAlignment="Top" HorizontalGridLinesBrush="#FF838383" ColumnWidth="200" VerticalGridLinesBrush="#FF838383" />
     </Grid>
 
 </Window>

@@ -42,8 +42,8 @@ namespace Sky_Fitness
                             join p in dataContextSky.Producto on cp.idProducto equals p.idProducto
                             join c in dataContextSky.Cliente on cp.idCliente equals c.numeroIdentidad
                             orderby cp.idClienteProducto ascending
-                            select new {cp.idClienteProducto, cp.idCliente, c.nombre, cp.idProducto,
-                                        p.nombreProducto, cp.cantidad, p.precioProducto, cp.total };
+                            select new {Cliente= cp.idCliente,Nombre= c.nombre, Producto= cp.idProducto,
+                                        TipoProducto=p.nombreProducto,Cantidad= cp.cantidad,Precio= p.precioProducto, Total= cp.total };
 
                 dgReporteVentas.ItemsSource = venta.ToList();
             }

@@ -34,7 +34,7 @@
 
         <Label Content="Tipos de Inscripciones" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="308,52,270,384" Width="222" FontWeight="Bold" Height="34" FontSize="20"/>
 
-        <DataGrid BorderBrush="Black" BorderThickness="0.6" Name="dgListadoTipoInscripciones" HorizontalAlignment="Left" Height="294" Margin="27,86,0,0" Width="746" VerticalAlignment="Top"/>
+        <DataGrid BorderBrush="Black" BorderThickness="0.6" Name="dgListadoTipoInscripciones" HorizontalAlignment="Left" Height="294" Margin="27,86,0,0" Width="746" VerticalAlignment="Top" HorizontalGridLinesBrush="#FF838383" ColumnWidth="200" VerticalGridLinesBrush="#FF838383" />
 
         <Button Name="BtnSalir" Content="Salir" HorizontalAlignment="Left" Height="39" Margin="350,400,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold" RenderTransformOrigin="0.467,-0.692" Click="BtnSalir_Click" />
     </Grid>

@@ -46,7 +46,22 @@ namespace Sky_Fitness
 
                 var clientes = from client in dataContextSky.Cliente
                                orderby client.nombre ascending
-                               select new { client.numeroIdentidad, client.nombre, client.apellido, client.fechaNacimiento, client.fechaCreacion, client.edad, client.sexo, client.telefono, client.direccion, client.correoElectronico, client.razon, client.peso, client.estatura, client.talla, client.estado, client.IMC };
+                               select new {Identidad=client.numeroIdentidad,
+                                   Nombre=client.nombre,
+                                   Apellido=client.apellido,
+                                   FechaNacimiento=client.fechaNacimiento,
+                                   FechaCreación=client.fechaCreacion,
+                                   Edad= client.edad,
+                                   Sexo=client.sexo,
+                                   Telefono=client.telefono,
+                                   Direccion=client.direccion,
+                                   CorreoElectronico=client.correoElectronico,
+                                   Razon=client.razon,
+                                   Peso=client.peso,
+                                   Estatura=client.estatura,
+                                   Talla=client.talla,
+                                   Estado=client.estado, 
+                                   IMC=client.IMC };
 
 
 

@@ -23,18 +23,23 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0" Background="#FF0F0D0D">
-                <Label Content="Listado de Clientes" Foreground="#FFEBE523" Width="147" HorizontalAlignment="Left" Margin="1,0,0,0" FontFamily="Lucida Fax" FontWeight="Bold" />
+                <Label Content="Listado de Inscripciones" Foreground="#FFEBE523" Width="178" HorizontalAlignment="Left" Margin="1,0,0,0.4" FontFamily="Lucida Fax" FontWeight="Bold" />
                 <Button Name="btnSalir" Background="#FF0F0D0D" Margin="760,2,0,2.4" Height="26" Click="BtnSalir_Click" BorderBrush="{x:Null}">
                     <materialDesign:PackIcon Kind="Close" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
                 </Button>
                 <!--Boton salir-->
             </Grid>
+            <Label Content="Desde:" HorizontalAlignment="Left" Margin="64,63.6,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+            <DatePicker Name="dpDesde" HorizontalAlignment="Left" Margin="117,57.6,0,0" Grid.Row="1" VerticalAlignment="Top" Width="106"/>
+            <Label Content="Hasta:" HorizontalAlignment="Left" Margin="251,63.6,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+            <DatePicker Name="dpHasta" HorizontalAlignment="Left" Margin="301,57.6,0,0" Grid.Row="1" VerticalAlignment="Top" Width="112"/>
+            <Button Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="576,62.6,0,0" Grid.Row="1" VerticalAlignment="Top" Width="81" Height="26" Click="BtnBuscar_Click"/>
         </Grid>
 
 
         <Label Content="Reporte de Inscripciones" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="285,40,272,396.4" Width="243" FontWeight="Bold" Height="34" FontSize="20"/>
 
-        <DataGrid BorderBrush="Black" BorderThickness="0.6" Name="dgListadoInscripciones" HorizontalAlignment="Left" Height="294" Margin="27,86,0,0" Width="746" VerticalAlignment="Top"/>
+        <DataGrid BorderBrush="Black" BorderThickness="0.6" Name="dgListadoInscripciones" HorizontalAlignment="Left" Height="236" Margin="27,144,0,0" Width="746" VerticalAlignment="Top"/>
 
         <Button Name="BtnSalir" Content="Salir" HorizontalAlignment="Left" Height="39" Margin="350,400,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold" RenderTransformOrigin="0.467,-0.692" Click="BtnSalir_Click" />
     </Grid>
