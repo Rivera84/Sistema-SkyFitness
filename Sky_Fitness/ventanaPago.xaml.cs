@@ -28,6 +28,32 @@ namespace Sky_Fitness
             dataContextSky = new SkyFitnessBDDataContext(conexion);
 
         }
+
+
+        private void ActualizarProducto()
+        {
+            
+            try
+            {
+                var query = from c in dataContextSky.Producto
+                            where c.nombreProducto == txtNombreProducto.Text
+                            select c;
+
+                foreach (Producto c in query)
+                {
+                    c.precioProducto = Convert.ToDecimal(txtPrecioProducto.Text);
+                    c.existencia = Convert.ToInt32(txtCantidad.Text);
+                  
+
+                }
+                dataContextSky.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrio un error" + ex);
+            }
+        }
+
         private void InsertarProducto()
         {
             try
@@ -52,8 +78,19 @@ namespace Sky_Fitness
 
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            InsertarProducto();
-            Limpiar();
+            if (chkModificar.IsChecked == true)
+            {
+                ActualizarProducto();
+                Limpiar();
+                chkModificar.IsChecked = false;
+            }
+            else
+            {
+                InsertarProducto();
+                Limpiar();
+            }
+        
+        
         }
 
         private void Limpiar()
@@ -75,7 +112,39 @@ namespace Sky_Fitness
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();           
+            this.Hide();
+           
+        }
+
+        private void BtnModificar_Click(object sender, RoutedEventArgs e)
+        {
+            try { 
+            var productos = from client in dataContextSky.Producto
+                            where client.nombreProducto == txtNombreProducto.Text 
+                           select client;
+
+            List<Producto> lista = productos.ToList();
+            var dato = lista[0];
+            txtCantidad.Text = dato.existencia.ToString();
+             txtPrecioProducto.Text = dato.precioProducto.ToString();
+            BtnModificar.IsEnabled = false;
+            txtNombreProducto.IsEnabled = false;
+            }
+            catch(Exception ex) {
+                MessageBox.Show("Nombre de producto no encontrado");
+            }
+        }
+
+        private void ChkModificar_Click(object sender, RoutedEventArgs e)
+        {
+            if (chkModificar.IsEnabled == true)
+            {
+                BtnModificar.IsEnabled = true;
+            }
+            if (chkModificar.IsEnabled == false)
+            {
+                BtnModificar.IsEnabled = false;
+            }
         }
     }
 }

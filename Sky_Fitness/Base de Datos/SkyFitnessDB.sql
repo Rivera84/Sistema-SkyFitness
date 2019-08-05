@@ -70,7 +70,7 @@ idCliente VARCHAR(15) NOT NULL,
 idInscripcion INT NOT NULL,
 fechaPago DATE  NULL,
 fechaFinal DATE NULL,
-diasRestantes INT NOT NULL
+diasRestantes INT NULL
 )
 GO
 
@@ -112,14 +112,6 @@ GO
 
 
 
-ALTER TABLE Detalle.ClienteInscripcion
-	ADD CONSTRAINT
-		FK_Detalle_ClienteInscripcion$TieneUn$numeroIdentidad
-		FOREIGN KEY (idCliente) REFERENCES Persona.Cliente(numeroIdentidad)
-		ON UPDATE NO ACTION
-		ON DELETE NO ACTION
-GO
-
 
 ALTER TABLE Detalle.ClienteInscripcion
 	ADD CONSTRAINT
@@ -130,15 +122,15 @@ ALTER TABLE Detalle.ClienteInscripcion
 GO
 
 
-
 /*Creacion del Trigger estado*/
 CREATE TRIGGER TR_EstadoCliente
 ON Detalle.ClienteInscripcion FOR INSERT, UPDATE
 AS 
 BEGIN
-DECLARE @identidad VARCHAR(15), @fechaFinal Date
+DECLARE @identidad VARCHAR(15), @fechaFinal Date, @idCliente VARCHAR(15)
+SELECT @idCliente = idCliente FROM Detalle.ClienteInscripcion
 SELECT @fechaFinal = fechaFinal FROM Detalle.ClienteInscripcion
-SELECT @identidad = numeroIdentidad FROM Persona.Cliente
+SELECT @identidad = numeroIdentidad FROM Persona.Cliente where numeroIdentidad = @idCliente
 UPDATE Persona.Cliente SET estado = 'Activo' WHERE numeroIdentidad = @identidad
 if(@fechaFinal=GETDATE()) BEGIN
 UPDATE Persona.Cliente SET estado = 'Inactivo' WHERE numeroIdentidad = @identidad

@@ -28,6 +28,27 @@ namespace Sky_Fitness
             InitializeComponent();
         }
 
+        private void ActualizarTipo()
+        {
+            try
+            {
+                var query = from c in dataContextSky.Inscripcion
+                            where c.nombreInscripcion == txtInscripcion.Text
+                            select c;
+
+                foreach (Inscripcion c in query)
+                {
+                    c.precioInscripcion = Convert.ToDecimal(txtPrecioInscripcion.Text);
+                    c.descripcion = txtDescripcion.Text;
+                }
+                dataContextSky.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrio un error" + ex);
+            }
+        }
+
         private void insertarInscripcion()
         {
             Inscripcion inscripcion = new Inscripcion();
@@ -44,12 +65,58 @@ namespace Sky_Fitness
 
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            insertarInscripcion();
+            if (chkModificar.IsChecked == true)
+            {
+                ActualizarTipo();
+                
+                chkModificar.IsChecked = false;
+            }
+            else
+            {
+                insertarInscripcion();
+                
+            }
+            
         }
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
         }
+
+        private void ChkModificar_Click(object sender, RoutedEventArgs e)
+        {
+            if (chkModificar.IsEnabled == true)
+            {
+                
+                BtnModificar.IsEnabled = true;
+            }
+            if (chkModificar.IsEnabled == false)
+            {
+                BtnModificar.IsEnabled = false;
+            }
     }
-}
+
+        private void BtnModificar_Click(object sender, RoutedEventArgs e)
+        {
+
+            try
+            {
+                var inscripciones = from client in dataContextSky.Inscripcion
+                                where client.nombreInscripcion == txtInscripcion.Text
+                                select client;
+
+                List<Inscripcion> lista = inscripciones.ToList();
+                var dato = lista[0];
+                txtDescripcion.Text = dato.descripcion;
+                txtPrecioInscripcion.Text = dato.precioInscripcion.ToString();
+                BtnModificar.IsEnabled = false;
+                txtInscripcion.IsEnabled = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se ha encontrado inscripcion");
+            }
+        }
+        }
+    }

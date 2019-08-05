@@ -32,7 +32,45 @@ namespace Sky_Fitness
             dataContextSky = new SkyFitnessBDDataContext(conexion);
             //calculo = new CalculoIMC { Peso = Convert.ToString(txtPeso.Text), Estatura = Convert.ToString(txtEstatura.Text) };
             //this.DataContext = calculo;
+            
         }        
+
+        private void ActualizarCliente()
+        {
+            
+            try
+            {
+                var query = from c in dataContextSky.Cliente
+                            where c.numeroIdentidad == txtIdentidad.Text 
+                            select c;
+
+                foreach (Cliente c in query)
+                {
+                    c.nombre = txtNombre.Text;
+                    c.apellido = txtApellido.Text;
+                    c.correoElectronico = txtCorreo.Text;
+                    c.direccion = txtDireccion.Text;
+                    c.edad = Convert.ToInt32(txtEdad.Text);
+                    c.estatura = Convert.ToDecimal(txtEstatura.Text);
+                    c.fechaNacimiento = Convert.ToDateTime(dpFechaNacimiento.SelectedDate);
+                    c.IMC = Convert.ToDecimal(txtIMC.Text);
+                    c.peso = Convert.ToDecimal(txtPeso.Text);
+                    c.razon = cmbRIngreso.Text;
+                    if (rbMasculino.IsChecked == true)
+                        c.sexo = "Masculino";
+                    else if (rbFemenino.IsChecked == true)
+                        c.sexo = "Femenino";
+                    c.talla = Convert.ToDecimal(txtTalla.Text);
+                    c.telefono = txtTelefono.Text;
+                    
+                }
+                dataContextSky.SubmitChanges();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Ha ocurrio un error"+ex);
+            }
+        }
 
         private void InsertarCliente()
         {
@@ -73,8 +111,17 @@ namespace Sky_Fitness
 
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            InsertarCliente();
-            LimpiarDatos();
+            if (chkModificar.IsChecked == true)
+            {
+                ActualizarCliente();
+                LimpiarDatos();
+                chkModificar.IsChecked = false;
+            }
+            else
+            {
+                InsertarCliente();
+                LimpiarDatos();
+            }
         }
 
         private void BtnLimpiar_Click(object sender, RoutedEventArgs e)
@@ -102,11 +149,62 @@ namespace Sky_Fitness
             txtNombre.Focus();
         }
 
-        private void BtnListaClientes_Click(object sender, RoutedEventArgs e)
+     
+
+        private void BtnModificar_Click(object sender, RoutedEventArgs e)
         {
-            ventanaListadoClientes listaClientes = new ventanaListadoClientes();
-            listaClientes.Show();
+
+            var clientes = from client in dataContextSky.Cliente
+                           where client.numeroIdentidad == txtIdentidad.Text
+                           select client;
+
+            List<Cliente> lista = clientes.ToList();
+            var dato = lista[0];
+            txtNombre.Text = dato.nombre;
+            txtApellido.Text = dato.apellido;
+            txtCorreo.Text = dato.correoElectronico;
+            txtDireccion.Text = dato.direccion;
+            txtEdad.Text = dato.edad.ToString();
+            txtEstatura.Text = dato.estatura.ToString();
+            txtIMC.Text = dato.IMC.ToString();
+            txtPeso.Text = dato.peso.ToString();
+            txtTalla.Text = dato.talla.ToString();
+            txtTelefono.Text = dato.telefono;
+            dpFechaNacimiento.Text = dato.fechaNacimiento.ToString();
+            cmbRIngreso.Text = dato.razon;
+            if (dato.sexo == "Femenino")
+            {
+           
+                rbFemenino.IsChecked =true;
+            }
+            if (dato.sexo == "Masculino")
+            {
+                rbMasculino.IsChecked = true;
+            }
+
+            BtnModificar.IsEnabled = false;
+            txtIdentidad.IsEnabled = false;
         }
+
+        private void ChkModificar_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (chkModificar.IsEnabled == true)
+            {
+                BtnModificar.IsEnabled = true;
+            }
+            if (chkModificar.IsEnabled == false)
+            {
+                BtnModificar.IsEnabled = false;
+            }
+        }
+
+
+
+
+
+
+
 
         // IMC = peso(kg)/altura^2(m)
         // si está en libras -> libras/2.2 = kg
