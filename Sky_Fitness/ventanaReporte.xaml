@@ -27,7 +27,7 @@
         <Grid Grid.Column="0" Grid.Row="0" Background="White" Margin="-1,-1,1.2,0.8" >
             <Label Foreground="Black" FontFamily="Arial" FontSize="24" FontStretch="SemiExpanded" Content="Clientes" Margin="205,42,206.2,204.8"/>
             <Button Name="btnCliente" Content="Clientes"  Height="Auto" Margin="75,134,285.2,95.8" BorderBrush="Black" Background="#FFEBE523" BorderThickness="5"  FontWeight="Bold" FontFamily="Britannic Bold" FontSize="20" Click="BtnCliente_Click" />
-            <Button Name="btnGrasaCliente" Content="IMC y Grasa"  Height="Auto" Margin="290,134,70.2,95.8" BorderBrush="Black" Background="#FFEBE523" BorderThickness="5"  FontWeight="Bold" FontFamily="Britannic Bold" FontSize="20"  />
+            <Button Name="btnTarjetaCliente" Content="Membresías"  Height="Auto" Margin="290,134,70.2,95.8" BorderBrush="Black" Background="#FFEBE523" BorderThickness="5"  FontWeight="Bold" FontFamily="Britannic Bold" FontSize="20"  />
 
         </Grid>
         <Grid Grid.Row="0" Background="White" Margin="0.8,-1,-0.8,0.8" Grid.Column="1" >

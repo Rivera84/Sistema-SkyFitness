@@ -24,10 +24,36 @@ namespace Sky_Fitness
         public ventanaPago()
         {
             InitializeComponent();
-            SqlConnection conexion = new SqlConnection("Data Source = LAPTOP-H5OOPDVV\\SQLEXPRESS; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
+            SqlConnection conexion = new SqlConnection("Data Source = ABELCONSUEGRA; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
             dataContextSky = new SkyFitnessBDDataContext(conexion);
 
         }
+
+
+        private void ActualizarProducto()
+        {
+            
+            try
+            {
+                var query = from c in dataContextSky.Producto
+                            where c.nombreProducto == txtNombreProducto.Text
+                            select c;
+
+                foreach (Producto c in query)
+                {
+                    c.precioProducto = Convert.ToDecimal(txtPrecioProducto.Text);
+                    c.existencia = Convert.ToInt32(txtCantidad.Text);
+                    MessageBox.Show("Producto actualizado");
+
+                }
+                dataContextSky.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrio un error" + ex);
+            }
+        }
+
         private void InsertarProducto()
         {
             try
@@ -52,8 +78,20 @@ namespace Sky_Fitness
 
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            InsertarProducto();
-            Limpiar();
+            if (chkModificar.IsChecked == true)
+            {
+                ActualizarProducto();
+                Limpiar();
+                chkModificar.IsChecked = false;
+                txtNombreProducto.IsEnabled = true;
+            }
+            else
+            {
+                InsertarProducto();
+                Limpiar();
+            }
+        
+        
         }
 
         private void Limpiar()
@@ -75,7 +113,57 @@ namespace Sky_Fitness
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();           
+            this.Hide();
+           
+        }
+
+        private void BtnModificar_Click(object sender, RoutedEventArgs e)
+        {
+            try { 
+            var productos = from client in dataContextSky.Producto
+                            where client.nombreProducto == txtNombreProducto.Text 
+                           select client;
+
+            List<Producto> lista = productos.ToList();
+            var dato = lista[0];
+            txtCantidad.Text = dato.existencia.ToString();
+             txtPrecioProducto.Text = dato.precioProducto.ToString();
+            BtnModificar.IsEnabled = false;
+            txtNombreProducto.IsEnabled = false;                
+                
+            }
+            catch(Exception ex) {
+                MessageBox.Show("Nombre de producto no encontrado");
+            }
+        }
+
+        private void ChkModificar_Click(object sender, RoutedEventArgs e)
+        {
+            if (chkModificar.IsChecked == true)
+            {
+                BtnModificar.IsEnabled = true;
+            }
+            if (chkModificar.IsChecked == false)
+            {
+                BtnModificar.IsEnabled = false;
+            }
+        }
+
+        private void TxtCantidad_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        private void TxtPrecioProducto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || e.Key == Key.OemPeriod || e.Key == Key.Tab)
+                e.Handled = false;
+            else
+                e.Handled = true;
         }
     }
 }

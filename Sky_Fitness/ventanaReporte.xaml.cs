@@ -77,6 +77,6 @@ namespace Sky_Fitness
         {
             ventanaReporteVentas vrv = new ventanaReporteVentas();
             vrv.Show();
-        }
+        }        
     }
 }

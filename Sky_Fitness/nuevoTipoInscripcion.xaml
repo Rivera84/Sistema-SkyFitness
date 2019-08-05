@@ -30,25 +30,27 @@
                 </Button>
                 <!--Boton salir-->
             </Grid>
+            <CheckBox Name="chkModificar" Content="Modificar" HorizontalAlignment="Left" Margin="653,63.6,0,0" Grid.Row="1" VerticalAlignment="Top" Click="ChkModificar_Click"/>
         </Grid>
 
 
         <Label Content="Registro Tipo Inscripción" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="285,40,272,396.4" Width="243" FontWeight="Bold" Height="34" FontSize="20"/>
         <!--Nombre del prodcuto-->
-        <Label Content="Tipo Inscripción" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="193,159,464,285.4" Width="143" FontWeight="Bold" Height="26" RenderTransformOrigin="1.081,0.815" />
-        <TextBox Name="txtInscripcion" HorizontalAlignment="Left" Height="26" Margin="460,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241"/>
+        <Label Content="Tipo Inscripción" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="143,159,464,285.4" Width="143" FontWeight="Bold" Height="26" RenderTransformOrigin="1.081,0.815" />
+        <TextBox Name="txtInscripcion" HorizontalAlignment="Left" Height="26" Margin="425,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241"/>
 
         <!--Descripcion-->
-        <Label Content="Descripción" HorizontalAlignment="Left" Margin="195,215.6,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="Black" Width="81" FontWeight="Bold" Height="26"/>
-        <TextBox Name="txtDescripcion" HorizontalAlignment="Left" Height="23" Margin="460,209,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="241"/>
+        <Label Content="Descripción" HorizontalAlignment="Left" Margin="168,216,0,0" VerticalAlignment="Top" Foreground="Black" Width="91" FontWeight="Bold" Height="26"/>
+        <TextBox Name="txtDescripcion" HorizontalAlignment="Left" Height="23" Margin="425,207,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="241"/>
+        <Button IsEnabled="False" Name="BtnModificar" Content="Modificar" HorizontalAlignment="Left" Height="39" Margin="347,350,0,0" VerticalAlignment="Top" Width="112" FontWeight="Bold" Click="BtnModificar_Click" />
 
         <!--Precio del producto-->
-        <Label Content="Precio del Inscripción" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="193,265,464,179.4" Width="143" FontWeight="Bold" Height="26" />
-        <TextBox Name="txtPrecioInscripcion" HorizontalAlignment="Left" Height="26" Margin="460,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123"/>
+        <Label Content="Precio de la Inscripción" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="168,261,479,183" Width="153" FontWeight="Bold" Height="26" />
+        <TextBox Name="txtPrecioInscripcion" HorizontalAlignment="Left" Height="31" Margin="425,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123" KeyDown="TxtPrecioInscripcion_KeyDown" />
         <!--Botón Guardar-->
-        <Button Name="BtnGuardar" Content="Guardar" HorizontalAlignment="Left" Height="39" Margin="224,335,0,0" VerticalAlignment="Top" Width="112" FontWeight="Bold" Click="BtnGuardar_Click"/>
+        <Button Name="BtnGuardar" Content="Guardar" HorizontalAlignment="Left" Height="39" Margin="132,350,0,0" VerticalAlignment="Top" Width="112" FontWeight="Bold" Click="BtnGuardar_Click"/>
 
         <!--Botón Eliminar-->
-        <Button Name="BtnCancelar" Content="Cancelar" HorizontalAlignment="Left" Height="39" Margin="460,335,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold" RenderTransformOrigin="0.467,-0.692" Click="BtnCancelar_Click" />
+        <Button Name="BtnCancelar" Content="Cancelar" HorizontalAlignment="Left" Height="39" Margin="562,350,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold" RenderTransformOrigin="0.467,-0.692" Click="BtnCancelar_Click" />
     </Grid>
 </Window>
