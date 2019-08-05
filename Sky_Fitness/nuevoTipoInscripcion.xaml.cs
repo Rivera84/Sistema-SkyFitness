@@ -125,6 +125,7 @@ namespace Sky_Fitness
             catch (Exception ex)
             {
                 MessageBox.Show("No se ha encontrado inscripcion");
+
             }
         }
 
