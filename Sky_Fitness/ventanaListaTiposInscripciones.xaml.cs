@@ -27,7 +27,7 @@ namespace Sky_Fitness
         public ventanaListaTiposInscripciones()
         {
             InitializeComponent();
-            conexion = new SqlConnection("Data Source = ABELCONSUEGRA; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
+            conexion = new SqlConnection("Data Source = LAPTOP-H5OOPDVV\\SQLEXPRESS; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
             dataContextSky = new SkyFitnessBDDataContext(conexion);
             MostrarTiposInscripciones();
         }

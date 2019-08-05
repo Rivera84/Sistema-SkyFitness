@@ -71,6 +71,7 @@
     <Compile Include="nuevoTipoInscripcion.xaml.cs">
       <DependentUpon>nuevoTipoInscripcion.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Seguridad.cs" />
     <Compile Include="SkyFitnessBD.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -78,6 +79,9 @@
     </Compile>
     <Compile Include="ventanaCliente.xaml.cs">
       <DependentUpon>ventanaCliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ventanaConfiguracion.xaml.cs">
+      <DependentUpon>ventanaConfiguracion.xaml</DependentUpon>
     </Compile>
     <Compile Include="ventanaInscripcion.xaml.cs">
       <DependentUpon>ventanaInscripcion.xaml</DependentUpon>
@@ -127,6 +131,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ventanaCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ventanaConfiguracion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -128,6 +128,8 @@ namespace Sky_Fitness
         private void Usuario(object sender, RoutedEventArgs e)
         {
             estadoMenu();
+            ventanaConfiguracion vc = new ventanaConfiguracion();
+            vc.Show();
         }
     }
 }

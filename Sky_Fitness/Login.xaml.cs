@@ -21,11 +21,14 @@ namespace Sky_Fitness
     /// </summary>
     public partial class Login : Window
     {
+        //private string contrasena;
+        private string encriptada;
+        Seguridad seguridad = new Seguridad();
         SkyFitnessBDDataContext dataContextSky;
         public Login()
         {
             InitializeComponent();
-            SqlConnection conexion = new SqlConnection("Data Source = ABELCONSUEGRA; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
+            SqlConnection conexion = new SqlConnection("Data Source = LAPTOP-H5OOPDVV\\SQLEXPRESS; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
             dataContextSky = new SkyFitnessBDDataContext(conexion);
         }
         private void BtnSalirLogin_Click(object sender, RoutedEventArgs e)
@@ -40,11 +43,20 @@ namespace Sky_Fitness
 
         private void ValidarLogin()
         {
+            //var users = from user in dataContextSky.Usuario
+            //            where user.nombreUsuario == "admin"
+            //               select user;
+
+            //List<Usuario> lista = users.ToList();
+            //var dato = lista[0];
+            //contrasena = dato.contrasena;
+           
+            encriptada = seguridad.Encripta(txtContrasena.Password);
             Usuario usuario = new Usuario();
             MainWindow inicio = new MainWindow();
-
+          
             // sirve para validar si existe el usuario y contraseña en la base de datos, sintaxis lambda
-            int validar = dataContextSky.Usuario.Where(t => t.nombreUsuario == txtUsuario.Text && t.contrasena == txtContrasena.Password).Count();
+            int validar = dataContextSky.Usuario.Where(t => t.nombreUsuario == txtUsuario.Text && t.contrasena == encriptada).Count();
             if (validar > 0)
             {
                 inicio.Show();
