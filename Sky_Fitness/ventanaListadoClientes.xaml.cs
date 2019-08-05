@@ -183,6 +183,11 @@ namespace Sky_Fitness
         private void Limpiar(object sender, RoutedEventArgs e)
         {
             txtBuscar.Clear();
+            rbDireccion.IsChecked = false;
+            rbEstado.IsChecked = false;
+            rbIdentidad.IsChecked = false;
+            rbNombre.IsChecked = false;
+            MostrarClientes();
         }
     }
 }

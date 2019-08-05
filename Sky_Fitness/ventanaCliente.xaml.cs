@@ -64,7 +64,9 @@ namespace Sky_Fitness
                     c.telefono = txtTelefono.Text;
                     
                 }
+                MessageBox.Show("Se han actualizado los datos");
                 dataContextSky.SubmitChanges();
+                
             }
             catch(Exception ex)
             {
@@ -101,6 +103,7 @@ namespace Sky_Fitness
                 dataContextSky.SubmitChanges();
 
                 MessageBox.Show("El cliente se ha agregado con éxito");
+                
             }
             catch(SqlException ex)
             {
@@ -115,6 +118,7 @@ namespace Sky_Fitness
             {
                 ActualizarCliente();
                 LimpiarDatos();
+                txtIdentidad.IsEnabled = true;
                 chkModificar.IsChecked = false;
             }
             else
@@ -130,6 +134,9 @@ namespace Sky_Fitness
         }
         private void LimpiarDatos()
         {
+
+            txtIdentidad.IsEnabled = true;
+            chkModificar.IsChecked = false;
             txtIdentidad.Clear();
             txtNombre.Clear();
             txtApellido.Clear();
@@ -153,49 +160,54 @@ namespace Sky_Fitness
 
         private void BtnModificar_Click(object sender, RoutedEventArgs e)
         {
-
-            var clientes = from client in dataContextSky.Cliente
-                           where client.numeroIdentidad == txtIdentidad.Text
-                           select client;
-
-            List<Cliente> lista = clientes.ToList();
-            var dato = lista[0];
-            txtNombre.Text = dato.nombre;
-            txtApellido.Text = dato.apellido;
-            txtCorreo.Text = dato.correoElectronico;
-            txtDireccion.Text = dato.direccion;
-            txtEdad.Text = dato.edad.ToString();
-            txtEstatura.Text = dato.estatura.ToString();
-            txtIMC.Text = dato.IMC.ToString();
-            txtPeso.Text = dato.peso.ToString();
-            txtTalla.Text = dato.talla.ToString();
-            txtTelefono.Text = dato.telefono;
-            dpFechaNacimiento.Text = dato.fechaNacimiento.ToString();
-            cmbRIngreso.Text = dato.razon;
-            if (dato.sexo == "Femenino")
+            try
             {
-           
-                rbFemenino.IsChecked =true;
-            }
-            if (dato.sexo == "Masculino")
-            {
-                rbMasculino.IsChecked = true;
-            }
+                var clientes = from client in dataContextSky.Cliente
+                               where client.numeroIdentidad == txtIdentidad.Text
+                               select client;
 
-            BtnModificar.IsEnabled = false;
-            txtIdentidad.IsEnabled = false;
+                List<Cliente> lista = clientes.ToList();
+                var dato = lista[0];
+                txtNombre.Text = dato.nombre;
+                txtApellido.Text = dato.apellido;
+                txtCorreo.Text = dato.correoElectronico;
+                txtDireccion.Text = dato.direccion;
+                txtEdad.Text = dato.edad.ToString();
+                txtEstatura.Text = dato.estatura.ToString();
+                txtIMC.Text = dato.IMC.ToString();
+                txtPeso.Text = dato.peso.ToString();
+                txtTalla.Text = dato.talla.ToString();
+                txtTelefono.Text = dato.telefono;
+                dpFechaNacimiento.Text = dato.fechaNacimiento.ToString();
+                cmbRIngreso.Text = dato.razon;
+                if (dato.sexo == "Femenino")
+                {
+
+                    rbFemenino.IsChecked = true;
+                }
+                if (dato.sexo == "Masculino")
+                {
+                    rbMasculino.IsChecked = true;
+                }
+
+                BtnModificar.IsEnabled = false;
+                txtIdentidad.IsEnabled = false;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Identidad no encontrada");
+            }
         }
 
         private void ChkModificar_Click(object sender, RoutedEventArgs e)
         {
 
-            if (chkModificar.IsEnabled == true)
+            if (chkModificar.IsEnabled==true)
             {
-                BtnModificar.IsEnabled = true;
-            }
-            if (chkModificar.IsEnabled == false)
+                BtnModificar.IsEnabled=true;
+            }else
             {
-                BtnModificar.IsEnabled = false;
+                BtnModificar.IsEnabled=false;
             }
         }
 
