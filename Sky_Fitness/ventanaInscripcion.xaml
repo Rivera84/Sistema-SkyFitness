@@ -71,7 +71,7 @@
         <!--id del cliente-->
         <Label Visibility="Visible" Name="lbCliente" Content="Cliente" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="154,142,802.2,401.6" Width="59" FontWeight="Bold" Height="26" />
         <!--txtCliente-->
-        <TextBox  Visibility="Visible" Name="txtidCliente" HorizontalAlignment="Left" Height="26" Margin="208,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162"/>
+        <TextBox  Visibility="Visible" Name="txtidCliente" HorizontalAlignment="Left" Height="26" Margin="208,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" KeyDown="TxtidCliente_KeyDown"/>
 
 
 

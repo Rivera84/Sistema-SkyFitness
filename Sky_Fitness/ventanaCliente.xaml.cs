@@ -199,12 +199,36 @@ namespace Sky_Fitness
             }
         }
 
+        private void TxtIdentidad_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
 
+        private void TxtTelefono_KeyDown(object sender, KeyEventArgs e)
+        {
+          
+                if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+                    e.Handled = false;
+                else
+                    e.Handled = true;
+          }
 
+        private void TxtEdad_KeyDown(object sender, KeyEventArgs e)
+        {
+           
+                if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+                    e.Handled = false;
+                else
+                    e.Handled = true;
+           
+        }
 
+       
 
-
-
+        
 
         // IMC = peso(kg)/altura^2(m)
         // si está en libras -> libras/2.2 = kg
