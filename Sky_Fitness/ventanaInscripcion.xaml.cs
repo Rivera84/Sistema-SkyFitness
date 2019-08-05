@@ -24,7 +24,7 @@ namespace Sky_Fitness
     public partial class ventanaInscripcion : UserControl
     {
         
-        SqlConnection conexion = new SqlConnection("Data Source = LAPTOP-H5OOPDVV\\SQLEXPRESS; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
+        SqlConnection conexion = new SqlConnection("Data Source = ABELCONSUEGRA; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
         private DataTable tabla;
         SkyFitnessBDDataContext dataContextSky;
         private DateTime fechaPago;
@@ -269,7 +269,15 @@ namespace Sky_Fitness
         private void TxtidCliente_KeyDown(object sender, KeyEventArgs e)
         {
 
-            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || e.Key == Key.OemMinus || e.Key == Key.Tab)
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        private void TxtCantidad_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || e.Key == Key.Tab)
                 e.Handled = false;
             else
                 e.Handled = true;

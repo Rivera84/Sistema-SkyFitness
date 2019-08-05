@@ -28,7 +28,7 @@ namespace Sky_Fitness
         public ventanaCliente()
         {
             InitializeComponent();
-            SqlConnection conexion = new SqlConnection("Data Source =LAPTOP-H5OOPDVV\\SQLEXPRESS; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
+            SqlConnection conexion = new SqlConnection("Data Source = ABELCONSUEGRA; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
             dataContextSky = new SkyFitnessBDDataContext(conexion);
             //calculo = new CalculoIMC { Peso = Convert.ToString(txtPeso.Text), Estatura = Convert.ToString(txtEstatura.Text) };
             //this.DataContext = calculo;
@@ -120,6 +120,7 @@ namespace Sky_Fitness
                 LimpiarDatos();
                 txtIdentidad.IsEnabled = true;
                 chkModificar.IsChecked = false;
+                MessageBox.Show("Registro Actualizado con éxito");
             }
             else
             {
@@ -191,7 +192,7 @@ namespace Sky_Fitness
                 }
 
                 BtnModificar.IsEnabled = false;
-                txtIdentidad.IsEnabled = false;
+                txtIdentidad.IsEnabled = false;                          
             }
             catch (Exception)
             {
@@ -202,18 +203,65 @@ namespace Sky_Fitness
         private void ChkModificar_Click(object sender, RoutedEventArgs e)
         {
 
-            if (chkModificar.IsEnabled==true)
+            if (chkModificar.IsChecked==true)
             {
                 BtnModificar.IsEnabled=true;
-            }else
+            }else if (chkModificar.IsChecked == false)
             {
                 BtnModificar.IsEnabled=false;
             }
         }
 
+        private void ChkEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            if (chkEliminar.IsChecked == true)
+            {
+                BtnEliminar.IsEnabled = true;
+            }
+            else if(chkEliminar.IsChecked == false)
+            {
+                BtnEliminar.IsEnabled = false;
+            }
+        }
+
+        private void BtnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var query = from c in dataContextSky.Cliente
+                            where c.numeroIdentidad == txtIdentidad.Text
+                            select c;
+                var nombreCliente = dataContextSky.Cliente.First(t => t.numeroIdentidad == txtIdentidad.Text).nombre;
+                foreach (Cliente c in query)
+                {
+                    if (c.estado == "Inactivo")
+                    {
+                        MessageBox.Show("El Cliente " + nombreCliente.ToString() + " se ha Habilitado exitosamente");
+                        c.estado = "Activo";
+                    }                                           
+                    else
+                    {
+                        MessageBox.Show("El Cliente " + nombreCliente.ToString() + " se ha Deshabilitado exitosamente");
+                        c.estado = "Inactivo";
+                    }
+                        
+
+                }                
+                dataContextSky.SubmitChanges();
+
+                BtnEliminar.IsEnabled = false;                
+                chkEliminar.IsChecked = false;
+                LimpiarDatos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrio un error" + ex);
+            }
+        }
+
         private void TxtIdentidad_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || e.Key == Key.OemMinus || e.Key == Key.Tab)
                 e.Handled = false;
             else
                 e.Handled = true;
@@ -221,26 +269,31 @@ namespace Sky_Fitness
 
         private void TxtTelefono_KeyDown(object sender, KeyEventArgs e)
         {
-          
-                if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
-                    e.Handled = false;
-                else
-                    e.Handled = true;
-          }
+
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || e.Key == Key.OemMinus || e.Key == Key.Tab)
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
 
         private void TxtEdad_KeyDown(object sender, KeyEventArgs e)
         {
            
-                if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+                if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || e.Key == Key.Tab)
                     e.Handled = false;
                 else
                     e.Handled = true;
            
         }
 
-       
+        private void ValidacionDecimales(object sender, KeyEventArgs e)
+        {
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || e.Key == Key.OemPeriod || e.Key == Key.Tab)
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }        
 
-        
 
         // IMC = peso(kg)/altura^2(m)
         // si está en libras -> libras/2.2 = kg

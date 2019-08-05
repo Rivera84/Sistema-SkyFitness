@@ -42,7 +42,7 @@
         <!--Label Producto-->
         <Label Visibility="Collapsed" Name="lbProducto" Content="Producto" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="588,148,361.2,395.6" Width="66" FontWeight="Bold" Height="26" />
         <Label Visibility="Collapsed" Name="lbcantidad" Content="Cantidad" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="412,181,531.2,362.6" Width="72" FontWeight="Bold" Height="26" />
-        <TextBox  Visibility="Collapsed" Name="txtCantidad" HorizontalAlignment="Left" Height="26" Margin="478,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="44"/>
+        <TextBox  Visibility="Collapsed" Name="txtCantidad" HorizontalAlignment="Left" Height="26" Margin="478,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="44" KeyDown="TxtCantidad_KeyDown"/>
 
         <ListBox  Margin="121,241,98.2,156.6" Name="lbProductos">
             <ListBox.ItemTemplate>

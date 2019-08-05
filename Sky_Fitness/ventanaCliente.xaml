@@ -30,12 +30,12 @@
 
         <!--Identidad-->
         <Label Content="Identidad" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="117,136,821,406" Width="77" FontWeight="Bold" Height="28" />
-        <TextBox Name="txtIdentidad" HorizontalAlignment="Left" Height="26" Margin="251,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" KeyDown="TxtIdentidad_KeyDown"/>
+        <TextBox Name="txtIdentidad" HorizontalAlignment="Left" Height="26" Margin="251,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" KeyDown="TxtIdentidad_KeyDown" MaxLength="15" materialDesign:HintAssist.Hint="#### - #### - #####" />
 
 
         <!--Teléfono-->
         <Label Content="Teléfono" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="563,138,375,404" Width="77" FontWeight="Bold" Height="28" />
-        <TextBox Name="txtTelefono" HorizontalAlignment="Left" Height="26" Margin="675,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" KeyDown="TxtTelefono_KeyDown"/>
+        <TextBox Name="txtTelefono" HorizontalAlignment="Left" Height="26" Margin="675,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" KeyDown="TxtTelefono_KeyDown" MaxLength="9" materialDesign:HintAssist.Hint="#### - ####"/>
 
         <!--Dirección-->
         <Label Content="Dirección" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="117,188,821.2,353.6" Width="77" FontWeight="Bold" Height="28" />
@@ -48,7 +48,7 @@
 
         <!--Correo-->
         <Label Content="Correo" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="571,248,367,298" Width="77" FontWeight="Bold" Height="24" />
-        <TextBox Name="txtCorreo" HorizontalAlignment="Left" Height="26" Margin="677,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+        <TextBox Name="txtCorreo" HorizontalAlignment="Left" Height="26" Margin="677,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" materialDesign:HintAssist.Hint="ejemplo@correo.com"/>
 
         <!--Fecha de Nacimiento-->
         <Label Content="Fecha de Nacimiento" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="117,308,760,234" Width="138" FontWeight="Bold" Height="28" />
@@ -64,7 +64,7 @@
         </ComboBox>
 
         <Label Content="Edad" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="448,375,522,167" Width="45" FontWeight="Bold" Height="28" />
-        <TextBox Name="txtEdad" HorizontalAlignment="Left" Height="26" Margin="503,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.5,0.5" KeyDown="TxtEdad_KeyDown">
+        <TextBox Name="txtEdad" HorizontalAlignment="Left" Height="26" Margin="503,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.5,0.5" KeyDown="TxtEdad_KeyDown" MaxLength="2" >
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -77,18 +77,18 @@
 
         <!--Peso-->
         <Label Content="Peso (kg)" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="121,428,825,114" Width="69" FontWeight="Bold" Height="28" />
-        <TextBox Name="txtPeso" HorizontalAlignment="Left" Height="26" Margin="195,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Text="{Binding Path=Peso, Mode=TwoWay}" />
+        <TextBox Name="txtPeso" HorizontalAlignment="Left" Height="26" Margin="195,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Text="{Binding Path=Peso, Mode=TwoWay}" KeyDown="ValidacionDecimales" />
 
         <!--Estatura-->
         <Label Content="Estatura (m)" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="338,428,593,114" Width="84" FontWeight="Bold" Height="28" />
-        <TextBox Name="txtEstatura" HorizontalAlignment="Left" Height="26" Margin="422,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Text="{Binding Path=Estatura, Mode=TwoWay}" />
+        <TextBox Name="txtEstatura" HorizontalAlignment="Left" Height="26" Margin="422,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Text="{Binding Path=Estatura, Mode=TwoWay}" KeyDown="ValidacionDecimales" />
 
         <!--Talla-->
         <Label Content="Talla (cm)" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="547,428,399,114" Width="69" FontWeight="Bold" Height="28" />
-        <TextBox Name="txtTalla" HorizontalAlignment="Left" Height="26" Margin="616,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" />
+        <TextBox Name="txtTalla" HorizontalAlignment="Left" Height="26" Margin="616,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" KeyDown="ValidacionDecimales"/>
 
         <!--IMC-->
-        <Label Content="IMC" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="764,428,208,114" Width="43" FontWeight="Bold" Height="28" RenderTransformOrigin="0.5,0.5" >
+        <Label Content="IMC" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="764,428,205,114" Width="46" FontWeight="Bold" Height="28" RenderTransformOrigin="0.5,0.5" >
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -98,16 +98,18 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <TextBox Name="txtIMC" HorizontalAlignment="Left" Height="26" Margin="807,418,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Text="{Binding Path=IMC, Mode=TwoWay}"/>
+        <TextBox Name="txtIMC" HorizontalAlignment="Left" Height="26" Margin="809,426,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Text="{Binding Path=IMC, Mode=TwoWay}" KeyDown="ValidacionDecimales"/>
 
         <!--Botón Guardar-->
-        <Button Name="BtnGuardar" Content="Guardar" HorizontalAlignment="Left" Height="39" Margin="197,488,0,0" VerticalAlignment="Top" Width="112" FontWeight="Bold" Click="BtnGuardar_Click"/>
+        <Button Name="BtnGuardar" Content="Guardar" HorizontalAlignment="Left" Height="39" Margin="160,488,0,0" VerticalAlignment="Top" Width="112" FontWeight="Bold" Click="BtnGuardar_Click"/>
 
         <!--Botón Modificar-->
-        <Button IsEnabled="False" Name="BtnModificar" Content="Modificar" HorizontalAlignment="Left" Height="39" Margin="470,488,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold" Click="BtnModificar_Click"/>
+        <Button IsEnabled="False" Name="BtnModificar" Content="Modificar" HorizontalAlignment="Left" Height="39" Margin="368,488,0,0" VerticalAlignment="Top" Width="112" FontWeight="Bold" Click="BtnModificar_Click"/>
+        <Button IsEnabled="False" Name="BtnEliminar" Content="Deshabilitar" HorizontalAlignment="Left" Height="39" Margin="571,488,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold" Click="BtnEliminar_Click"/>
 
         <!--Botón Eliminar-->
-        <Button Name="BtnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Height="39" Margin="722,488,0,0" VerticalAlignment="Top" Width="110" FontWeight="Bold" RenderTransformOrigin="0.467,-0.692" Click="BtnLimpiar_Click"/>
-        <CheckBox Name="chkModificar" Content="Modificar" Margin="864,26,51.2,507.6" Click="ChkModificar_Click"   />
+        <Button Name="BtnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Height="39" Margin="754,488,0,0" VerticalAlignment="Top" Width="110" FontWeight="Bold" RenderTransformOrigin="0.467,-0.692" Click="BtnLimpiar_Click"/>
+        <CheckBox Name="chkModificar" Content="Modificar" Margin="864,19,51,515" Click="ChkModificar_Click"   />
+        <CheckBox Name="chkEliminar" Content="Deshaliblitar" Margin="864,41,51,492" Click="ChkEliminar_Click"  />
     </Grid>
 </UserControl>

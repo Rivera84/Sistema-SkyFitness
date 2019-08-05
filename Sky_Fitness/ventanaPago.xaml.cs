@@ -24,7 +24,7 @@ namespace Sky_Fitness
         public ventanaPago()
         {
             InitializeComponent();
-            SqlConnection conexion = new SqlConnection("Data Source = LAPTOP-H5OOPDVV\\SQLEXPRESS; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
+            SqlConnection conexion = new SqlConnection("Data Source = ABELCONSUEGRA; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
             dataContextSky = new SkyFitnessBDDataContext(conexion);
 
         }
@@ -43,7 +43,7 @@ namespace Sky_Fitness
                 {
                     c.precioProducto = Convert.ToDecimal(txtPrecioProducto.Text);
                     c.existencia = Convert.ToInt32(txtCantidad.Text);
-                  
+                    MessageBox.Show("Producto actualizado");
 
                 }
                 dataContextSky.SubmitChanges();
@@ -83,6 +83,7 @@ namespace Sky_Fitness
                 ActualizarProducto();
                 Limpiar();
                 chkModificar.IsChecked = false;
+                txtNombreProducto.IsEnabled = true;
             }
             else
             {
@@ -128,7 +129,8 @@ namespace Sky_Fitness
             txtCantidad.Text = dato.existencia.ToString();
              txtPrecioProducto.Text = dato.precioProducto.ToString();
             BtnModificar.IsEnabled = false;
-            txtNombreProducto.IsEnabled = false;
+            txtNombreProducto.IsEnabled = false;                
+                
             }
             catch(Exception ex) {
                 MessageBox.Show("Nombre de producto no encontrado");
@@ -137,11 +139,11 @@ namespace Sky_Fitness
 
         private void ChkModificar_Click(object sender, RoutedEventArgs e)
         {
-            if (chkModificar.IsEnabled == true)
+            if (chkModificar.IsChecked == true)
             {
                 BtnModificar.IsEnabled = true;
             }
-            if (chkModificar.IsEnabled == false)
+            if (chkModificar.IsChecked == false)
             {
                 BtnModificar.IsEnabled = false;
             }
@@ -151,6 +153,14 @@ namespace Sky_Fitness
         {
 
             if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        private void TxtPrecioProducto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || e.Key == Key.OemPeriod || e.Key == Key.Tab)
                 e.Handled = false;
             else
                 e.Handled = true;

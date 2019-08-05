@@ -23,7 +23,7 @@ namespace Sky_Fitness
         SkyFitnessBDDataContext dataContextSky;
         public nuevoTipoInscripcion()
         {
-            SqlConnection conexion = new SqlConnection("Data Source = LAPTOP-H5OOPDVV\\SQLEXPRESS; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
+            SqlConnection conexion = new SqlConnection("Data Source = ABELCONSUEGRA; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
             dataContextSky = new SkyFitnessBDDataContext(conexion);
             InitializeComponent();
         }
@@ -41,7 +41,7 @@ namespace Sky_Fitness
                     c.precioInscripcion = Convert.ToDecimal(txtPrecioInscripcion.Text);
                     c.descripcion = txtDescripcion.Text;
                 }
-                dataContextSky.SubmitChanges();
+                dataContextSky.SubmitChanges();                
             }
             catch (Exception ex)
             {
@@ -53,7 +53,7 @@ namespace Sky_Fitness
         {
             Inscripcion inscripcion = new Inscripcion();
             inscripcion.nombreInscripcion = txtInscripcion.Text;
-            inscripcion.precioInscripcion = Convert.ToInt32(txtPrecioInscripcion.Text);
+            inscripcion.precioInscripcion = Convert.ToDecimal(txtPrecioInscripcion.Text);
             inscripcion.descripcion = txtDescripcion.Text;
 
             dataContextSky.Inscripcion.InsertOnSubmit(inscripcion);
@@ -68,15 +68,24 @@ namespace Sky_Fitness
             if (chkModificar.IsChecked == true)
             {
                 ActualizarTipo();
-                
+                MessageBox.Show("Registro actualizado");
                 chkModificar.IsChecked = false;
+                Limpiar();
+                txtInscripcion.IsEnabled = true;
             }
             else
             {
                 insertarInscripcion();
-                
+                Limpiar();
             }
             
+        }
+
+        private void Limpiar()
+        {
+            txtDescripcion.Clear();
+            txtInscripcion.Clear();
+            txtPrecioInscripcion.Clear();
         }
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
@@ -86,12 +95,12 @@ namespace Sky_Fitness
 
         private void ChkModificar_Click(object sender, RoutedEventArgs e)
         {
-            if (chkModificar.IsEnabled == true)
+            if (chkModificar.IsChecked == true)
             {
                 
                 BtnModificar.IsEnabled = true;
             }
-            if (chkModificar.IsEnabled == false)
+            if (chkModificar.IsChecked == false)
             {
                 BtnModificar.IsEnabled = false;
             }
@@ -111,12 +120,20 @@ namespace Sky_Fitness
                 txtDescripcion.Text = dato.descripcion;
                 txtPrecioInscripcion.Text = dato.precioInscripcion.ToString();
                 BtnModificar.IsEnabled = false;
-                txtInscripcion.IsEnabled = false;
+                txtInscripcion.IsEnabled = false;                
             }
             catch (Exception ex)
             {
                 MessageBox.Show("No se ha encontrado inscripcion");
             }
         }
+
+        private void TxtPrecioInscripcion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || e.Key == Key.OemPeriod || e.Key == Key.Tab)
+                e.Handled = false;
+            else
+                e.Handled = true;
         }
+    }
     }

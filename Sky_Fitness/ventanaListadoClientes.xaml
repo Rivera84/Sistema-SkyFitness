@@ -39,6 +39,6 @@
             <Button Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="692,40.6,0,0" Grid.Row="1" VerticalAlignment="Top" Width="78" Height="29" Click="Limpiar"/>
         </Grid>
         <Label Content="Listado de Clientes" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="345,45,360,413" Width="189" FontWeight="Bold" Height="36" FontSize="20"/>
-        <DataGrid BorderBrush="Black" BorderThickness="0.6" Name="dgListadoClientes" HorizontalAlignment="Left" Height="322" Margin="21,150,0,0" Width="845" VerticalAlignment="Top" HorizontalGridLinesBrush="#FF838383" VerticalGridLinesBrush="#FF838383" />
+        <DataGrid BorderBrush="Black" BorderThickness="0.6" Name="dgListadoClientes" HorizontalAlignment="Left" Height="322" Margin="21,150,0,0" Width="845" VerticalAlignment="Top" HorizontalGridLinesBrush="#FF838383" VerticalGridLinesBrush="#FF838383" MouseDoubleClick="DgListadoClientes_MouseDoubleClick" />
     </Grid>
 </Window>

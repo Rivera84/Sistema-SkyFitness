@@ -28,7 +28,7 @@ namespace Sky_Fitness
         public ventanaListadoClientes()
         {
             InitializeComponent();
-            conexion = new SqlConnection("Data Source = LAPTOP-H5OOPDVV\\SQLEXPRESS; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
+            conexion = new SqlConnection("Data Source = ABELCONSUEGRA; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
             dataContextSky = new SkyFitnessBDDataContext(conexion);
             MostrarClientes();
         }
@@ -66,6 +66,8 @@ namespace Sky_Fitness
 
 
                 dgListadoClientes.ItemsSource = clientes.ToList();
+
+                dgListadoClientes.SelectedValuePath = cliente.numeroIdentidad;
             }
             catch (SqlException ex)
             {
@@ -188,6 +190,29 @@ namespace Sky_Fitness
             rbIdentidad.IsChecked = false;
             rbNombre.IsChecked = false;
             MostrarClientes();
+        }
+
+        private void DgListadoClientes_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            //if(MessageBox.Show("¿Desea eliminar este cliente?", "Eliminar", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            //{
+            //    try
+            //    {
+            //        var clienteEliminado = (from cl in dataContextSky.Cliente
+            //                                where cl.numeroIdentidad.Equals(dgListadoClientes.SelectedValue.ToString())
+            //                                select cl).FirstOrDefault();
+            //        dataContextSky.Cliente.DeleteOnSubmit(clienteEliminado);
+            //        dataContextSky.SubmitChanges();
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show(ex.ToString());
+            //    }
+            //}
+            //else
+            //{
+
+            //}
         }
     }
 }

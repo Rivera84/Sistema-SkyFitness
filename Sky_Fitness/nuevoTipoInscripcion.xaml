@@ -45,8 +45,8 @@
         <Button IsEnabled="False" Name="BtnModificar" Content="Modificar" HorizontalAlignment="Left" Height="39" Margin="347,350,0,0" VerticalAlignment="Top" Width="112" FontWeight="Bold" Click="BtnModificar_Click" />
 
         <!--Precio del producto-->
-        <Label Content="Precio del Inscripción" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="168,264,489,180.4" Width="143" FontWeight="Bold" Height="26" />
-        <TextBox Name="txtPrecioInscripcion" HorizontalAlignment="Left" Height="31" Margin="425,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123"/>
+        <Label Content="Precio de la Inscripción" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="168,261,479,183" Width="153" FontWeight="Bold" Height="26" />
+        <TextBox Name="txtPrecioInscripcion" HorizontalAlignment="Left" Height="31" Margin="425,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123" KeyDown="TxtPrecioInscripcion_KeyDown" />
         <!--Botón Guardar-->
         <Button Name="BtnGuardar" Content="Guardar" HorizontalAlignment="Left" Height="39" Margin="132,350,0,0" VerticalAlignment="Top" Width="112" FontWeight="Bold" Click="BtnGuardar_Click"/>
 

@@ -41,7 +41,7 @@
 
         <!--Precio del producto-->
         <Label Content="Precio del producto" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="193,192,464,252.4" Width="143" FontWeight="Bold" Height="26" />
-        <TextBox Name="txtPrecioProducto" HorizontalAlignment="Left" Height="26" Margin="460,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167"/>
+        <TextBox Name="txtPrecioProducto" HorizontalAlignment="Left" Height="26" Margin="460,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" KeyDown="TxtPrecioProducto_KeyDown" />
 
         <Label Content="Cantidad" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="193,262,536,182.4" Width="71" FontWeight="Bold" Height="26" />
         <TextBox Name="txtCantidad" HorizontalAlignment="Left" Height="26" Margin="460,249,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68" KeyDown="TxtCantidad_KeyDown"/>
