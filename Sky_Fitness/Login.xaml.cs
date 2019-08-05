@@ -72,5 +72,12 @@ namespace Sky_Fitness
                 MessageBox.Show("Usuario o contraseña incorrectos. \nIntente nuevamente.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
+
+        private void BtnContraseña_Click(object sender, RoutedEventArgs e)
+        {
+            ventanaConfiguracion configuracion = new ventanaConfiguracion();
+            configuracion.Show();
+                
+        }
     }
 }

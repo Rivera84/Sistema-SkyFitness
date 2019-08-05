@@ -7,6 +7,7 @@ GO
 USE Sky_FitnessDB
 GO
 
+
 CREATE SCHEMA Persona
 GO
 
@@ -136,6 +137,10 @@ if(@fechaFinal=GETDATE()) BEGIN
 UPDATE Persona.Cliente SET estado = 'Inactivo' WHERE numeroIdentidad = @identidad
 END
 END
+GO
+
+/* Usuario admin y Contraseña admin por defecto*/
+INSERT INTO Persona.Usuario VALUES ('admin', 'Yjma8V2C9Dlx5myuTxP3rw==')
 GO
 
 /*trigger Detalle.ClienteInscripcion*/
