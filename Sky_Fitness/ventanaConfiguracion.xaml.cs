@@ -53,9 +53,20 @@ namespace Sky_Fitness
                             c.contrasena =seguridad.Encripta(txtContraseñaActual.Password);
 
                             dataContextSky.SubmitChanges();
+                            MessageBox.Show("Se ha actualizado contraseña");
                         }
                     }
-                    MessageBox.Show("Se ha actualizado contraseña");
+                    else
+                    {
+                        MessageBox.Show("Los campos de la contraseña nueva no coinciden");
+                        txtNuevaContraseña.Focus();
+                    }
+                   
+                }
+                else
+                {
+                    MessageBox.Show("Contraseña actual incorrecta");
+                    txtContraseñaActual.Focus();
                 }
             }
             catch (SqlException ex)
