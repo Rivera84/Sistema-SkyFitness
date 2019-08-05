@@ -130,6 +130,6 @@ namespace Sky_Fitness
             estadoMenu();
             ventanaConfiguracion vc = new ventanaConfiguracion();
             vc.Show();
-        }
+        }        
     }
 }

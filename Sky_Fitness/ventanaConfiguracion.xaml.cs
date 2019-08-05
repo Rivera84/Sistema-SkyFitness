@@ -45,17 +45,28 @@ namespace Sky_Fitness
                     if (txtNuevaContraseña.Password == txtRepetirContraseña.Password)
                     {
                         var query = from c in dataContextSky.Usuario
-                                    where c.contrasena == contraseñaActual
+                                    where c.contrasena == txtContraseñaActual.Password
                                     select c;
 
                         foreach (Usuario c in query)
                         {
-                            c.contrasena =contraseñaNueva;
+                            c.contrasena =seguridad.Encripta(txtContraseñaActual.Password);
+
+                            dataContextSky.SubmitChanges();
+                            MessageBox.Show("Se ha actualizado contraseña");
                         }
-                        dataContextSky.SubmitChanges();
                     }
-                    MessageBox.Show("Se ha actualizado contraseña");
-                    limpiar();
+                    else
+                    {
+                        MessageBox.Show("Los campos de la contraseña nueva no coinciden");
+                        txtNuevaContraseña.Focus();
+                    }
+                   
+                }
+                else
+                {
+                    MessageBox.Show("Contraseña actual incorrecta");
+                    txtContraseñaActual.Focus();
                 }
             }
             catch (SqlException ex)
@@ -66,11 +77,27 @@ namespace Sky_Fitness
         }
 
 
-       private  void limpiar()
-        {
-            txtContraseñaActual.Clear();
-            txtNuevaContraseña.Clear();
-            txtRepetirContraseña.Clear();
-        }
+        //private void ValidarLogin()
+        //{
+        //    Usuario usuario = new Usuario();
+        //    MainWindow inicio = new MainWindow();
+
+        //    // sirve para validar si existe el usuario y contraseña en la base de datos, sintaxis lambda
+        //    int validar = dataContextSky.Usuario.Where(t => t.nombreUsuario == txtUsuario.Text && t.contrasena == txtContrasena.Password).Count();
+        //    if (validar > 0)
+        //    {
+        //        inicio.Show();
+        //        this.Close();
+        //    }
+        //    else if (txtUsuario.Text == string.Empty || txtContrasena.Password == string.Empty)
+        //    {
+        //        MessageBox.Show("Debe ingresar un usuario y una contraseña \nIntente nuevamente.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+        //        txtUsuario.Focus();
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Usuario o contraseña incorrectos. \nIntente nuevamente.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+        //    }
+        //}
     }
 }
