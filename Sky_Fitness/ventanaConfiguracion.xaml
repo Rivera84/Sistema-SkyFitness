@@ -20,7 +20,7 @@
         <Label Content="Nueva Contraseña:" HorizontalAlignment="Left" Margin="34,165,0,0" VerticalAlignment="Top" Width="131"/>
         <Label Content="Repetir Contraseña:" HorizontalAlignment="Left" Margin="34,213,0,0" VerticalAlignment="Top" Width="131"/>
         <Button Name="btnAceptar" Content="Aceptar" HorizontalAlignment="Left" Margin="68,325,0,0" VerticalAlignment="Top" Width="104" Click="BtnAceptar_Click" />
-        <Button Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="213,325,0,0" VerticalAlignment="Top" Width="104"/>
+        <Button Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="213,325,0,0" VerticalAlignment="Top" Width="104" Click="BtnCancelar_Click"/>
         <PasswordBox Name="txtContraseñaActual" HorizontalAlignment="Left" Margin="189,112,0,0" VerticalAlignment="Top" Width="151"/>
         <PasswordBox Name="txtNuevaContraseña" HorizontalAlignment="Left" Margin="189,157,0,0" VerticalAlignment="Top" Width="151"/>
         <PasswordBox Name="txtRepetirContraseña" HorizontalAlignment="Left" Margin="189,203,0,0" VerticalAlignment="Top" Width="151"/>
