@@ -294,7 +294,6 @@ namespace Sky_Fitness
                 e.Handled = true;
         }        
 
-
         // IMC = peso(kg)/altura^2(m)
         // si está en libras -> libras/2.2 = kg
         // si IMC= menos de 18, esta bajo de peso, entre 18 a 24, esta saludable,
