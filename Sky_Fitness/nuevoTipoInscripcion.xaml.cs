@@ -23,7 +23,7 @@ namespace Sky_Fitness
         SkyFitnessBDDataContext dataContextSky;
         public nuevoTipoInscripcion()
         {
-            SqlConnection conexion = new SqlConnection("Data Source = LAPTOP-H5OOPDVV\\SQLEXPRESS; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
+            SqlConnection conexion = new SqlConnection("Data Source = (local)\\SQLEXPRESS; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
             dataContextSky = new SkyFitnessBDDataContext(conexion);
             InitializeComponent();
         }
@@ -52,14 +52,32 @@ namespace Sky_Fitness
         private void insertarInscripcion()
         {
             Inscripcion inscripcion = new Inscripcion();
-            inscripcion.nombreInscripcion = txtInscripcion.Text;
-            inscripcion.precioInscripcion = Convert.ToDecimal(txtPrecioInscripcion.Text);
-            inscripcion.descripcion = txtDescripcion.Text;
+            int validarNombreInscripcion = dataContextSky.Inscripcion.Where(t => t.nombreInscripcion == txtInscripcion.Text).Count();
+            if(validarNombreInscripcion > 0)
+            {
+                MessageBox.Show("El nombre de la inscripcion ya existe");
+                txtInscripcion.Focus();
+            }
+            else
+            {
+                try
+                {
+                    inscripcion.nombreInscripcion = txtInscripcion.Text;
+                    inscripcion.precioInscripcion = Convert.ToDecimal(txtPrecioInscripcion.Text);
+                    inscripcion.descripcion = txtDescripcion.Text;
 
-            dataContextSky.Inscripcion.InsertOnSubmit(inscripcion);
-            dataContextSky.SubmitChanges();
+                    dataContextSky.Inscripcion.InsertOnSubmit(inscripcion);
+                    dataContextSky.SubmitChanges();
 
-            MessageBox.Show("La inscripción se ha agregado con éxito");
+                    MessageBox.Show("La inscripción se ha agregado con éxito");
+                    Limpiar();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+            
 
         }
 
@@ -76,7 +94,7 @@ namespace Sky_Fitness
             else
             {
                 insertarInscripcion();
-                Limpiar();
+                
             }
             
         }

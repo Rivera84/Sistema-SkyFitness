@@ -24,7 +24,7 @@ namespace Sky_Fitness
         public ventanaPago()
         {
             InitializeComponent();
-            SqlConnection conexion = new SqlConnection("Data Source = LAPTOP-H5OOPDVV\\SQLEXPRESS; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
+            SqlConnection conexion = new SqlConnection("Data Source = (local)\\SQLEXPRESS; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
             dataContextSky = new SkyFitnessBDDataContext(conexion);
 
         }
@@ -56,24 +56,34 @@ namespace Sky_Fitness
 
         private void InsertarProducto()
         {
-            try
+            int validarNombreProducto = dataContextSky.Producto.Where(t => t.nombreProducto == txtNombreProducto.Text).Count();
+            if (validarNombreProducto > 0)
             {
-                Producto producto = new Producto();
-
-                producto.nombreProducto = txtNombreProducto.Text;
-                producto.precioProducto = Convert.ToDecimal(txtPrecioProducto.Text);
-                producto.existencia = Convert.ToInt32(txtCantidad.Text);
-
-                dataContextSky.Producto.InsertOnSubmit(producto);
-                dataContextSky.SubmitChanges();
-
-                MessageBox.Show("El producto se ha agregado con éxito");
-                
+                MessageBox.Show("El nombre del producto ya existe");
+                txtNombreProducto.Focus();
             }
-            catch (SqlException ex)
+            else
             {
-                MessageBox.Show(ex.ToString());
+                try
+                {
+                    Producto producto = new Producto();
+
+                    producto.nombreProducto = txtNombreProducto.Text;
+                    producto.precioProducto = Convert.ToDecimal(txtPrecioProducto.Text);
+                    producto.existencia = Convert.ToInt32(txtCantidad.Text);
+
+                    dataContextSky.Producto.InsertOnSubmit(producto);
+                    dataContextSky.SubmitChanges();
+
+                    MessageBox.Show("El producto se ha agregado con éxito");
+                    Limpiar();
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
+            
         }
 
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
@@ -88,7 +98,7 @@ namespace Sky_Fitness
             else
             {
                 InsertarProducto();
-                Limpiar();
+                
             }
         
         

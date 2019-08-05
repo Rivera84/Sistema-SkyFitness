@@ -28,7 +28,7 @@ namespace Sky_Fitness
         public ventanaConfiguracion()
         {
             InitializeComponent();
-            SqlConnection conexion = new SqlConnection("Data Source = LAPTOP-H5OOPDVV\\SQLEXPRESS; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
+            SqlConnection conexion = new SqlConnection("Data Source = (local)\\SQLEXPRESS; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
             dataContextSky = new SkyFitnessBDDataContext(conexion);
         }
 
@@ -45,12 +45,12 @@ namespace Sky_Fitness
                     if (txtNuevaContraseña.Password == txtRepetirContraseña.Password)
                     {
                         var query = from c in dataContextSky.Usuario
-                                    where c.contrasena == txtContraseñaActual.Password
+                                    where c.contrasena == contraseñaActual
                                     select c;
 
                         foreach (Usuario c in query)
                         {
-                            c.contrasena =seguridad.Encripta(txtContraseñaActual.Password);
+                            c.contrasena =contraseñaNueva;
 
                             dataContextSky.SubmitChanges();
                             MessageBox.Show("Se ha actualizado contraseña");
@@ -74,6 +74,11 @@ namespace Sky_Fitness
                 MessageBox.Show(ex.ToString());
             }
 
+        }
+
+        private void BtnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
         }
 
 

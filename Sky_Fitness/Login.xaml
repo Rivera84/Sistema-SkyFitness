@@ -39,12 +39,16 @@
             <StackPanel Orientation="Horizontal" Margin="90,360,90,45" HorizontalAlignment="Center">
                 <Button x:Name="entrar" Width="100"  VerticalAlignment="Bottom"  Content="ENTRAR" Margin="5" Background="#FF0F0D0D" BorderBrush="#2A2D34" Click="Entrar_Click" Foreground="#FFEBE523"/>
                 <Button x:Name="salir" Width="100" VerticalAlignment="Bottom"  Content="SALIR" Margin="5"  Background="#FF0F0D0D" BorderBrush="#2A2D34" Click="BtnSalirLogin_Click" Foreground="#FFEBE523"/>
+                
             </StackPanel>
 
             <StackPanel>
                 <!--Boton salir-->
                 <Button Name="btnSalirLogin" Background="Red" Margin="350,0,0,0" Height="26" BorderBrush="Transparent" Click="BtnSalirLogin_Click" Cursor="Hand">
                     <materialDesign:PackIcon Kind="Close" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" />
+                </Button>
+                <Button Name="btnContraseña" Height="28" Margin="10,390,338,0" Background="Transparent" Click="BtnContraseña_Click">
+                    <materialDesign:PackIcon Kind="Settings" Foreground="White"/>
                 </Button>
             </StackPanel>
         </Grid>

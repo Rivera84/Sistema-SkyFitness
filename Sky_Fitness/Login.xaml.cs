@@ -28,7 +28,7 @@ namespace Sky_Fitness
         public Login()
         {
             InitializeComponent();
-            SqlConnection conexion = new SqlConnection("Data Source = LAPTOP-H5OOPDVV\\SQLEXPRESS; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
+            SqlConnection conexion = new SqlConnection("Data Source =(local)\\SQLEXPRESS; Initial Catalog = Sky_FitnessDB; Integrated Security = True");
             dataContextSky = new SkyFitnessBDDataContext(conexion);
         }
         private void BtnSalirLogin_Click(object sender, RoutedEventArgs e)
@@ -71,6 +71,13 @@ namespace Sky_Fitness
             {
                 MessageBox.Show("Usuario o contraseña incorrectos. \nIntente nuevamente.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+        }
+
+        private void BtnContraseña_Click(object sender, RoutedEventArgs e)
+        {
+            ventanaConfiguracion configuracion = new ventanaConfiguracion();
+            configuracion.Show();
+                
         }
     }
 }

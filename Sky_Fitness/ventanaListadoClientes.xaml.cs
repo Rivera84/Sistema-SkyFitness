@@ -81,7 +81,7 @@ namespace Sky_Fitness
             try
             {
                 var buscarNombre = from client in dataContextSky.Cliente
-                                   where client.nombre == txtBuscar.Text
+                                   where client.nombre.Contains(txtBuscar.Text)
                                    select new { client.numeroIdentidad, client.nombre, client.apellido, client.fechaNacimiento, client.fechaCreacion, client.edad, client.sexo, client.telefono, client.direccion, client.correoElectronico, client.razon, client.peso, client.estatura, client.talla, client.estado, client.IMC };
                 dgListadoClientes.ItemsSource = buscarNombre.ToList();
 
@@ -114,7 +114,7 @@ namespace Sky_Fitness
             try
             {
                 var buscarDireccion = from client in dataContextSky.Cliente
-                                      where client.direccion == txtBuscar.Text
+                                      where client.direccion.Contains(txtBuscar.Text)
                                       select new {Identidad= client.numeroIdentidad,
                                                   Nombre=client.nombre,
                                                   Apellido=client.apellido,
